@@ -131,6 +131,6 @@ dependencies {
 //  The AndroidX Test Library provides an extensive framework for testing Android apps.
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
 
-    // Modules
-    // implementation project(':moduleName')
+//  Modules
+//  implementation project(':moduleName')
 }
