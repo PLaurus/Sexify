@@ -1,42 +1,136 @@
 plugins {
+    // Gradle plug-in to build Android application.
     id 'com.android.application'
+
+    // Gradle plug-in to build Kotlin Android application.
     id 'org.jetbrains.kotlin.android'
+
+    // Kotlin annotation processor plugin.
+    id 'kotlin-kapt'
+
+    // AndroidX Navigation Safeargs Kotlin Gradle Plugin.
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
-    compileSdk 31
+    compileSdk sdkVersion
 
     defaultConfig {
         applicationId "com.a.p.laurus.sexassistant"
-        minSdk 21
-        targetSdk 31
+        minSdk minSdkVersion
+        targetSdk sdkVersion
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            debuggable true
+        }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
 }
 
 dependencies {
+//  Kotlin Standard Library JDK 8 extension.
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//  Core Kotlin extensions.
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+
+//  Collections' Kotlin extensions.
+    implementation "androidx.collection:collection-ktx:$collectionKtxVersion"
+
+//  Static library to use APIs that are either not available for older platform versions or
+//  utility APIs that aren't a part of the framework APIs.
+//  Compatible on devices running API 14 or later.
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+
+
+//   Material Components for Android (MDC-Android) help developers execute Material Design.
+//   Developed by a core team of engineers and UX designers at Google, these components enable a
+//   reliable development workflow to build beautiful and functional Android apps.
+//   Compatible on devices running API 14 or later.
+//   Documentation: https://github.com/material-components/material-components-android
+    implementation "com.google.android.material:material:$materialVersion"
+
+//  ConstraintLayout is a layout manager for Android which allows you to position and
+//  size widgets in a flexible way. It's available for both the Android view system and
+//  Jetpack Compose.
+//  Documentation: https://github.com/androidx/constraintlayout
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+//  Dots indicator for Android ViewPager.
+//  Documentation: https://github.com/tommybuonomo/dotsindicator
+    implementation "com.tbuonomo:dotsindicator:$dotsIndicatorVersion"
+
+//  A versatile layout that fades its edges regardless of child view type.
+//  Documentation: https://github.com/bosphere/Android-FadingEdgeLayout
+    implementation "com.github.bosphere.android-fadingedgelayout:fadingedgelayout:$androidFadingEdgeLayoutVersion"
+
+//  Android Navigation Fragment.
+    implementation "androidx.navigation:navigation-fragment:$navigationFragmentVersion"
+
+//  Android Navigation UI
+    implementation "androidx.navigation:navigation-ui:$navigationUiVersion"
+
+
+//  RxJava is a Java VM implementation of Reactive Extensions: a library for composing
+//  asynchronous and event-based programs by using observable sequences.
+//  Documentation: https://github.com/ReactiveX/RxJava
+    implementation "io.reactivex.rxjava3:rxjava:$rxJava3Version"
+
+
+//  RxKotlin is a lightweight library that adds convenient extension functions to RxJava.
+//  Documentation: https://github.com/ReactiveX/RxKotlin
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+
+//  Android specific bindings for RxJava 3.
+//  This module adds the minimum classes to RxJava that make writing reactive components in
+//  Android applications easy and hassle-free. More specifically, it provides a Scheduler that
+//  schedules on the main thread or any given Looper.
+//  Documentation: https://github.com/ReactiveX/RxAndroid
+    implementation "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+
+//  RxJava binding APIs for Google 'material' library widgets.
+    implementation "com.jakewharton.rxbinding4:rxbinding-material:$rxBindingMaterialVersion"
+
+//  Android Room-Runtime.
+    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+
+//  Android Room annotation processor.
+    kapt "androidx.room:room-compiler:$roomCompilerVersion"
+
+//  RxJava3 support for Room.
+    implementation("androidx.room:room-rxjava3:$roomRxJava3Version")
+
+//  Unit testing framework for Java, created by Erich Gamma and Kent Beck.
+    testImplementation "junit:junit:$junitVersion"
+
+//  Junit.
+    androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
+
+//  The AndroidX Test Library provides an extensive framework for testing Android apps.
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
+    // Modules
+    // implementation project(':moduleName')
 }
