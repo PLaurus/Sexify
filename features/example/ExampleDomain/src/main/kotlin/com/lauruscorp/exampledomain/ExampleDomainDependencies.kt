@@ -1,0 +1,3 @@
+package com.lauruscorp.exampledomain
+
+interface ExampleDomainDependencies

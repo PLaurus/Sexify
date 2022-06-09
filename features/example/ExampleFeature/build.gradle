@@ -1,0 +1,14 @@
+plugins {
+	id 'com.android.library'
+}
+
+apply from: "$rootProject.projectDir/gradle/common/common.gradle"
+
+android {
+	namespace 'com.lauruscorp.examplefeature'
+}
+
+dependencies {
+	implementation project(":core")
+	implementation project(":features:example:ExampleDomain")
+}

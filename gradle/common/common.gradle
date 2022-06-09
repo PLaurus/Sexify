@@ -30,6 +30,9 @@ android {
 // Add here only widely used dependencies!!!
 // If you are developing feature and need to use a new library add this dependency to the feature's module.
 dependencies {
+	// Reflection
+	implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.21"
+
 	// Dependency injection
 	implementation "com.google.dagger:dagger:2.42"
 	kapt "com.google.dagger:dagger-compiler:2.42"
@@ -40,6 +43,9 @@ dependencies {
 
 	// UI
 	implementation 'com.google.android.material:material:1.6.0'
+
+	// Asynchronous programming
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
 	// Testing
 	testImplementation 'junit:junit:4.13.2'
