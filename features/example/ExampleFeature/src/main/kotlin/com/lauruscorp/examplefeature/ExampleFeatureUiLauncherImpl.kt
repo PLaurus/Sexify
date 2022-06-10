@@ -3,8 +3,8 @@ package com.lauruscorp.examplefeature
 import android.content.Context
 import android.content.Intent
 import com.lauruscorp.examplefeature.di.ExampleFeatureComponent
-import com.lauruscorp.examplefeature.di.qualifiers.FeatureIdQualifier
 import com.lauruscorp.examplefeature.presentation.ExampleFeatureActivity
+import com.lauruscorp.features.core.di.qualifiers.FeatureIdQualifier
 import javax.inject.Inject
 
 internal class ExampleFeatureUiLauncherImpl @Inject constructor(

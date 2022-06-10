@@ -1,8 +1,8 @@
-package com.lauruscorp.examplefeature.analytics
+package com.lauruscorp.features.core.analytics
 
 import android.util.Log
-import com.lauruscorp.examplefeature.config.ExampleFeatureConfig
-import com.lauruscorp.examplefeature.di.ExampleFeatureComponent
+import com.lauruscorp.features.core.config.FeaturesConfig
+import com.lauruscorp.features.core.di.FeatureComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
@@ -10,13 +10,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-internal class ComponentsRegistryAnalytics(
-	private val aliveComponents: Map<ExampleFeatureComponent, Long>,
-	private val hardReferences: List<ExampleFeatureComponent>,
+internal class ComponentsRegistryAnalytics<ComponentT : FeatureComponent>(
+	private val aliveComponents: Map<ComponentT, Long>,
+	private val hardReferences: List<ComponentT>,
 	private val checkPeriodMs: Long = 1_000,
 	private val logTag: String = ComponentsRegistryAnalytics::class.java.simpleName
 ) {
-	private val exampleFeatureConfig = ExampleFeatureConfig
+	private val exampleFeatureConfig = FeaturesConfig
 	private var scope: CoroutineScope? = null
 	
 	@Synchronized

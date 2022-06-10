@@ -1,5 +1,5 @@
 package com.lauruscorp.examplefeature
 
-interface ExampleFeature {
+interface ExampleFeatureApi {
 	val launcher: ExampleFeatureUiLauncher
 }

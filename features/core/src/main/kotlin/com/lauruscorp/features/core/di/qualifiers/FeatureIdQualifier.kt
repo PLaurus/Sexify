@@ -1,8 +1,8 @@
-package com.lauruscorp.examplefeature.di.qualifiers
+package com.lauruscorp.features.core.di.qualifiers
 
 import javax.inject.Qualifier
 
 @Qualifier
 @MustBeDocumented
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class FeatureIdQualifier
+annotation class FeatureIdQualifier

@@ -1,10 +1,11 @@
 package com.lauruscorp.examplefeature.di
 
-import com.lauruscorp.examplefeature.ExampleFeature
+import com.lauruscorp.examplefeature.ExampleFeatureApi
 import com.lauruscorp.examplefeature.di.dependencies.ExampleFeatureDependencies
 import com.lauruscorp.examplefeature.di.modules.FeatureModule
-import com.lauruscorp.examplefeature.di.qualifiers.FeatureIdQualifier
 import com.lauruscorp.examplefeature.presentation.ExampleFeatureActivity
+import com.lauruscorp.features.core.di.FeatureComponent
+import com.lauruscorp.features.core.di.qualifiers.FeatureIdQualifier
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -18,9 +19,7 @@ import javax.inject.Singleton
 		FeatureModule::class
 	]
 )
-internal interface ExampleFeatureComponent : ExampleFeature {
-	@FeatureIdQualifier
-	fun getFeatureId(): Long
+internal interface ExampleFeatureComponent : FeatureComponent, ExampleFeatureApi {
 	
 	fun inject(exampleFeatureActivity: ExampleFeatureActivity)
 	
