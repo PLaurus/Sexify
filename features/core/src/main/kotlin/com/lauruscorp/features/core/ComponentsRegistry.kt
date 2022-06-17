@@ -26,14 +26,10 @@ abstract class ComponentsRegistry<FeatureComponentT : FeatureComponent> {
 			?: hardReferences
 				.firstOrNull { it.getFeatureId() == featureId }
 		
-		if (component != null) {
-			hardReferences.remove(component)
-		}
-		
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "After ${::get.name}.")
 		
 		return component
-			?: throw IllegalStateException("Component with id $featureId is not created!")
+			?: throw IllegalStateException("Component with id $featureId is not created or dead!")
 	}
 	
 	@Synchronized
@@ -52,10 +48,26 @@ abstract class ComponentsRegistry<FeatureComponentT : FeatureComponent> {
 	}
 	
 	fun registerComponentHardReference(component: FeatureComponentT) {
-		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "Before ${::registerComponentHardReference.name}.")
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "Before ${::registerComponentHardReference.name}."
+		)
 		
 		hardReferences.add(component)
 		
-		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "After ${::registerComponentHardReference.name}.")
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "After ${::registerComponentHardReference.name}."
+		)
+	}
+	
+	fun unregisterComponentHardReference(component: FeatureComponentT) {
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "Before ${::unregisterComponentHardReference.name}."
+		)
+		
+		hardReferences.remove(component)
+		
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "After ${::unregisterComponentHardReference.name}."
+		)
 	}
 }

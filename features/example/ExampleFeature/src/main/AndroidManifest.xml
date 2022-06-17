@@ -6,8 +6,9 @@
 		
 		<activity
 			android:exported="false"
+			android:label="@string/title"
 			android:launchMode="singleTask"
-			android:name=".presentation.ExampleFeatureActivity" />
+			android:name=".presentation.ExampleActivity" />
 	
 	</application>
 

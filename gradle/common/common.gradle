@@ -37,12 +37,24 @@ dependencies {
 	implementation "com.google.dagger:dagger:2.42"
 	kapt "com.google.dagger:dagger-compiler:2.42"
 
+	// MVI
+	def mviKotlinVersion = "3.0.0-beta02"
+	implementation "com.arkivanov.mvikotlin:mvikotlin:$mviKotlinVersion"
+	implementation "com.arkivanov.mvikotlin:mvikotlin-main:$mviKotlinVersion"
+	implementation "com.arkivanov.mvikotlin:mvikotlin-logging:$mviKotlinVersion"
+	implementation "com.arkivanov.mvikotlin:mvikotlin-timetravel:$mviKotlinVersion"
+	implementation "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$mviKotlinVersion"
+
+	// ViewModel
+	implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01")
+
 	// ???
 	implementation 'androidx.core:core-ktx:1.7.0'
 	implementation 'androidx.appcompat:appcompat:1.4.1'
 
 	// UI
-	implementation 'com.google.android.material:material:1.6.0'
+	implementation 'com.google.android.material:material:1.6.1'
+	implementation "androidx.fragment:fragment-ktx:1.4.1"
 
 	// Asynchronous programming
 	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"

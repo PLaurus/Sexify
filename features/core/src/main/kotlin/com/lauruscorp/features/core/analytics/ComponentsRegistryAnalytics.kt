@@ -20,7 +20,7 @@ internal class ComponentsRegistryAnalytics<ComponentT : FeatureComponent>(
 	private var scope: CoroutineScope? = null
 	
 	@Synchronized
-	fun start(stopAfterMs: Long = 60_000) {
+	fun start(stopAfterMs: Long = FeaturesConfig.componentsRegistryAnalyticsPeriodMs) {
 		if (!canBeStarted()) {
 			return
 		}
@@ -61,16 +61,18 @@ internal class ComponentsRegistryAnalytics<ComponentT : FeatureComponent>(
 			appendLine()
 			description?.let { appendLine("=== $it ===") }
 			appendLine("Current components registry state:")
-			appendLine("aliveComponents:")
 			
-			aliveComponents.keys.forEachIndexed { index, aliveComponent ->
-				appendLine("$index. Component id: ${aliveComponent.getFeatureId()}")
-			}
-			
-			appendLine("hardReferences (unused components):")
-			
-			hardReferences.forEachIndexed { index, aliveComponent ->
-				appendLine("$index. Component id: ${aliveComponent.getFeatureId()}")
+			aliveComponents.keys.forEach { aliveComponent ->
+				appendLine("\t${aliveComponent.getFeatureId()}:")
+				appendLine("\t\tAlive component: $aliveComponent")
+				appendLine("\t\tHard references:")
+				
+				hardReferences.filter { it.getFeatureId() == aliveComponent.getFeatureId() }
+					.forEach { hardReference ->
+						appendLine("\t\t\t$hardReference")
+					}
+				
+				appendLine("=".repeat(40))
 			}
 		}
 		
