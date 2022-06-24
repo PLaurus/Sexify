@@ -16,7 +16,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SexAssistant"
 
-include ':features:welcome'
 include ':sexassistant'
 include ':core'
 include ':features:example:ExampleDomain'
