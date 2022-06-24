@@ -14,5 +14,5 @@ android {
 
 dependencies {
 	implementation project(':core')
-	implementation project(':features:example:ExampleFeature')
+	implementation project(':features:example:example-feature')
 }

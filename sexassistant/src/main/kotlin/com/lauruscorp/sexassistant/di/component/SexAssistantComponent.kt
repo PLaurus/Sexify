@@ -1,6 +1,6 @@
 package com.lauruscorp.sexassistant.di.component
 
-import com.lauruscorp.examplefeature.api.ExampleFeatureDependencies
+import com.lauruscorp.features.example.examplefeature.api.ExampleFeatureDependencies
 import com.lauruscorp.sexassistant.di.modules.coroutines.CoroutinesModule
 import com.lauruscorp.sexassistant.di.modules.features.FeaturesModule
 import com.lauruscorp.sexassistant.di.modules.mvikotlin.MviKotlinModule

@@ -1,3 +1,0 @@
-package com.lauruscorp.examplefeature.presentation.viewmodel
-
-internal interface ExampleViewModel
