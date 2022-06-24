@@ -14,9 +14,9 @@ dependencyResolutionManagement {
 	}
 }
 
-rootProject.name = "SexAssistant"
+rootProject.name = "Sexify"
 
-include ':sexassistant'
+include ':sexify-app'
 include ':example-app'
 include ':core'
 include ':features:example:example-domain'
