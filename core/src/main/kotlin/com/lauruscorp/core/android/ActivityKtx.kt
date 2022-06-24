@@ -9,3 +9,6 @@ val Activity.contentViewContainer: ViewGroup
 
 val Activity.contentView: View?
 	get() = contentViewContainer.getChildAt(0)
+
+val Activity.requireContentView: View
+	get() = requireNotNull(contentView)

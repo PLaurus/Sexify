@@ -1,7 +1,7 @@
 package com.lauruscorp.sexassistant.di.modules.features.examplefeature
 
-import com.lauruscorp.examplefeature.api.ExampleFeatureDependencies
-import com.lauruscorp.examplefeature.api.ExampleFeatureFactory
+import com.lauruscorp.features.example.examplefeature.api.ExampleFeatureDependencies
+import com.lauruscorp.features.example.examplefeature.api.ExampleFeatureFactory
 import com.lauruscorp.sexassistant.di.component.SexAssistantComponent
 import dagger.Binds
 import dagger.Module
