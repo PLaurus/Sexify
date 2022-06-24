@@ -25,6 +25,10 @@ android {
 	kotlinOptions {
 		jvmTarget = JavaVersion.VERSION_11
 	}
+
+	buildFeatures {
+		viewBinding = true
+	}
 }
 
 // Add here only widely used dependencies!!!
@@ -53,7 +57,7 @@ dependencies {
 	implementation 'androidx.appcompat:appcompat:1.4.1'
 
 	// UI
-	implementation 'com.google.android.material:material:1.6.1'
+	implementation 'com.google.android.material:material:1.7.0-alpha02'
 	implementation "androidx.fragment:fragment-ktx:1.4.1"
 
 	// Asynchronous programming

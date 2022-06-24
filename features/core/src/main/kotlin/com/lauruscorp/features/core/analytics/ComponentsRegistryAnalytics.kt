@@ -11,7 +11,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 internal class ComponentsRegistryAnalytics<ComponentT : FeatureComponent>(
-	private val aliveComponents: Map<ComponentT, Long>,
 	private val hardReferences: List<ComponentT>,
 	private val checkPeriodMs: Long = 1_000,
 	private val logTag: String = ComponentsRegistryAnalytics::class.java.simpleName
@@ -60,19 +59,10 @@ internal class ComponentsRegistryAnalytics<ComponentT : FeatureComponent>(
 		val messageBuilder = StringBuilder(" ").apply {
 			appendLine()
 			description?.let { appendLine("=== $it ===") }
-			appendLine("Current components registry state:")
+			appendLine("Current ComponentsRegistry state:")
 			
-			aliveComponents.keys.forEach { aliveComponent ->
-				appendLine("\t${aliveComponent.getFeatureId()}:")
-				appendLine("\t\tAlive component: $aliveComponent")
-				appendLine("\t\tHard references:")
-				
-				hardReferences.filter { it.getFeatureId() == aliveComponent.getFeatureId() }
-					.forEach { hardReference ->
-						appendLine("\t\t\t$hardReference")
-					}
-				
-				appendLine("=".repeat(40))
+			hardReferences.forEach { hardReference ->
+				appendLine("\t${hardReference.getFeatureId()}: $hardReference")
 			}
 		}
 		

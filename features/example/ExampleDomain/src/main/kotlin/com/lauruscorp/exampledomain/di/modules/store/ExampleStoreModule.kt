@@ -8,13 +8,13 @@ import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.lauruscorp.core.di.dagger.qualifiers.mvi.InitialStateQualifier
 import com.lauruscorp.core.di.dagger.qualifiers.mvi.StoreNameQualifier
-import com.lauruscorp.exampledomain.ExampleExecutor
-import com.lauruscorp.exampledomain.ExampleReducer
-import com.lauruscorp.exampledomain.ExampleStore
 import com.lauruscorp.exampledomain.di.modules.store.qualifiers.InitialAQualifier
 import com.lauruscorp.exampledomain.di.modules.store.qualifiers.InitialBQualifier
 import com.lauruscorp.exampledomain.di.modules.store.qualifiers.InitialOperationQualifier
 import com.lauruscorp.exampledomain.entities.Operation
+import com.lauruscorp.exampledomain.store.ExampleExecutor
+import com.lauruscorp.exampledomain.store.ExampleReducer
+import com.lauruscorp.exampledomain.store.ExampleStore
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -60,8 +60,8 @@ internal abstract class ExampleStoreModule {
 		@Provides
 		fun provideBootstrapper(
 			@InitialOperationQualifier initialOperation: Operation,
-			@InitialAQualifier initialA: Float,
-			@InitialBQualifier initialB: Float
+			@InitialAQualifier initialA: Int,
+			@InitialBQualifier initialB: Int
 		): Bootstrapper<ExampleStore.Action> {
 			return SimpleBootstrapper(
 				ExampleStore.Action.Initialize(

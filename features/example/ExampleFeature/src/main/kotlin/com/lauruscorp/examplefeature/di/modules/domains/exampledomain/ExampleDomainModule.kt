@@ -1,15 +1,15 @@
 package com.lauruscorp.examplefeature.di.modules.domains.exampledomain
 
-import com.lauruscorp.exampledomain.ExampleStore
 import com.lauruscorp.exampledomain.api.ExampleDomainApi
 import com.lauruscorp.exampledomain.api.ExampleDomainDependencies
 import com.lauruscorp.exampledomain.api.ExampleDomainFactory
 import com.lauruscorp.exampledomain.entities.Operation
-import com.lauruscorp.examplefeature.di.ExampleFeatureComponent
+import com.lauruscorp.exampledomain.store.ExampleStore
+import com.lauruscorp.examplefeature.di.component.ExampleFeatureComponent
+import com.lauruscorp.examplefeature.di.component.scope.ExampleFeatureScope
 import com.lauruscorp.examplefeature.di.modules.domains.exampledomain.qualifiers.InitialExampleStoreAQualifier
 import com.lauruscorp.examplefeature.di.modules.domains.exampledomain.qualifiers.InitialExampleStoreBQualifier
 import com.lauruscorp.examplefeature.di.modules.domains.exampledomain.qualifiers.InitialExampleStoreOperationQualifier
-import com.lauruscorp.examplefeature.di.scope.ExampleFeatureScope
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -34,8 +34,8 @@ internal interface ExampleDomainModule {
 		fun provideExampleDomainApi(
 			exampleDomainFactory: ExampleDomainFactory,
 			@InitialExampleStoreOperationQualifier initialOperation: Operation,
-			@InitialExampleStoreAQualifier initialA: Float,
-			@InitialExampleStoreBQualifier initialB: Float
+			@InitialExampleStoreAQualifier initialA: Int,
+			@InitialExampleStoreBQualifier initialB: Int
 		): ExampleDomainApi {
 			return exampleDomainFactory.create(
 				initialOperation = initialOperation,
@@ -57,10 +57,10 @@ internal interface ExampleDomainModule {
 		
 		@Provides
 		@InitialExampleStoreAQualifier
-		fun provideInitialExampleStoreA(): Float = 3.0f
+		fun provideInitialExampleStoreA(): Int = 3
 		
 		@Provides
 		@InitialExampleStoreBQualifier
-		fun provideInitialExampleStoreB(): Float = 9.0f
+		fun provideInitialExampleStoreB(): Int = 9
 	}
 }

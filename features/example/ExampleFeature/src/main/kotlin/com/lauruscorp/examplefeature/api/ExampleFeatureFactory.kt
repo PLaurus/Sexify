@@ -1,19 +1,17 @@
 package com.lauruscorp.examplefeature.api
 
-import com.lauruscorp.examplefeature.di.ExampleFeatureComponent
-import com.lauruscorp.examplefeature.di.ExampleFeatureComponentsRegistry
+import com.lauruscorp.examplefeature.di.component.ExampleFeatureComponent
+import com.lauruscorp.examplefeature.di.component.ExampleFeatureComponentsRegistry
 
 class ExampleFeatureFactory(
 	private val dependencies: ExampleFeatureDependencies
 ) {
-	// pass here initial state of the domain
+	// pass here initial state of the domain or callbacks
 	fun create(/* here*/): ExampleFeatureApi {
-		return ExampleFeatureComponentsRegistry.createAndRegister {
-			ExampleFeatureComponent
-				.create(
-					featureId = System.currentTimeMillis(),
-					dependencies = dependencies
-				)
-		}
+		return ExampleFeatureComponent
+			.create(
+				featureId = System.nanoTime(),
+				dependencies = dependencies
+			)
 	}
 }

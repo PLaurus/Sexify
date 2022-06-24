@@ -1,14 +1,12 @@
 package com.lauruscorp.features.core
 
+import com.lauruscorp.core.kotlin.compatRemoveIf
 import com.lauruscorp.features.core.analytics.ComponentsRegistryAnalytics
 import com.lauruscorp.features.core.di.FeatureComponent
-import java.util.WeakHashMap
 
-abstract class ComponentsRegistry<FeatureComponentT : FeatureComponent> {
-	private val aliveComponents = WeakHashMap<FeatureComponentT, Long>()
-	private val hardReferences = mutableListOf<FeatureComponentT>()
+abstract class ComponentsRegistry<ComponentT : FeatureComponent> {
+	private val hardReferences = mutableListOf<ComponentT>()
 	private val componentsRegistryAnalytics = ComponentsRegistryAnalytics(
-		aliveComponents = aliveComponents,
 		hardReferences = hardReferences,
 		logTag = this::class.java.simpleName
 	)
@@ -17,57 +15,98 @@ abstract class ComponentsRegistry<FeatureComponentT : FeatureComponent> {
 		componentsRegistryAnalytics.start()
 	}
 	
-	@Synchronized
-	operator fun get(featureId: Long): FeatureComponentT {
+	operator fun get(featureId: Long): ComponentT {
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "Before ${::get.name}.")
 		
-		val component = aliveComponents.keys
-			.firstOrNull { it.getFeatureId() == featureId }
-			?: hardReferences
-				.firstOrNull { it.getFeatureId() == featureId }
+		val component = synchronized(hardReferences) {
+			hardReferences.firstOrNull { it.getFeatureId() == featureId }
+		} ?: throw IllegalStateException("Component with id $featureId is not created or dead!")
 		
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "After ${::get.name}.")
 		
 		return component
-			?: throw IllegalStateException("Component with id $featureId is not created or dead!")
 	}
 	
-	@Synchronized
-	fun createAndRegister(
-		componentFactory: () -> FeatureComponentT
-	): FeatureComponentT {
-		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "Before ${::createAndRegister.name}.")
+	@Suppress("MemberVisibilityCanBePrivate")
+	fun getAndUnregister(featureId: Long): ComponentT {
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "Before ${::getAndUnregister.name}."
+		)
 		
-		val component = componentFactory()
+		val component = get(featureId)
 		
-		aliveComponents[component] = component.getFeatureId()
+		synchronized(hardReferences) {
+			hardReferences.remove(component)
+		}
 		
-		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(description = "After ${::createAndRegister.name}.")
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "After ${::getAndUnregister.name}."
+		)
 		
 		return component
 	}
 	
-	fun registerComponentHardReference(component: FeatureComponentT) {
+	@Synchronized
+	fun createAndRegister(
+		createComponent: () -> ComponentT
+	): ComponentT {
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
-			description = "Before ${::registerComponentHardReference.name}."
+			description = "Before ${::createAndRegister.name}."
 		)
 		
-		hardReferences.add(component)
+		val component = createComponent()
+		
+		synchronized(hardReferences) {
+			hardReferences += component
+		}
 		
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
-			description = "After ${::registerComponentHardReference.name}."
+			description = "After ${::createAndRegister.name}."
+		)
+		
+		return component
+	}
+	
+	fun registerComponent(component: ComponentT) {
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "Before ${::registerComponent.name}."
+		)
+		
+		synchronized(hardReferences) {
+			hardReferences += component
+		}
+		
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "After ${::registerComponent.name}."
 		)
 	}
 	
-	fun unregisterComponentHardReference(component: FeatureComponentT) {
+	fun unregisterComponent(component: ComponentT) {
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
-			description = "Before ${::unregisterComponentHardReference.name}."
+			description = "Before ${::unregisterComponent.name}."
 		)
 		
-		hardReferences.remove(component)
+		synchronized(hardReferences) {
+			hardReferences.remove(component)
+		}
 		
 		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
-			description = "After ${::unregisterComponentHardReference.name}."
+			description = "After ${::unregisterComponent.name}."
+		)
+	}
+	
+	@Suppress("MemberVisibilityCanBePrivate")
+	fun unregisterComponentById(featureId: Long) {
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "Before ${::unregisterComponentById.name}."
+		)
+		
+		synchronized(hardReferences) {
+			hardReferences.compatRemoveIf { it.getFeatureId() == featureId }
+		}
+		
+		componentsRegistryAnalytics.manuallyLogComponentsRegistryState(
+			description = "After ${::unregisterComponentById.name}."
 		)
 	}
 }
