@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutStart"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutEnd"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutTop"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutBottom"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/aField"
+		style="?attr/textInputOutlinedDenseStyle"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:hint="@string/a_hint"
+		app:layout_constraintStart_toStartOf="@id/layoutStart"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintTop_toTopOf="@id/layoutTop">
+		
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/aFieldText"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned" />
+	
+	</com.google.android.material.textfield.TextInputLayout>
+	
+	<com.google.android.material.button.MaterialButtonToggleGroup
+		android:id="@+id/operationButtonsGroup"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		app:layout_constraintStart_toStartOf="@id/layoutStart"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/aField"
+		app:layout_constrainedWidth="true"
+		app:singleSelection="true">
+		
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/additionButton"
+			style="@style/Widget.Material3.Button.OutlinedButton.IconOnly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/addition_sign" />
+		
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/subtractionButton"
+			style="@style/Widget.Material3.Button.OutlinedButton.IconOnly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/subtraction_sign" />
+		
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/multiplicationButton"
+			style="@style/Widget.Material3.Button.OutlinedButton.IconOnly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/multiplication_sign" />
+		
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/divisionButton"
+			style="@style/Widget.Material3.Button.OutlinedButton.IconOnly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/division_sign" />
+	
+	</com.google.android.material.button.MaterialButtonToggleGroup>
+	
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/bField"
+		style="?attr/textInputOutlinedDenseStyle"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:hint="@string/b_hint"
+		app:layout_constraintStart_toStartOf="@id/layoutStart"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/operationButtonsGroup">
+		
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/bFieldText"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned" />
+	
+	</com.google.android.material.textfield.TextInputLayout>
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/resultTitle"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:gravity="center"
+		android:text="@string/result"
+		app:layout_constraintStart_toStartOf="@id/layoutStart"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@+id/bField" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/resultText"
+		android:layout_width="0dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:gravity="center"
+		app:layout_constraintStart_toStartOf="@id/layoutStart"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@+id/resultTitle"
+		app:autoSizeTextType="uniform"
+		tools:text="27" />
+	
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/startAnotherFeatureButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/start_another_feature"
+		app:layout_constraintEnd_toEndOf="@id/layoutEnd"
+		app:layout_constraintBottom_toBottomOf="@id/layoutBottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,5 @@
+<resources>
+	<string name="example_app">Example App</string>
+	<string name="start_example_feature">Start ExampleFeature</string>
+	<string name="start_example2_feature">Start Example2Feature</string>
+</resources>

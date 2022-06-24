@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="example_2">Example2</string>
+	<string name="a_hint">A</string>
+	<string name="b_hint">B</string>
+	<string name="addition_sign">+</string>
+	<string name="subtraction_sign">-</string>
+	<string name="multiplication_sign">x</string>
+	<string name="division_sign">/</string>
+	<string name="result">Result</string>
+	<string name="start_another_feature">Start another feature</string>
+	<string name="a_value_is_not_provided">A value is not provided</string>
+	<string name="b_value_is_not_provided">B value is not provided</string>
+	<string name="operation_value_is_not_provided">Operation is not provided</string>
+</resources>
