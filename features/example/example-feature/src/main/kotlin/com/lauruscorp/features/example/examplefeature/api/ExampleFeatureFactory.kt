@@ -7,10 +7,9 @@ class ExampleFeatureFactory(
 ) {
 	// pass here initial state of the domain or callbacks
 	fun create(/* here*/): ExampleFeatureApi {
-		return ExampleFeatureComponent
-			.create(
-				featureId = System.nanoTime(),
-				dependencies = dependencies
-			)
+		return ExampleFeatureComponent(
+			featureId = System.nanoTime(),
+			dependencies = dependencies
+		)
 	}
 }

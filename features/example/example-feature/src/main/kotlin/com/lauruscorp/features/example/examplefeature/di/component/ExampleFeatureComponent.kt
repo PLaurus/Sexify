@@ -38,7 +38,7 @@ internal interface ExampleFeatureComponent : FeatureComponent, ExampleFeatureApi
 	}
 	
 	companion object {
-		fun create(
+		operator fun invoke(
 			featureId: Long,
 			dependencies: ExampleFeatureDependencies
 		): ExampleFeatureComponent {

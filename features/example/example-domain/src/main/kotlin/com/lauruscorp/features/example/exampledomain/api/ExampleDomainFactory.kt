@@ -1,6 +1,6 @@
 package com.lauruscorp.features.example.exampledomain.api
 
-import com.lauruscorp.features.example.exampledomain.di.component.DaggerExampleComponent
+import com.lauruscorp.features.example.exampledomain.di.component.ExampleComponent
 import com.lauruscorp.features.example.exampledomain.entities.Operation
 
 class ExampleDomainFactory(
@@ -11,12 +11,11 @@ class ExampleDomainFactory(
 		initialA: Int,
 		initialB: Int
 	): ExampleDomainApi {
-		return DaggerExampleComponent.factory()
-			.create(
-				dependencies = dependencies,
-				initialOperation = initialOperation,
-				initialA = initialA,
-				initialB = initialB
-			)
+		return ExampleComponent(
+			dependencies = dependencies,
+			initialOperation = initialOperation,
+			initialA = initialA,
+			initialB = initialB
+		)
 	}
 }

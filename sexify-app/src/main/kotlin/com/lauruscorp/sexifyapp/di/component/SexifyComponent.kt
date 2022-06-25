@@ -25,7 +25,7 @@ internal interface SexifyComponent : ExampleFeatureDependencies {
 	fun inject(activity: SexifyActivity)
 	
 	companion object {
-		fun create(): SexifyComponent {
+		operator fun invoke(): SexifyComponent {
 			return DaggerSexifyComponent.factory()
 				.create()
 		}
