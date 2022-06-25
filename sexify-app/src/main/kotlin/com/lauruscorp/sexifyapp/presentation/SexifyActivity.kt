@@ -12,7 +12,7 @@ internal class SexifyActivity : AppCompatActivity(R.layout.activity_sex_assistan
 	}
 	
 	private fun injectDependencies() {
-		SexifyComponent.create()
+		SexifyComponent()
 			.inject(this)
 	}
 }

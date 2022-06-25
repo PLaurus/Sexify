@@ -22,12 +22,10 @@ internal class ExampleActivity : AppCompatActivity(R.layout.layout_example) {
 	}
 	
 	private fun injectDependencies() {
-		ExamplePresentationComponent
-			.create(
-				featureId = intent.getLongExtra(FEATURE_ID_KEY, 0),
-				viewModelStoreOwner = this
-			)
-			.inject(this)
+		ExamplePresentationComponent(
+			featureId = intent.getLongExtra(FEATURE_ID_KEY, 0),
+			viewModelStoreOwner = this
+		).inject(this)
 	}
 	
 	companion object {

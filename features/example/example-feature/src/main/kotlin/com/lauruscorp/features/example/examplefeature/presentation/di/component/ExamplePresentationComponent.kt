@@ -27,7 +27,7 @@ internal interface ExamplePresentationComponent {
 	}
 	
 	companion object {
-		fun create(
+		operator fun invoke(
 			featureId: Long,
 			viewModelStoreOwner: ViewModelStoreOwner
 		): ExamplePresentationComponent {

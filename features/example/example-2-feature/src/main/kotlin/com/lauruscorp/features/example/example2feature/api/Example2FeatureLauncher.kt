@@ -18,7 +18,7 @@ class Example2FeatureLauncher(
 		onButtonClick: ((context: Context) -> Unit) = {},
 	) {
 		val example2FeatureComponent = Example2FeatureComponentsRegistry.createAndRegister {
-			Example2FeatureComponent.create(
+			Example2FeatureComponent(
 				featureId = System.nanoTime(),
 				dependencies = dependencies,
 				onButtonClick = onButtonClick

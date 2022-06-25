@@ -37,17 +37,13 @@ internal interface Example2FeatureComponent : FeatureComponent, ExampleDomainDep
 	}
 	
 	companion object {
-		fun create(
+		operator fun invoke(
 			featureId: Long,
 			dependencies: Example2FeatureDependencies,
 			onButtonClick: ((context: Context) -> Unit)
 		): Example2FeatureComponent {
 			return DaggerExample2FeatureComponent.factory()
-				.create(
-					featureId = featureId,
-					dependencies = dependencies,
-					onButtonClick = onButtonClick
-				)
+				.create(featureId, dependencies, onButtonClick)
 		}
 	}
 }

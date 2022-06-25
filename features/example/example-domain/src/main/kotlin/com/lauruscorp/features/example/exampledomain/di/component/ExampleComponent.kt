@@ -30,4 +30,16 @@ internal interface ExampleComponent : ExampleDomainApi {
 			@BindsInstance @InitialBQualifier initialB: Int
 		): ExampleComponent
 	}
+	
+	companion object {
+		operator fun invoke(
+			dependencies: ExampleDomainDependencies,
+			initialOperation: Operation,
+			initialA: Int,
+			initialB: Int
+		): ExampleComponent {
+			return DaggerExampleComponent.factory()
+				.create(dependencies, initialOperation, initialA, initialB)
+		}
+	}
 }
