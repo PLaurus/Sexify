@@ -2,13 +2,17 @@ package com.lauruscorp.templategenerator
 
 import com.lauruscorp.templategenerator.entities.Template
 import com.lauruscorp.templategenerator.generators.TemplateGeneratorFactory
+import com.lauruscorp.templategenerator.markup.MarkupProcessor
+import com.lauruscorp.templategenerator.utils.GradleModulePlugIner
 
 object Main {
 	@JvmStatic
 	fun main(args: Array<String>) {
 		
 		val templateReader = TemplateReader()
-		val templateGeneratorFactory = TemplateGeneratorFactory()
+		val markupProcessor = MarkupProcessor()
+		val gradleModulePlugIner = GradleModulePlugIner()
+		val templateGeneratorFactory = TemplateGeneratorFactory(markupProcessor, gradleModulePlugIner)
 		
 		templateReader.printAvailableTemplates()
 		

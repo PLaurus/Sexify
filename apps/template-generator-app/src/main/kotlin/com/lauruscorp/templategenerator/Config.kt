@@ -1,23 +1,18 @@
 package com.lauruscorp.templategenerator
 
+import java.nio.file.Path
+import kotlin.io.path.Path
+
 object Config {
-	const val TEMPLATES_PATH = "templates"
-	const val SETTINGS_GRADLE_PATH = ""
+	val COMPANY_PACKAGE: Path = Path("com", "lauruscorp")
 	
-	/**
-	 * It is relative to [TEMPLATES_PATH]
-	 */
-	const val DOMAIN_TEMPLATE_PATH = "domain"
+	val SETTINGS_GRADLE_PATH = Path("")
 	
-	/**
-	 * It is relative to [TEMPLATES_PATH]
-	 */
-	const val FEATURE_TEMPLATE_PATH = "feature"
+	val DOMAIN_TEMPLATE_PATH = Path("templates", "domain")
+	val FEATURE_TEMPLATE_PATH = Path("templates", "feature-with-domain")
 	
-	const val COMPANY_PACKAGE = "com.lauruscorp"
+	val RESULT_ROOT_PATH: Path = Path("features")
 	
-	/**
-	 * This path will be used as root for new modules.
-	 */
-	const val RESULT_ROOT_PATH = "features"
+	const val DOMAIN_NAME_SUFFIX = "domain"
+	const val FEATURE_NAME_SUFFIX = "feature"
 }

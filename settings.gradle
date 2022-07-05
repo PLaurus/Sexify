@@ -21,6 +21,7 @@ include ':apps:example-app'
 include ':apps:template-generator-app'
 
 include ':templates:domain'
+include ':templates:feature-with-domain'
 
 include ':core'
 include ':features:example:example-domain'

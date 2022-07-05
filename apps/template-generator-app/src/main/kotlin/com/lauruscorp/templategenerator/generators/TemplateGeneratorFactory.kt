@@ -1,14 +1,17 @@
 package com.lauruscorp.templategenerator.generators
 
 import com.lauruscorp.templategenerator.entities.Template
+import com.lauruscorp.templategenerator.markup.MarkupProcessor
+import com.lauruscorp.templategenerator.utils.GradleModulePlugIner
 
-internal class TemplateGeneratorFactory {
+internal class TemplateGeneratorFactory(
+	private val markupProcessor: MarkupProcessor,
+	private val gradleModulePlugIner: GradleModulePlugIner
+) {
 	fun create(template: Template): TemplateGenerator {
 		return when (template) {
-			Template.App -> AppTemplateGenerator()
-			Template.FeatureDomain -> FeatureDomainTemplateGenerator()
-			Template.Feature -> FeatureTemplateGenerator()
-			Template.Domain -> DomainTemplateGenerator()
+			Template.Domain -> DomainTemplateGenerator(markupProcessor, gradleModulePlugIner)
+			Template.FeatureWithDomain -> FeatureWithDomainTemplateGenerator(markupProcessor, gradleModulePlugIner)
 		}
 	}
 }

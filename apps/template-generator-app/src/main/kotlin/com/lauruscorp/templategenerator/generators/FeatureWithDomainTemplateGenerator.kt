@@ -8,41 +8,64 @@ import com.lauruscorp.templategenerator.utils.toPackageCase
 import net.pearx.kasechange.toKebabCase
 import java.nio.file.Path
 
-internal class DomainTemplateGenerator(
+internal class FeatureWithDomainTemplateGenerator(
 	private val markupProcessor: MarkupProcessor,
 	private val gradleModulePlugIner: GradleModulePlugIner
 ) : TemplateGenerator {
 	override fun generate() {
-		val domainName = readDomainName()
-		val resultDirectory = createResultDirectoryPath(
-			moduleName = domainName,
+		val featureName = readFeatureName()
+		
+		val featureResultDirectory = createResultDirectoryPath(
+			moduleName = featureName,
+			moduleNameSuffix = Config.FEATURE_NAME_SUFFIX
+		)
+		
+		val domainResultDirectory = createResultDirectoryPath(
+			moduleName = featureName,
 			moduleNameSuffix = Config.DOMAIN_NAME_SUFFIX
+		)
+		
+		val featurePackagePath = createPackagePath(
+			companyPackagePath = Config.COMPANY_PACKAGE,
+			modulePath = featureResultDirectory
 		)
 		
 		val domainPackagePath = createPackagePath(
 			companyPackagePath = Config.COMPANY_PACKAGE,
-			modulePath = resultDirectory
+			modulePath = domainResultDirectory
 		)
 		
 		markupProcessor.processTree(
 			rootDirectory = Config.DOMAIN_TEMPLATE_PATH,
-			moduleName = domainName,
-			resultDirectory = resultDirectory,
+			moduleName = featureName,
+			resultDirectory = domainResultDirectory,
 			overwrite = false,
 			packagePaths = listOf(
 				domainPackagePath
 			)
 		)
 		
+		markupProcessor.processTree(
+			rootDirectory = Config.FEATURE_TEMPLATE_PATH,
+			moduleName = featureName,
+			resultDirectory = featureResultDirectory,
+			overwrite = false,
+			packagePaths = listOf(
+				domainPackagePath,
+				featurePackagePath
+			),
+			modulePaths = listOf(domainResultDirectory),
+		)
+		
 		gradleModulePlugIner.plugIntoProject(
-			modulePath = resultDirectory,
+			modulePath = domainResultDirectory,
 			settingGradlePath = Config.SETTINGS_GRADLE_PATH
 		)
-	}
-	
-	private fun readDomainName(): String {
-		print("Enter domain name: ")
-		return readln()
+		
+		gradleModulePlugIner.plugIntoProject(
+			modulePath = featureResultDirectory,
+			settingGradlePath = Config.SETTINGS_GRADLE_PATH
+		)
 	}
 	
 	// features example example-domain
@@ -55,6 +78,11 @@ internal class DomainTemplateGenerator(
 			.append(moduleName.replace("\\s".toRegex(), ""))
 			.apply { moduleNameSuffix?.let { append("$moduleName-$it".toKebabCase()) } }
 			.build()
+	}
+	
+	private fun readFeatureName(): String {
+		print("Enter feature name: ")
+		return readln()
 	}
 	
 	private fun createPackagePath(
