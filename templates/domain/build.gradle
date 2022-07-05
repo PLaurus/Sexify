@@ -1,0 +1,13 @@
+plugins {
+	id 'com.android.library'
+}
+
+apply from: "$rootProject.projectDir/gradle/common/common.gradle"
+
+android {
+	namespace '_M_PACKAGE_0_'
+}
+
+dependencies {
+	implementation project(":core")
+}
