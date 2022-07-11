@@ -3,7 +3,7 @@ package com.lauruscorp.sexifyapp.features.game.di.modules.ui
 import android.view.View
 import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexifyapp.databinding.LayoutGameBinding
-import com.lauruscorp.sexifyapp.features.game.presentation.ui.GameUi
+import com.lauruscorp.sexifyapp.features.game.ui.GameUi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

@@ -3,12 +3,12 @@ package com.lauruscorp.sexifyapp.features.game.di.component
 import androidx.lifecycle.ViewModelStoreOwner
 import com.lauruscorp.features.gamedomain.api.GameDomainDependencies
 import com.lauruscorp.sexifyapp.features.game.api.GameFeatureDependencies
+import com.lauruscorp.sexifyapp.features.game.api.GameFragment
 import com.lauruscorp.sexifyapp.features.game.di.component.scope.GameFeatureScope
 import com.lauruscorp.sexifyapp.features.game.di.modules.domain.DomainModule
 import com.lauruscorp.sexifyapp.features.game.di.modules.mappers.MappersModule
 import com.lauruscorp.sexifyapp.features.game.di.modules.ui.UiModule
 import com.lauruscorp.sexifyapp.features.game.di.modules.viewmodel.ViewModelModule
-import com.lauruscorp.sexifyapp.features.game.presentation.GameFragment
 import dagger.BindsInstance
 import dagger.Component
 

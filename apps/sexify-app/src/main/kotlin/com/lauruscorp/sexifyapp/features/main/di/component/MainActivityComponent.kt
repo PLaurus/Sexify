@@ -5,25 +5,35 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.lauruscorp.core.di.dagger.qualifiers.context.ActivityContextQualifier
 import com.lauruscorp.features.maindomain.api.MainDomainDependencies
 import com.lauruscorp.sexifyapp.application.di.component.SexifyApplicationComponent
+import com.lauruscorp.sexifyapp.features.categoriesselection.api.CategoriesSelectionFeatureDependencies
+import com.lauruscorp.sexifyapp.features.couplenameseditor.api.CoupleNamesEditorFeatureDependencies
+import com.lauruscorp.sexifyapp.features.game.api.GameFeatureDependencies
+import com.lauruscorp.sexifyapp.features.home.api.HomeFeatureDependencies
+import com.lauruscorp.sexifyapp.features.main.MainActivity
 import com.lauruscorp.sexifyapp.features.main.di.component.scope.MainActivityScope
-import com.lauruscorp.sexifyapp.features.main.di.modules.domain.DomainModule
-import com.lauruscorp.sexifyapp.features.main.di.modules.mappers.MappersModule
-import com.lauruscorp.sexifyapp.features.main.di.modules.ui.UiModule
-import com.lauruscorp.sexifyapp.features.main.di.modules.viewmodel.ViewModelModule
-import com.lauruscorp.sexifyapp.features.main.presentation.MainActivity
+import com.lauruscorp.sexifyapp.features.main.di.modules.childfragments.MainChildFragmentsModule
+import com.lauruscorp.sexifyapp.features.main.di.modules.domain.MainDomainModule
+import com.lauruscorp.sexifyapp.features.main.di.modules.mappers.MainMappersModule
+import com.lauruscorp.sexifyapp.features.main.di.modules.ui.MainUiModule
+import com.lauruscorp.sexifyapp.features.main.di.modules.viewmodel.MainViewModelModule
 import dagger.BindsInstance
 import dagger.Subcomponent
 
 @MainActivityScope
 @Subcomponent(
 	modules = [
-		UiModule::class,
-		DomainModule::class,
-		ViewModelModule::class,
-		MappersModule::class
+		MainUiModule::class,
+		MainDomainModule::class,
+		MainViewModelModule::class,
+		MainMappersModule::class,
+		MainChildFragmentsModule::class
 	]
 )
-internal interface MainActivityComponent : MainDomainDependencies {
+internal interface MainActivityComponent : MainDomainDependencies,
+                                           CategoriesSelectionFeatureDependencies,
+                                           CoupleNamesEditorFeatureDependencies,
+                                           GameFeatureDependencies,
+                                           HomeFeatureDependencies {
 	fun inject(activity: MainActivity)
 	
 	@Subcomponent.Factory

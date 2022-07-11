@@ -17,7 +17,7 @@
 		<activity
 			android:exported="true"
 			android:launchMode="singleTask"
-			android:name=".features.main.presentation.MainActivity"
+			android:name=".features.main.MainActivity"
 			android:theme="@style/Theme.SexAssistant">
 			
 			<intent-filter>

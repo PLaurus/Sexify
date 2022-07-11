@@ -3,7 +3,7 @@ package com.lauruscorp.sexifyapp.features.home.di.modules.ui
 import android.view.View
 import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexifyapp.databinding.LayoutHomeBinding
-import com.lauruscorp.sexifyapp.features.home.presentation.ui.HomeUi
+import com.lauruscorp.sexifyapp.features.home.ui.HomeUi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

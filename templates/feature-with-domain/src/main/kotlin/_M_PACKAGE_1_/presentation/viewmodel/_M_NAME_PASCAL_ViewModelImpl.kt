@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 internal class _M_NAME_PASCAL_ViewModelImpl @Inject constructor(
 	private val store: _M_NAME_PASCAL_Store,
-	private val labelToUiErrorMapper: @JvmSuppressWildcards Mapper<_M_NAME_PASCAL_Store.Label, UiError>
+	private val labelToUiErrorMapper: Mapper<_M_NAME_PASCAL_Store.Label, UiError>
 ) : ViewModel(), _M_NAME_PASCAL_ViewModel {
 //	override val a: LiveData<String> = MutableLiveData<String>().apply {
 //		viewModelScope.launch {

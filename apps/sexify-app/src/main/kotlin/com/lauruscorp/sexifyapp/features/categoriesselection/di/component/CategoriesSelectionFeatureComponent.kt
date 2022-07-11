@@ -3,12 +3,12 @@ package com.lauruscorp.sexifyapp.features.categoriesselection.di.component
 import androidx.lifecycle.ViewModelStoreOwner
 import com.lauruscorp.features.categoriesselectiondomain.api.CategoriesSelectionDomainDependencies
 import com.lauruscorp.sexifyapp.features.categoriesselection.api.CategoriesSelectionFeatureDependencies
+import com.lauruscorp.sexifyapp.features.categoriesselection.api.CategoriesSelectionFragment
 import com.lauruscorp.sexifyapp.features.categoriesselection.di.component.scope.CategoriesSelectionFeatureScope
 import com.lauruscorp.sexifyapp.features.categoriesselection.di.modules.domain.DomainModule
 import com.lauruscorp.sexifyapp.features.categoriesselection.di.modules.mappers.MappersModule
 import com.lauruscorp.sexifyapp.features.categoriesselection.di.modules.ui.UiModule
 import com.lauruscorp.sexifyapp.features.categoriesselection.di.modules.viewmodel.ViewModelModule
-import com.lauruscorp.sexifyapp.features.categoriesselection.presentation.CategoriesSelectionFragment
 import dagger.BindsInstance
 import dagger.Component
 

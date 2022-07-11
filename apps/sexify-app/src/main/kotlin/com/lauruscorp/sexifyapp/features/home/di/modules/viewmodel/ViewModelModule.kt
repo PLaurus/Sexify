@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.lauruscorp.core.di.dagger.mapkeys.ViewModelMapKey
-import com.lauruscorp.sexifyapp.features.home.presentation.viewmodel.HomeViewModel
-import com.lauruscorp.sexifyapp.features.home.presentation.viewmodel.HomeViewModelImpl
+import com.lauruscorp.sexifyapp.features.home.viewmodel.HomeViewModel
+import com.lauruscorp.sexifyapp.features.home.viewmodel.HomeViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

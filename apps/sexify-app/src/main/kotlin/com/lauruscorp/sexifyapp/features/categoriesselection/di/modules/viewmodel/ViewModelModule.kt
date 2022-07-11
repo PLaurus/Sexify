@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.lauruscorp.core.di.dagger.mapkeys.ViewModelMapKey
-import com.lauruscorp.sexifyapp.features.categoriesselection.presentation.viewmodel.CategoriesSelectionViewModel
-import com.lauruscorp.sexifyapp.features.categoriesselection.presentation.viewmodel.CategoriesSelectionViewModelImpl
+import com.lauruscorp.sexifyapp.features.categoriesselection.viewmodel.CategoriesSelectionViewModel
+import com.lauruscorp.sexifyapp.features.categoriesselection.viewmodel.CategoriesSelectionViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
