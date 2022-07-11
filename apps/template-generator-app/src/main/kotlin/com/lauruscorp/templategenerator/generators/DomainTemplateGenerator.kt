@@ -52,7 +52,7 @@ internal class DomainTemplateGenerator(
 	): Path {
 		return PathBuilder()
 			.append(Config.RESULT_ROOT_PATH)
-			.append(moduleName.replace("\\s".toRegex(), ""))
+//			.append(moduleName.replace("\\s".toRegex(), ""))
 			.apply { moduleNameSuffix?.let { append("$moduleName-$it".toKebabCase()) } }
 			.build()
 	}

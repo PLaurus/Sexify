@@ -1,3 +1,32 @@
 <resources>
-	<string name="app_name">Sexify</string>
+	<!-- Application -->
+	<string name="application_name">Sexify</string>
+	
+	<!-- Home -->
+	<string name="home_feature_title">Home</string>
+	<string name="home_start_button">Start</string>
+	<string name="home_settings_button">Settings</string>
+	
+	<!-- Couple names editor -->
+	<string name="couple_names_editor_feature_name">Couple names editor</string>
+	<string name="couple_names_editor_title">Who is going to play?</string>
+	<string name="couple_names_editor_first_player_name_hint">First player name</string>
+	<string name="couple_names_editor_second_player_name_hint">Second player name</string>
+	<string name="couple_names_editor_next_button">Next</string>
+	
+	<!-- Categories selection -->
+	<string name="categories_selection_feature_name">Categories selection</string>
+	<string name="categories_selection_title">%s, choose your categories</string>
+	<string
+		name="categories_selection_subtitle">Select the categories which appeal to you and %s will do these to you.</string>
+	<string name="categories_selection_next_button">Next</string>
+	
+	<!-- Game -->
+	<string name="game_feature_name">Game</string>
+	<string name="game_main_button_start">Start</string>
+	<string name="game_main_button_resume">Resume</string>
+	<string name="game_main_button_stop">Pause</string>
+	<string name="game_main_button_done">Done</string>
+	<string name="game_restart_dare_button">Restart</string>
+	<string name="game_skip_dare_button">Skip</string>
 </resources>

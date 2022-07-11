@@ -7,8 +7,8 @@
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name"
-		android:name=".presentation.SexifyApplication"
+		android:label="@string/application_name"
+		android:name=".application.SexifyApplication"
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.SexAssistant"
@@ -17,7 +17,7 @@
 		<activity
 			android:exported="true"
 			android:launchMode="singleTask"
-			android:name=".presentation.SexifyActivity"
+			android:name=".features.main.presentation.MainActivity"
 			android:theme="@style/Theme.SexAssistant">
 			
 			<intent-filter>

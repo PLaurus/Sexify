@@ -9,7 +9,7 @@ internal class LabelToUiErrorMapper @Inject constructor(
 ) : Mapper<_M_NAME_PASCAL_Store.Label, UiError> {
 	override fun map(from: _M_NAME_PASCAL_Store.Label): UiError {
 		return when (from) {
-			is _M_NAME_PASCAL_Store.Label.ThrowableError -> UiError.System(throwable = from.throwable)
+			is _M_NAME_PASCAL_Store.Label.ExceptionError -> UiError.System(exception = from.exception)
 		}
 	}
 }

@@ -8,12 +8,12 @@ interface _M_NAME_PASCAL_Store : Store<_M_NAME_PASCAL_Store.Intent, _M_NAME_PASC
 	sealed interface Action
 	
 	data class State(
-		val text: String
+		val someValue: Any?
 	)
 	
 	sealed interface Message
 	
 	sealed interface Label {
-		data class ThrowableError(val throwable: Throwable) : Label
+		data class ExceptionError(val exception: Exception) : Label
 	}
 }
