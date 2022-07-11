@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginVertical="@dimen/layout_spacing_4"
+	android:background="@color/white"
+	android:clipToPadding="false">
+	
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/layoutStart"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="@dimen/layout_spacing_8" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/layoutEnd"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:orientation="vertical"
+			app:layout_constraintGuide_end="@dimen/layout_spacing_8" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/layoutTop"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_begin="@dimen/layout_spacing_8" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/layoutBottom"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_end="@dimen/layout_spacing_8" />
+		
+		<com.google.android.material.imageview.ShapeableImageView
+			android:id="@+id/image"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toEndOf="@id/layoutStart"
+			app:layout_constraintTop_toBottomOf="@id/layoutTop"
+			app:layout_constraintBottom_toTopOf="@id/layoutBottom"
+			app:layout_constraintDimensionRatio="1:1"
+			tools:src="@tools:sample/avatars" />
+		
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/title"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/layout_spacing_16"
+			android:maxLines="1"
+			android:textStyle="bold"
+			app:layout_constraintStart_toEndOf="@id/image"
+			app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+			app:layout_constraintTop_toBottomOf="@id/layoutTop"
+			tools:text="In mouth" />
+		
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/description"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/layout_spacing_16"
+			android:lines="3"
+			android:maxLines="3"
+			app:layout_constraintStart_toEndOf="@id/image"
+			app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+			app:layout_constraintTop_toBottomOf="@id/title"
+			app:layout_constraintBottom_toTopOf="@id/layoutBottom"
+			tools:text="Long description of category here is lul kek xxx wow" />
+	
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

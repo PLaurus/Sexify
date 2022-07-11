@@ -28,7 +28,7 @@ internal class _M_NAME_PASCAL_Ui @Inject constructor(
 		viewModel.errorEvent.observe(lifecycleOwner) { uiError ->
 			val context = root.context
 			val message = when (uiError) {
-				is UiError.System -> uiError.throwable.localizedMessage
+				is UiError.System -> uiError.exception.localizedMessage
 			}
 			
 			Toast.makeText(context, message, Toast.LENGTH_SHORT)

@@ -12,5 +12,5 @@ internal abstract class MappersModule {
 	@Binds
 	abstract fun provideLabelToUiErrorMapper(
 		mapper: LabelToUiErrorMapper
-	): Mapper<_M_NAME_PASCAL_Store.Label, UiError>
+	): @JvmSuppressWildcards Mapper<_M_NAME_PASCAL_Store.Label, UiError>
 }

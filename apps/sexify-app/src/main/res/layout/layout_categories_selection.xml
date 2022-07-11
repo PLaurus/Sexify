@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutStart"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutEnd"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutTop"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutBottom"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/titleText"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="@string/categories_selection_title"
+		android:textStyle="bold"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/layoutTop" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/subtitleText"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:gravity="center"
+		android:text="@string/categories_selection_subtitle"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/titleText" />
+	
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/categoriesRecyclerView"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/subtitleText"
+		app:layout_constraintBottom_toTopOf="@id/nextButton"
+		tools:listitem="@layout/layout_categories_selection_item" />
+	
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/nextButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/categories_selection_next_button"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintBottom_toTopOf="@id/layoutBottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

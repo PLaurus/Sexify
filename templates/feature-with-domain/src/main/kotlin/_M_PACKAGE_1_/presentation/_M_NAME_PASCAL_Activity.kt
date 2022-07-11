@@ -1,6 +1,7 @@
 package _M_PACKAGE_1_.presentation
 
 import _M_PACKAGE_1_.R
+import _M_PACKAGE_1_.api._M_NAME_PASCAL_FeatureLauncher
 import _M_PACKAGE_1_.databinding.LayoutMNameSnakeBinding
 import _M_PACKAGE_1_.presentation.di.component._M_NAME_PASCAL_PresentationComponent
 import android.os.Bundle
@@ -23,12 +24,8 @@ internal class _M_NAME_PASCAL_Activity : AppCompatActivity(R.layout.layout__m_na
 	
 	private fun injectDependencies() {
 		_M_NAME_PASCAL_PresentationComponent(
-			featureId = intent.getLongExtra(FEATURE_ID_KEY, 0),
+			featureId = intent.getLongExtra(_M_NAME_PASCAL_FeatureLauncher.FEATURE_ID_KEY, 0),
 			viewModelStoreOwner = this
 		).inject(this)
-	}
-	
-	companion object {
-		const val FEATURE_ID_KEY = "FEATURE_ID_KEY"
 	}
 }

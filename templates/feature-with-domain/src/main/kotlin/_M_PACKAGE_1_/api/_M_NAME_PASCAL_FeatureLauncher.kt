@@ -27,7 +27,7 @@ class _M_NAME_PASCAL_FeatureLauncher(
 		
 		val intent = Intent(context, _M_NAME_PASCAL_Activity::class.java).apply {
 			val featureId = example2FeatureComponent.getFeatureId()
-			putExtra(_M_NAME_PASCAL_Activity.FEATURE_ID_KEY, featureId)
+			putExtra(FEATURE_ID_KEY, featureId)
 		}
 		
 		application.registerActivityLifecycleCallbacks(object : SimpleActivityLifecycleCallbacks {
@@ -42,5 +42,9 @@ class _M_NAME_PASCAL_FeatureLauncher(
 		})
 		
 		context.startActivity(intent)
+	}
+	
+	companion object {
+		internal const val FEATURE_ID_KEY = "FEATURE_ID_KEY"
 	}
 }

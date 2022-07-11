@@ -13,6 +13,16 @@ android {
 }
 
 dependencies {
+	// Navigation
+	def navigationVersion = "2.5.0"
+	implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+	implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+
+	// Modules
 	implementation project(':core')
-	implementation project(':features:example:example-feature')
+	implementation project(':features:main-domain')
+	implementation project(':features:home-domain')
+	implementation project(':features:game-domain')
+	implementation project(':features:couple-names-editor-domain')
+	implementation project(':features:categories-selection-domain')
 }

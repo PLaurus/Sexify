@@ -50,7 +50,7 @@ internal abstract class _M_NAME_PASCAL_StoreModule {
 		@Provides
 		@InitialStateQualifier
 		fun provideInitialState(): _M_NAME_PASCAL_Store.State {
-			return _M_NAME_PASCAL_Store.State("")
+			return _M_NAME_PASCAL_Store.State(someValue = null)
 		}
 		
 		@Provides

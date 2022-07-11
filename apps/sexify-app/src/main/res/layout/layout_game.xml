@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutStart"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutEnd"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutTop"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutBottom"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutCenterHorizontal"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.5" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/stageName"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textSize="24sp"
+		android:textStyle="bold"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/layoutTop"
+		tools:text="Hot" />
+	
+	<com.google.android.material.progressindicator.LinearProgressIndicator
+		android:id="@+id/stageProgress"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/stageName" />
+	
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/player1Card"
+		style="@style/Widget.Material3.CardView.Elevated"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:layout_marginEnd="@dimen/layout_spacing_8"
+		app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Corner.Right"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toStartOf="@id/player2Card"
+		app:layout_constraintTop_toBottomOf="@id/stageProgress"
+		tools:strokeWidth="1"
+		tools:strokeColor="?attr/colorPrimary"
+		tools:cardElevation="4dp">
+		
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+			<ImageView
+				android:id="@+id/player1CardPlayerSexIcon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/layout_spacing_16"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:srcCompat="@drawable/ic_baseline_person_24" />
+			
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/player1CardPlayerName"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/layout_spacing_8"
+				android:ellipsize="end"
+				android:gravity="center"
+				android:maxLines="1"
+				android:textStyle="bold"
+				app:layout_constraintStart_toEndOf="@id/player1CardPlayerSexIcon"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/player1CardPlayerCameButton"
+				tools:text="Pavel" />
+			
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/player1CardPlayerCameButton"
+				style="@style/Widget.Material3.Button.IconButton.Filled"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:icon="@drawable/sl_baseline_water_drops_24"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent" />
+		
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	
+	</com.google.android.material.card.MaterialCardView>
+	
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/player2Card"
+		style="@style/Widget.Material3.CardView.Elevated"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/layout_spacing_8"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Corner.Left"
+		app:layout_constraintStart_toEndOf="@id/player1Card"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/stageProgress">
+		
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/player2CardPlayerCameButton"
+				style="@style/Widget.Material3.Button.IconButton.Filled"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:icon="@drawable/sl_baseline_water_drops_24"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent" />
+			
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/player2CardPlayerName"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/layout_spacing_8"
+				android:ellipsize="end"
+				android:gravity="center"
+				android:maxLines="1"
+				app:layout_constraintStart_toEndOf="@id/player2CardPlayerCameButton"
+				app:layout_constraintEnd_toStartOf="@id/player2CardPlayerSexIcon"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:text="Anastasia" />
+			
+			<ImageView
+				android:id="@+id/player2CardPlayerSexIcon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="@dimen/layout_spacing_16"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:srcCompat="@drawable/ic_baseline_person_3_24" />
+		
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	
+	</com.google.android.material.card.MaterialCardView>
+	
+	<androidx.constraintlayout.widget.Barrier
+		android:id="@+id/playersCards"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:constraint_referenced_ids="player1Card, player2Card"
+		app:barrierDirection="bottom" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/dareText"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginTop="@dimen/layout_spacing_8"
+		android:gravity="center"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/playersCards"
+		app:layout_constraintBottom_toTopOf="@id/layoutCenterHorizontal"
+		app:autoSizeTextType="uniform"
+		app:autoSizeMaxTextSize="48sp"
+		tools:text="Do something to your partner" />
+	
+	<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+		android:id="@+id/mainButton"
+		style="@style/Widget.Material3.ExtendedFloatingActionButton.Primary"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/game_main_button_start"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/layoutCenterHorizontal"
+		app:layout_constraintBottom_toTopOf="@id/layoutBottom"
+		app:icon="@drawable/ic_baseline_play_arrow_24" />
+	
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/restartDareButton"
+		style="@style/Widget.Material3.Button.IconButton.Filled"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="@dimen/layout_spacing_8"
+		android:contentDescription="@string/game_restart_dare_button"
+		app:layout_constraintEnd_toStartOf="@id/mainButton"
+		app:layout_constraintBottom_toBottomOf="@id/mainButton"
+		app:srcCompat="@drawable/ic_baseline_refresh_24"
+		app:fabSize="mini" />
+	
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/skipDareButton"
+		style="@style/Widget.Material3.Button.IconButton.Filled"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/layout_spacing_8"
+		android:contentDescription="@string/game_skip_dare_button"
+		app:layout_constraintStart_toEndOf="@id/mainButton"
+		app:layout_constraintBottom_toBottomOf="@id/mainButton"
+		app:srcCompat="@drawable/ic_baseline_skip_next_24"
+		app:fabSize="mini" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
