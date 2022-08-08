@@ -29,7 +29,8 @@
 	</fragment>
 	
 	<fragment android:id="@+id/game" android:label="@string/game_feature_name"
-		android:name="com.lauruscorp.sexifyapp.features.game.api.GameFragment" tools:layout="@layout/layout_game">
+		android:name="com.lauruscorp.sexifyapp.features.game.api.presentation.GameFragment"
+		tools:layout="@layout/layout_game">
 		
 		<action android:id="@+id/action_game_to_home" app:destination="@id/home" />
 	

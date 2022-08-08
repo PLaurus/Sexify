@@ -1,4 +1,4 @@
-package com.lauruscorp.sexifyapp.features.game.api
+package com.lauruscorp.sexifyapp.features.game.api.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexifyapp.R
 import com.lauruscorp.sexifyapp.databinding.LayoutGameBinding
+import com.lauruscorp.sexifyapp.features.game.api.GameFeatureDependencies
 import com.lauruscorp.sexifyapp.features.game.di.component.GameFeatureComponent
 import javax.inject.Inject
 

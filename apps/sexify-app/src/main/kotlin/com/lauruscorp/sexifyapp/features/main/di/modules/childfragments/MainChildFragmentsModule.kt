@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentFactory
 import com.lauruscorp.core.android.fragment.FragmentBuilder
 import com.lauruscorp.sexifyapp.features.categoriesselection.api.CategoriesSelectionFragment
 import com.lauruscorp.sexifyapp.features.couplenameseditor.api.CoupleNamesEditorFragment
-import com.lauruscorp.sexifyapp.features.game.api.GameFragment
+import com.lauruscorp.sexifyapp.features.game.api.presentation.GameFragment
 import com.lauruscorp.sexifyapp.features.home.api.HomeFragment
 import com.lauruscorp.sexifyapp.features.main.MainChildFragmentsFactory
 import com.lauruscorp.sexifyapp.features.main.di.component.MainActivityComponent
