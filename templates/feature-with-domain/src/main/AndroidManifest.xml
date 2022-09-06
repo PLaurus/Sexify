@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-	xmlns:android="http://schemas.android.com/apk/res/android">
-	
-	<application android:theme="@style/Theme.Material3.DayNight.NoActionBar">
-		
-		<activity
-			android:exported="false"
-			android:label="@string/feature_name"
-			android:launchMode="singleTask"
-			android:name="_M_PACKAGE_1_.presentation._M_NAME_PASCAL_Activity" />
-	
-	</application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+
+        <activity
+            android:name="m_package_1.presentation._M_NAME_PASCAL_Activity"
+            android:exported="false"
+            android:label="@string/feature_name"
+            android:launchMode="singleTask" />
+
+    </application>
 
 </manifest>

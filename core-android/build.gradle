@@ -1,0 +1,13 @@
+plugins {
+    id "com.android.library"
+}
+
+apply from: "$rootProject.projectDir/gradle/common/android-common.gradle"
+
+android {
+    namespace "com.lauruscorp.core_android"
+}
+
+dependencies {
+    api project(":core-jvm")
+}

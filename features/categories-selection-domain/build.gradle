@@ -1,13 +1,13 @@
 plugins {
-	id 'com.android.library'
+    id 'com.android.library'
 }
 
-apply from: "$rootProject.projectDir/gradle/common/common.gradle"
+apply from: "$rootProject.projectDir/gradle/common/android-common.gradle"
 
 android {
-	namespace 'com.lauruscorp.features.categoriesselectiondomain'
+    namespace 'com.lauruscorp.features.categoriesselectiondomain'
 }
 
 dependencies {
-	implementation project(":core")
+    implementation project(':core-android')
 }

@@ -1,0 +1,34 @@
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'kotlin-kapt'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    // Asynchronous programming
+    // https://github.com/Kotlin/kotlinx.coroutines/releases
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+
+    // Reflection
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
+
+    // Dependency injection
+    // https://github.com/google/dagger/releases
+    implementation "com.google.dagger:dagger:2.43.2"
+    kapt "com.google.dagger:dagger-compiler:2.43.2"
+
+    // MVI
+    // https://github.com/arkivanov/MVIKotlin/releases/tag/3.0.2
+    def mviKotlinVersion = "3.0.2"
+    implementation "com.arkivanov.mvikotlin:mvikotlin:$mviKotlinVersion"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-main:$mviKotlinVersion"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-logging:$mviKotlinVersion"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-timetravel:$mviKotlinVersion"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$mviKotlinVersion"
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+}

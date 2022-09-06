@@ -1,9 +1,9 @@
 package com.lauruscorp.features.couplenameseditordomain.api
 
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 
 interface CoupleNamesEditorDomainDependencies {
-	fun getStoreFactory(): StoreFactory
-	fun getCoroutineDispatchers(): CoroutineDispatchers
+    fun getStoreFactory(): StoreFactory
+    fun getCoroutineDispatchers(): CoroutineDispatchers
 }

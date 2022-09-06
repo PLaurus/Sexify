@@ -1,2 +1,0 @@
-Константы приложения:
-	val companyPackage = "com.lauruscorp"

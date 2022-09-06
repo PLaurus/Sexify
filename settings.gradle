@@ -1,29 +1,39 @@
 pluginManagement {
-	repositories {
-		gradlePluginPortal()
-		google()
-		mavenCentral()
-	}
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {
+            url "https://maven.pkg.jetbrains.space/public/p/compose/dev"
+        }
+    }
 }
 
 dependencyResolutionManagement {
-	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-	repositories {
-		google()
-		mavenCentral()
-	}
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://maven.pkg.jetbrains.space/public/p/compose/dev"
+        }
+    }
 }
 
 rootProject.name = "Sexify"
 
 include ':apps:sexify-app'
+include ':apps:sexify-data-editor-app'
 include ':apps:example-app'
 include ':apps:template-generator-app'
 
 include ':templates:domain'
 include ':templates:feature-with-domain'
 
-include ':core'
+include ':core-jvm'
+include ':core-android'
+include ':sexify-domain-core'
 include ':features:example:example-domain'
 include ':features:example:example-feature'
 include ':features:core'

@@ -1,13 +1,13 @@
 plugins {
-	id 'com.android.library'
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
-apply from: "$rootProject.projectDir/gradle/common/common.gradle"
-
-android {
-	namespace 'com.lauruscorp.data'
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 dependencies {
-	implementation project(":core")
+    implementation project(":core-jvm")
 }

@@ -1,19 +1,19 @@
 plugins {
-	id 'com.android.application'
+    id 'com.android.application'
 }
 
-apply from: "$rootProject.projectDir/gradle/common/common.gradle"
+apply from: "$rootProject.projectDir/gradle/common/android-common.gradle"
 
 android {
-	defaultConfig {
-		applicationId "com.lauruscorp.exampleapp"
-	}
+    defaultConfig {
+        applicationId "com.lauruscorp.exampleapp"
+    }
 
-	namespace 'com.lauruscorp.exampleapp'
+    namespace 'com.lauruscorp.exampleapp'
 }
 
 dependencies {
-	implementation project(':core')
-	implementation project(':features:example:example-feature')
-	implementation project(':features:example:example-2-feature')
+    implementation project(':core-android')
+    implementation project(':features:example:example-feature')
+    implementation project(':features:example:example-2-feature')
 }

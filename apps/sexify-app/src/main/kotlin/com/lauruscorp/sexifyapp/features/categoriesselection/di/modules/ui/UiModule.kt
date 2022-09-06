@@ -1,7 +1,7 @@
 package com.lauruscorp.sexifyapp.features.categoriesselection.di.modules.ui
 
 import android.view.View
-import com.lauruscorp.core.ui.ViewBindingUi
+import com.lauruscorp.core_android.ui.ViewBindingUi
 import com.lauruscorp.sexifyapp.databinding.LayoutCategoriesSelectionBinding
 import com.lauruscorp.sexifyapp.features.categoriesselection.ui.CategoriesSelectionUi
 import dagger.Binds
@@ -10,15 +10,15 @@ import dagger.Provides
 
 @Module
 internal abstract class UiModule {
-	@Binds
-	abstract fun provideCategoriesSelectionUi(
-		ui: CategoriesSelectionUi
-	): @JvmSuppressWildcards ViewBindingUi<LayoutCategoriesSelectionBinding>
-	
-	companion object {
-		@Provides
-		fun provideViewBindingProvider(): (view: View) -> LayoutCategoriesSelectionBinding {
-			return LayoutCategoriesSelectionBinding::bind
-		}
-	}
+    @Binds
+    abstract fun provideCategoriesSelectionUi(
+        ui: CategoriesSelectionUi
+    ): @JvmSuppressWildcards ViewBindingUi<LayoutCategoriesSelectionBinding>
+
+    companion object {
+        @Provides
+        fun provideViewBindingProvider(): (view: View) -> LayoutCategoriesSelectionBinding {
+            return LayoutCategoriesSelectionBinding::bind
+        }
+    }
 }
