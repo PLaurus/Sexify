@@ -1,6 +1,5 @@
 package ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
@@ -30,7 +29,7 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun SexifyDataEditorAppTheme(
-    useDarkTheme: Boolean = isSystemInDarkTheme(),
+    useDarkTheme: Boolean = false, // TODO: isSystemInDarkTheme() should be used, but error is thrown
     content: @Composable () -> Unit
 ) {
     val colors = if (useDarkTheme) {

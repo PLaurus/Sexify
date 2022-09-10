@@ -10,11 +10,25 @@ interface HomeStore : Store<HomeStore.Intent, HomeStore.State, HomeStore.Label> 
         ) : Intent
     }
 
+    sealed interface Action {
+        object LoadData : Action
+    }
+
     data class State(
         val searchText: String,
         val tasks: List<Task>,
         val filteredTasks: List<Task>
     )
+
+    sealed interface Message {
+        data class DataIsLoaded(
+            val tasks: List<Task>,
+            val filteredTasks: List<Task>
+        ) : Message
+
+        data class ChangeSearchText(val newText: String) : Message
+        data class FilteredTasksChanged(val newTasks: List<Task>) : Message
+    }
 
     sealed interface Label {
 

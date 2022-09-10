@@ -51,7 +51,7 @@ tasks.withType<KotlinCompile> {
 
 compose.desktop {
     application {
-        mainClass = "application.presentation.MainKt"
+        mainClass = "application.presentation.SexifyDataEditorAppKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "sexify-data-editor-app"
