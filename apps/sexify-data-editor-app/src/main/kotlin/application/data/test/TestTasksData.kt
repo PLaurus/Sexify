@@ -198,7 +198,7 @@ object TestTasksData {
     )
 
     private val task10 = Task(
-        id = 7,
+        id = 10,
         text = """
             Действие 6!
             Стадии: Подготовка, Возбуждение, Предел, Акт;
