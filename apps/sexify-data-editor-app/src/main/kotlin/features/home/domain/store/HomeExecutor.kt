@@ -59,15 +59,11 @@ internal class HomeExecutor @Inject constructor(
         searchText: String
     ): List<Task> {
         return if (searchText.isNotBlank()) {
-            tasks.filter { task ->
-                task.text.analyzeSimilarity(searchText) >= SIMILARITY_RATIO
+            tasks.sortedByDescending { task ->
+                task.text.analyzeSimilarity(searchText)
             }
         } else {
             tasks
         }
-    }
-
-    companion object {
-        private const val SIMILARITY_RATIO = 0.4f
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -125,12 +126,15 @@ private fun TaskCards(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
+    val state = rememberLazyListState()
+
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),
+        state = state,
         contentPadding = contentPadding,
-        verticalArrangement = Arrangement.spacedBy(Dimens.LayoutSpacing8)
+        verticalArrangement = Arrangement.spacedBy(Dimens.LayoutSpacing8),
     ) {
         items(
             items = tasks,
@@ -142,6 +146,10 @@ private fun TaskCards(
                 modifier = Modifier.fillMaxWidth()
             )
         }
+    }
+
+    LaunchedEffect(tasks) {
+        state.scrollToItem(0)
     }
 }
 
