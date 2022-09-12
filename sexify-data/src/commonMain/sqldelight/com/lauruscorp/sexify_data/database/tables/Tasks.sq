@@ -1,0 +1,14 @@
+CREATE TABLE Tasks (
+	id INTEGER NOT NULL PRIMARY KEY,
+	textId INTEGER NOT NULL,
+	taskStageId INTEGER NOT NULL,
+	timer INTEGER AS Int,
+	FOREIGN KEY (textId)
+		REFERENCES TextContent(id)
+			ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+    FOREIGN KEY (taskStageId)
+        REFERENCES TaskStages(id)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT
+);

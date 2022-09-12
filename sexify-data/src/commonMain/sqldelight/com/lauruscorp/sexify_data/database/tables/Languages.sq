@@ -1,0 +1,24 @@
+CREATE TABLE Languages (
+	id TEXT NOT NULL PRIMARY KEY UNIQUE,
+	languageName TEXT NOT NULL UNIQUE
+);
+
+CREATE INDEX laguages_language_name ON Languages(languageName);
+
+INSERT INTO Languages (id, languageName)
+VALUES
+	("en", "English"),
+	("ru", "Russian"),
+	("fr", "French"),
+	("de", "German"),
+	("pt", "Portuguese"),
+	("ko", "Korean"),
+	("it", "Italian"),
+	("ja", "Japanese"),
+	("nl", "Dutch"),
+	("zh", "Chinese (Simplified)");
+
+
+
+
+
