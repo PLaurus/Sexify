@@ -1,4 +1,4 @@
-CREATE TABLE TaskStages (
+CREATE TABLE IF NOT EXISTS TaskStages (
 	id INTEGER NOT NULL PRIMARY KEY,
 	nameTextId INTEGER NOT NULL UNIQUE,
 	descriptionTextId INTEGER,
@@ -7,9 +7,9 @@ CREATE TABLE TaskStages (
 			ON UPDATE CASCADE
             ON DELETE RESTRICT,
     FOREIGN KEY (descriptionTextId)
-            REFERENCES TextContent(id)
-                ON UPDATE CASCADE
-                ON DELETE RESTRICT
+        REFERENCES TextContent(id)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT
 );
 
 INSERT INTO TaskStages (id, nameTextId, descriptionTextId)

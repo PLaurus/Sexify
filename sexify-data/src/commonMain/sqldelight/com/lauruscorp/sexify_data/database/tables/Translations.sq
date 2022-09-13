@@ -1,4 +1,4 @@
-CREATE TABLE Translations (
+CREATE TABLE IF NOT EXISTS Translations (
 	textContentId INTEGER NOT NULL,
 	languageId TEXT NOT NULL,
 	translation TEXT NOT NULL,
@@ -57,4 +57,26 @@ VALUES
 	(3, "it", "Finale"),
 	(3, "ja", "最後の"),
 	(3, "nl", "Laatste"),
-	(3, "zh", "最后");
+	(3, "zh", "最后"),
+
+	(4, "en", "Man"),
+	(4, "ru", "Мужчина"),
+	(4, "fr", "Homme"),
+	(4, "de", "Mann"),
+	(4, "pt", "Cara"),
+	(4, "ko", "남성"),
+	(4, "it", "Uomo"),
+	(4, "ja", "おとこ"),
+	(4, "nl", "Man"),
+	(4, "zh", "男人"),
+
+	(5, "en", "Woman"),
+	(5, "ru", "Женщина"),
+	(5, "fr", "Femme"),
+	(5, "de", "Frau"),
+	(5, "pt", "Mulher"),
+	(5, "ko", "여성"),
+	(5, "it", "Donna"),
+	(5, "ja", "女性"),
+	(5, "nl", "Vrouw"),
+	(5, "zh", "女士");
