@@ -61,6 +61,7 @@ kotlin {
 		
 		val nativeMain by getting {
 			dependencies {
+				implementation("co.touchlab:sqliter-driver:1.2.1")
 				implementation("com.squareup.sqldelight:native-driver:1.5.3")
 			}
 		}
@@ -72,6 +73,8 @@ kotlin {
 		
 		val androidMain by getting {
 			dependencies {
+				// Implementation of the AndroidX SQLite interfaces via the Android framework APIs.
+				implementation("androidx.sqlite:sqlite-framework:2.2.0")
 				implementation("com.squareup.sqldelight:android-driver:1.5.3")
 			}
 		}
@@ -81,8 +84,9 @@ kotlin {
 				implementation("com.squareup.sqldelight:native-driver:1.5.3")
 			}
 			
-			dependsOn(commonMain)
+			dependsOn(nativeMain)
 			iosX64Main.dependsOn(this)
+			iosArm32Main.dependsOn(this)
 			iosArm64Main.dependsOn(this)
 			iosSimulatorArm64Main.dependsOn(this)
 		}
@@ -105,7 +109,7 @@ android {
 }
 
 sqldelight {
-    database("SexifyDatabase") {
+    database("GeneratedDatabaseProxy") {
         packageName = "com.lauruscorp.sexify_data.database"
 	    schemaOutputDirectory = file("src/main/sqldelight/databases")
     }

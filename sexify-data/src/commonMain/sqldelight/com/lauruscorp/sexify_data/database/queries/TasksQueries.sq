@@ -17,10 +17,10 @@ selectTasksBy:
 SELECT *
 FROM Tasks
 INNER JOIN TaskDoerSex ON Tasks.id = TaskDoerSex.taskId
-INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
+INNER JOIN TaskDoerPartnerSex ON Tasks.id = TaskDoerPartnerSex.taskId
 WHERE Tasks.taskStageId = :taskStageId
 	AND TaskDoerSex.sexId = :taskDoerSexSexId
-	AND TaskDoerPatnerSex.sexId = :TaskDoerPatnerSexSexId;
+	AND TaskDoerPartnerSex.sexId = :TaskDoerPatnerSexSexId;
 
 selectTasksByTaskDoerSex:
 SELECT *
@@ -31,8 +31,8 @@ WHERE TaskDoerSex.sexId = :taskDoerSexSexId;
 selectTasksByTaskDoerPatnerSex:
 SELECT *
 FROM Tasks
-INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
-WHERE TaskDoerPatnerSex.sexId = :TaskDoerPatnerSexSexId;
+INNER JOIN TaskDoerPartnerSex ON Tasks.id = TaskDoerPartnerSex.taskId
+WHERE TaskDoerPartnerSex.sexId = :TaskDoerPatnerSexSexId;
 
 insertTask:
 INSERT OR IGNORE INTO Tasks
