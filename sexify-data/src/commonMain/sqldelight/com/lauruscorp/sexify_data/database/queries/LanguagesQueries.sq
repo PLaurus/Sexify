@@ -5,5 +5,5 @@ FROM Languages;
 selectLanguageById:
 SELECT *
 FROM Languages
-WHERE id = ?
+WHERE id = :id
 LIMIT 1;

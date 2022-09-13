@@ -5,49 +5,51 @@ FROM Tasks;
 selectTaskById:
 SELECT *
 FROM Tasks
-WHERE id = ?
+WHERE id = :id
 LIMIT 1;
 
 selectTasksByStageId:
 SELECT *
 FROM Tasks
-WHERE taskStageId = ?;
+WHERE taskStageId = :taskStageId;
 
 selectTasksBy:
 SELECT *
 FROM Tasks
 INNER JOIN TaskDoerSex ON Tasks.id = TaskDoerSex.taskId
 INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
-WHERE Tasks.taskStageId = ? AND TaskDoerSex.sexId = ? AND TaskDoerPatnerSex.sexId = ?;
+WHERE Tasks.taskStageId = :taskStageId
+	AND TaskDoerSex.sexId = :taskDoerSexSexId
+	AND TaskDoerPatnerSex.sexId = :TaskDoerPatnerSexSexId;
 
 selectTasksByTaskDoerSex:
 SELECT *
 FROM Tasks
 INNER JOIN TaskDoerSex ON Tasks.id = TaskDoerSex.taskId
-WHERE TaskDoerSex.sexId = ?;
+WHERE TaskDoerSex.sexId = :taskDoerSexSexId;
 
 selectTasksByTaskDoerPatnerSex:
 SELECT *
 FROM Tasks
 INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
-WHERE TaskDoerPatnerSex.sexId = ?;
+WHERE TaskDoerPatnerSex.sexId = :TaskDoerPatnerSexSexId;
 
 insertTask:
 INSERT OR IGNORE INTO Tasks
-VALUES ?;
+VALUES :task;
 
 insertTaskFields:
 INSERT OR IGNORE INTO Tasks(textId, taskStageId, timer)
-VALUES (?, ?, ?);
+VALUES (:textId, :taskStageId, :timer);
 
 updateTaskById:
 UPDATE OR IGNORE Tasks
 SET
-	textId = ?,
-	taskStageId = ?,
-	timer = ?
-WHERE id = ?;
+	textId = :textId,
+	taskStageId = :taskStageId,
+	timer = :timer
+WHERE id = :id;
 
 deleteTaskById:
 DELETE FROM Tasks
-WHERE id = ?;
+WHERE id = :id;

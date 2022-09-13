@@ -2,16 +2,16 @@ selectTaskDoerSexesByTaskId:
 SELECT *
 FROM TaskDoerSex
 GROUP BY taskId, sexId
-HAVING taskId = ?;
+HAVING taskId = :taskId;
 
 insertTaskDoerSex:
 INSERT OR IGNORE INTO TaskDoerSex
-VALUES ?;
+VALUES :taskDoerSex;
 
 insertTaskDoerSexFields:
 INSERT OR IGNORE INTO TaskDoerSex(taskId, sexId)
-VALUES (?, ?);
+VALUES (:taskId, :sexId);
 
 deleteTaskDoerSex:
 DELETE FROM TaskDoerSex
-WHERE taskId = ? AND sexId = ?;
+WHERE taskId = :taskId AND sexId = :sexId;

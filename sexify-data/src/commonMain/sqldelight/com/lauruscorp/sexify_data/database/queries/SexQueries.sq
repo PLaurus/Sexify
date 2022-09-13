@@ -5,5 +5,5 @@ FROM Sex;
 selectSexById:
 SELECT *
 FROM Sex
-WHERE id = ?
+WHERE id = :id
 LIMIT 1;
