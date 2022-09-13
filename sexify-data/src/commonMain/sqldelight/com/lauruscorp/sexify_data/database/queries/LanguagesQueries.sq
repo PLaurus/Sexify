@@ -1,0 +1,9 @@
+selectAllLanguages:
+SELECT *
+FROM Languages;
+
+selectLanguageById:
+SELECT *
+FROM Languages
+WHERE id = ?
+LIMIT 1;

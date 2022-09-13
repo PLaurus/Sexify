@@ -1,0 +1,28 @@
+selectAllTextContents:
+SELECT *
+FROM TextContent;
+
+selectTextContentById:
+SELECT *
+FROM TextContent
+WHERE id = ?
+LIMIT 1;
+
+insertTextContent:
+INSERT OR IGNORE INTO TextContent
+VALUES ?;
+
+insertTextContentFields:
+INSERT OR IGNORE INTO TextContent(originalText, originalLanguageId)
+VALUES (?, ?);
+
+updateTextContentById:
+UPDATE OR IGNORE TextContent
+SET
+	originalText = ?,
+	originalLanguageId = ?
+WHERE id = ?;
+
+deleteTextContentById:
+DELETE FROM TextContent
+WHERE id = ?;

@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS Translations (
+	id INTEGER NOT NULL PRIMARY KEY,
 	textContentId INTEGER NOT NULL,
 	languageId TEXT NOT NULL,
 	translation TEXT NOT NULL,
-	UNIQUE (textContentId, languageId),
 	FOREIGN KEY (textContentId)
 		REFERENCES TextContent(id)
 			ON UPDATE CASCADE
@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS Translations (
     FOREIGN KEY (languageId)
         REFERENCES Languages(id)
             ON UPDATE CASCADE
-            ON DELETE RESTRICT
+            ON DELETE RESTRICT,
+    UNIQUE (textContentId, languageId)
 );
 
 INSERT INTO Translations (textContentId, languageId, translation)

@@ -1,0 +1,17 @@
+selectTaskDoerSexesByTaskId:
+SELECT *
+FROM TaskDoerSex
+GROUP BY taskId, sexId
+HAVING taskId = ?;
+
+insertTaskDoerSex:
+INSERT OR IGNORE INTO TaskDoerSex
+VALUES ?;
+
+insertTaskDoerSexFields:
+INSERT OR IGNORE INTO TaskDoerSex(taskId, sexId)
+VALUES (?, ?);
+
+deleteTaskDoerSex:
+DELETE FROM TaskDoerSex
+WHERE taskId = ? AND sexId = ?;

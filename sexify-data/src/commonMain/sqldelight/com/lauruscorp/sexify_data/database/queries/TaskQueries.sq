@@ -1,0 +1,53 @@
+selectAllTasks:
+SELECT *
+FROM Tasks;
+
+selectTaskById:
+SELECT *
+FROM Tasks
+WHERE id = ?
+LIMIT 1;
+
+selectTasksByStageId:
+SELECT *
+FROM Tasks
+WHERE taskStageId = ?;
+
+selectTasksBy:
+SELECT *
+FROM Tasks
+INNER JOIN TaskDoerSex ON Tasks.id = TaskDoerSex.taskId
+INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
+WHERE Tasks.taskStageId = ? AND TaskDoerSex.sexId = ? AND TaskDoerPatnerSex.sexId = ?;
+
+selectTasksByTaskDoerSex:
+SELECT *
+FROM Tasks
+INNER JOIN TaskDoerSex ON Tasks.id = TaskDoerSex.taskId
+WHERE TaskDoerSex.sexId = ?;
+
+selectTasksByTaskDoerPatnerSex:
+SELECT *
+FROM Tasks
+INNER JOIN TaskDoerPatnerSex ON Tasks.id = TaskDoerPatnerSex.taskId
+WHERE TaskDoerPatnerSex.sexId = ?;
+
+insertTask:
+INSERT OR IGNORE INTO Tasks
+VALUES ?;
+
+insertTaskFields:
+INSERT OR IGNORE INTO Tasks(textId, taskStageId, timer)
+VALUES (?, ?, ?);
+
+updateTaskById:
+UPDATE OR IGNORE Tasks
+SET
+	textId = ?,
+	taskStageId = ?,
+	timer = ?
+WHERE id = ?;
+
+deleteTaskById:
+DELETE FROM Tasks
+WHERE id = ?;

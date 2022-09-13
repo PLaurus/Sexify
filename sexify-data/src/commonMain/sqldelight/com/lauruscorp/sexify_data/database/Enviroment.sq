@@ -1,0 +1,2 @@
+PRAGMA case_sensitive_like = false;
+PRAGMA foreign_keys = on;

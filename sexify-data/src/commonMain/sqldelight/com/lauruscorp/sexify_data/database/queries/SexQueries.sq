@@ -1,0 +1,9 @@
+selectAllSexes:
+SELECT *
+FROM Sex;
+
+selectSexById:
+SELECT *
+FROM Sex
+WHERE id = ?
+LIMIT 1;

@@ -1,0 +1,64 @@
+selectAllTranslations:
+SELECT *
+FROM Translations;
+
+selectTranslationById:
+SELECT *
+FROM Translations
+WHERE id = :id
+LIMIT 1;
+
+selectTranslationsByTextContentId:
+SELECT *
+FROM Translations
+WHERE textContentId = :textContentId;
+
+selectTranslationBy:
+SELECT *
+FROM Translations
+GROUP BY textContentId, languageId
+HAVING textContentId = :textContentId AND languageId = :languageId
+LIMIT 1;
+
+selectTaskTextTranslationByTaskId:
+SELECT *
+FROM Translations
+INNER JOIN TextContent ON Translations.textContentId = TextContent.id
+INNER JOIN Tasks ON TextContent.id = Tasks.textId
+WHERE Tasks.id = :taskId
+LIMIT 1;
+
+insertTranslation:
+INSERT OR IGNORE INTO Translations
+VALUES :translation;
+
+insertTranslationFields:
+INSERT OR IGNORE INTO Translations(textContentId, languageId, translation)
+VALUES (:textContentId, :languageId, :translation);
+
+updateTranslationById:
+UPDATE OR IGNORE Translations
+SET
+	textContentId = :textContentId,
+	languageId = :languageId,
+	translation = :translation
+WHERE id = :id;
+
+updateTranslationByTextContentId:
+UPDATE OR IGNORE Translations
+SET
+	languageId = :languageId,
+	translation = :translation
+WHERE textContentId = :textContentId;
+
+deleteTranslationById:
+DELETE FROM Translations
+WHERE id = :id;
+
+deleteTranslationsByTextContentId:
+DELETE FROM Translations
+WHERE textContentId = :textContentId;
+
+deleteTranslationsBy:
+DELETE FROM Translations
+WHERE textContentId = :textContentId AND languageId = :languageId;

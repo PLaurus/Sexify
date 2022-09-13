@@ -1,0 +1,9 @@
+selectAllTaskStages:
+SELECT *
+FROM TaskStages;
+
+selectTaskStageById:
+SELECT *
+FROM TaskStages
+WHERE id = ?
+LIMIT 1;
