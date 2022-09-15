@@ -1,9 +1,0 @@
-selectAllLanguages:
-SELECT *
-FROM Languages;
-
-selectLanguageById:
-SELECT *
-FROM Languages
-WHERE id = :id
-LIMIT 1;

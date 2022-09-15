@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import application.di.component.scope.ApplicationScope
 import application.di.modules.coroutines.CoroutinesModule
+import application.di.modules.database.DatabaseModule
 import application.di.modules.features.FeaturesModule
 import application.di.modules.mvikotlin.MviKotlinModule
 import dagger.Component
@@ -13,6 +14,7 @@ import features.home.di.component.dependencies.HomeFeatureDependencies
 @Component(
     modules = [
         CoroutinesModule::class,
+        DatabaseModule::class,
         MviKotlinModule::class,
         FeaturesModule::class
     ]

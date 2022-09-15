@@ -36,7 +36,6 @@ include ':templates:feature-with-domain'
 // Modules (Libraries)
 include ':core-jvm'
 include ':core-android'
-include ':sexify-domain-core'
 include ':features:example:example-domain'
 include ':features:example:example-feature'
 include ':features:core'

@@ -10,7 +10,7 @@ actual class DatabaseDriverFactory(
 ) {
 	actual fun create(): SqlDriver {
 		return MultiplatformDatabaseDriver(
-			schema = GeneratedDatabaseProxy.Schema,
+			schema = SexifyDatabase.Schema,
 			context = context,
 			name = databaseName
 		)

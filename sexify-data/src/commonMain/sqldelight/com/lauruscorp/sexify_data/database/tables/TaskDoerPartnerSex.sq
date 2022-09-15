@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS TaskDoerPartnerSex (
     	taskId INTEGER NOT NULL,
     	sexId INTEGER NOT NULL,
     	FOREIGN KEY (id)
-    		REFERENCES Tasks(id)
+    		REFERENCES Task(id)
     			ON UPDATE CASCADE
     			ON DELETE CASCADE,
     	FOREIGN KEY (sexId)
@@ -12,3 +12,21 @@ CREATE TABLE IF NOT EXISTS TaskDoerPartnerSex (
                 ON DELETE CASCADE,
         UNIQUE (taskId, sexId)
 );
+
+selectTaskDoerPartnerSexesByTaskId:
+SELECT *
+FROM TaskDoerPartnerSex
+GROUP BY taskId, sexId
+HAVING taskId = :taskId;
+
+insertTaskDoerPartnerSex:
+INSERT OR IGNORE INTO TaskDoerPartnerSex
+VALUES ?;
+
+insertTaskDoerPartnerSexFields:
+INSERT OR IGNORE INTO TaskDoerPartnerSex(taskId, sexId)
+VALUES (:taskId, :sexId);
+
+deleteTaskDoerPartnerSex:
+DELETE FROM TaskDoerPartnerSex
+WHERE taskId = :taskId AND sexId = :sexId;

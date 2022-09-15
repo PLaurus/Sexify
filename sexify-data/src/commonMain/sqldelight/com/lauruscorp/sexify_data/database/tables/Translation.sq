@@ -1,0 +1,141 @@
+CREATE TABLE IF NOT EXISTS Translation (
+	id INTEGER NOT NULL PRIMARY KEY,
+	textContentId INTEGER NOT NULL,
+	languageId TEXT NOT NULL,
+	translation TEXT NOT NULL,
+	FOREIGN KEY (textContentId)
+		REFERENCES TextContent(id)
+			ON UPDATE CASCADE
+        	ON DELETE RESTRICT,
+    FOREIGN KEY (languageId)
+        REFERENCES Language(id)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+    UNIQUE (textContentId, languageId)
+);
+
+INSERT INTO Translation (textContentId, languageId, translation)
+VALUES
+	(0, "en", "Preparation"),
+	(0, "ru", "Подготовка"),
+	(0, "fr", "Préparation"),
+	(0, "de", "Vorbereitung"),
+	(0, "pt", "Preparação"),
+	(0, "ko", "준비"),
+	(0, "it", "Preparazione"),
+	(0, "ja", "準備"),
+	(0, "nl", "Voorbereiding"),
+	(0, "zh", "准备"),
+
+	(1, "en", "Excitement"),
+	(1, "ru", "Возбуждение"),
+	(1, "fr", "Excitation"),
+	(1, "de", "Aufregung"),
+	(1, "pt", "Excitação"),
+	(1, "ko", "흥분"),
+	(1, "it", "Eccitazione"),
+	(1, "ja", "興奮"),
+	(1, "nl", "Spanning"),
+	(1, "zh", "激动"),
+
+	(2, "en", "At the limit"),
+	(2, "ru", "На пределе"),
+	(2, "fr", "A la limite"),
+	(2, "de", "An der Grenze"),
+	(2, "pt", "No limite"),
+	(2, "ko", "한계에"),
+	(2, "it", "Al limite"),
+	(2, "ja", "限界で"),
+	(2, "nl", "Op de limiet"),
+	(2, "zh", "在极限"),
+
+	(3, "en", "Final"),
+	(3, "ru", "Финал"),
+	(3, "fr", "Finale"),
+	(3, "de", "Finale"),
+	(3, "pt", "Final"),
+	(3, "ko", "결정적인"),
+	(3, "it", "Finale"),
+	(3, "ja", "最後の"),
+	(3, "nl", "Laatste"),
+	(3, "zh", "最后"),
+
+	(4, "en", "Man"),
+	(4, "ru", "Мужчина"),
+	(4, "fr", "Homme"),
+	(4, "de", "Mann"),
+	(4, "pt", "Cara"),
+	(4, "ko", "남성"),
+	(4, "it", "Uomo"),
+	(4, "ja", "おとこ"),
+	(4, "nl", "Man"),
+	(4, "zh", "男人"),
+
+	(5, "en", "Woman"),
+	(5, "ru", "Женщина"),
+	(5, "fr", "Femme"),
+	(5, "de", "Frau"),
+	(5, "pt", "Mulher"),
+	(5, "ko", "여성"),
+	(5, "it", "Donna"),
+	(5, "ja", "女性"),
+	(5, "nl", "Vrouw"),
+	(5, "zh", "女士");
+
+selectAllTranslations:
+SELECT *
+FROM Translation;
+
+selectTranslationById:
+SELECT *
+FROM Translation
+WHERE id = :id
+LIMIT 1;
+
+selectTranslationsByTextContentId:
+SELECT *
+FROM Translation
+WHERE textContentId = :textContentId;
+
+selectTranslationBy:
+SELECT *
+FROM Translation
+GROUP BY textContentId, languageId
+HAVING textContentId = :textContentId AND languageId = :languageId
+LIMIT 1;
+
+selectTaskTextTranslationByTaskId:
+SELECT Translation.*
+FROM Translation
+INNER JOIN TextContent ON Translation.textContentId = TextContent.id
+INNER JOIN Task ON TextContent.id = Task.textId
+WHERE Task.id = :taskId
+LIMIT 1;
+
+insertTranslationFields:
+INSERT OR IGNORE INTO Translation(textContentId, languageId, translation)
+VALUES (:textContentId, :languageId, :translation);
+
+updateTranslationById:
+UPDATE OR IGNORE Translation
+SET
+	translation = :translation
+WHERE id = :id;
+
+updateTranslationBy:
+UPDATE OR IGNORE Translation
+SET
+	translation = :translation
+WHERE textContentId = :textContentId AND languageId = :languageId;
+
+deleteTranslationById:
+DELETE FROM Translation
+WHERE id = :id;
+
+deleteTranslationsByTextContentId:
+DELETE FROM Translation
+WHERE textContentId = :textContentId;
+
+deleteTranslationsBy:
+DELETE FROM Translation
+WHERE textContentId = :textContentId AND languageId = :languageId;

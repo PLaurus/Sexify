@@ -44,6 +44,7 @@ kotlin {
 			dependencies {
 				implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 				implementation("com.squareup.sqldelight:runtime:1.5.3")
+				implementation("com.squareup.sqldelight:coroutines-extensions:1.5.3")
 			}
 		}
 		
@@ -109,8 +110,8 @@ android {
 }
 
 sqldelight {
-    database("GeneratedDatabaseProxy") {
-        packageName = "com.lauruscorp.sexify_data.database"
-	    schemaOutputDirectory = file("src/main/sqldelight/databases")
-    }
+	database("SexifyDatabase") {
+		packageName = "com.lauruscorp.sexify_data.database"
+		schemaOutputDirectory = file("src/main/sqldelight/databases")
+	}
 }

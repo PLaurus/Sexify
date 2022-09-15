@@ -3,12 +3,12 @@ CREATE TABLE IF NOT EXISTS TextContent (
 	originalText TEXT NOT NULL UNIQUE ,
 	originalLanguageId TEXT NOT NULL DEFAULT "en",
 	FOREIGN KEY (originalLanguageId)
-		REFERENCES Languages (id)
+		REFERENCES Language (id)
 			ON UPDATE CASCADE
 			ON DELETE RESTRICT
 );
 
-CREATE INDEX text_content_original_text ON TextContent(originalText);
+CREATE INDEX IF NOT EXISTS text_content_original_text ON TextContent(originalText);
 
 INSERT INTO TextContent (id, originalText, originalLanguageId)
 VALUES
@@ -19,3 +19,28 @@ VALUES
 
 	(4, "Man", "en"),
 	(5, "Woman", "en");
+
+selectAllTextContents:
+SELECT *
+FROM TextContent;
+
+selectTextContentById:
+SELECT *
+FROM TextContent
+WHERE id = :id
+LIMIT 1;
+
+insertTextContentFields:
+INSERT OR IGNORE INTO TextContent(originalText, originalLanguageId)
+VALUES (:originalText, :originalLanguageId);
+
+updateTextContentById:
+UPDATE OR IGNORE TextContent
+SET
+	originalText = :originalText,
+	originalLanguageId = :originalLanguageId
+WHERE id = :id;
+
+deleteTextContentById:
+DELETE FROM TextContent
+WHERE id = :id;

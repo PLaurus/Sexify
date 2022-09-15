@@ -1,9 +1,0 @@
-selectAllTaskStages:
-SELECT *
-FROM TaskStages;
-
-selectTaskStageById:
-SELECT *
-FROM TaskStages
-WHERE id = :id
-LIMIT 1;

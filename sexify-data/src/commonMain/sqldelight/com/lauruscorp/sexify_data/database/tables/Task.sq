@@ -1,0 +1,69 @@
+CREATE TABLE IF NOT EXISTS Task (
+	id INTEGER NOT NULL PRIMARY KEY,
+	textId INTEGER NOT NULL UNIQUE,
+	taskStageId INTEGER NOT NULL,
+	timer INTEGER AS Int,
+	FOREIGN KEY (textId)
+		REFERENCES TextContent(id)
+			ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+    FOREIGN KEY (taskStageId)
+        REFERENCES TaskStage(id)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT
+);
+
+selectAllTasks:
+SELECT *
+FROM Task;
+
+selectTaskById:
+SELECT *
+FROM Task
+WHERE id = :id
+LIMIT 1;
+
+selectTasksByStageId:
+SELECT *
+FROM Task
+WHERE taskStageId = :taskStageId;
+
+selectTasksBy:
+SELECT Task.*
+FROM Task
+INNER JOIN TaskDoerSex ON Task.id = TaskDoerSex.taskId
+INNER JOIN TaskDoerPartnerSex ON Task.id = TaskDoerPartnerSex.taskId
+WHERE Task.taskStageId = :taskStageId
+	AND TaskDoerSex.sexId = :taskDoerSexSexId
+	AND TaskDoerPartnerSex.sexId = :TaskDoerPatnerSexSexId;
+
+selectTasksByTaskDoerSex:
+SELECT Task.*
+FROM Task
+INNER JOIN TaskDoerSex ON Task.id = TaskDoerSex.taskId
+WHERE TaskDoerSex.sexId = :taskDoerSexSexId;
+
+selectTasksByTaskDoerPartnerSex:
+SELECT Task.*
+FROM Task
+INNER JOIN TaskDoerPartnerSex ON Task.id = TaskDoerPartnerSex.taskId
+WHERE TaskDoerPartnerSex.sexId = :taskDoerPatnerSexSexId;
+
+insertTask:
+INSERT OR IGNORE INTO Task
+VALUES :task;
+
+insertTaskFields:
+INSERT OR IGNORE INTO Task(textId, taskStageId, timer)
+VALUES (:textId, :taskStageId, :timer);
+
+updateTaskById:
+UPDATE OR IGNORE Task
+SET
+	taskStageId = :taskStageId,
+	timer = :timer
+WHERE id = :id;
+
+deleteTaskById:
+DELETE FROM Task
+WHERE id = :id;

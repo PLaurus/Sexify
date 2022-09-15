@@ -6,7 +6,7 @@ import androidx.compose.runtime.remember
 
 @Stable
 class TaskEditorWindowState(
-    val taskId: Int?,
+    val taskId: Long?,
     val onExit: ((state: TaskEditorWindowState) -> Unit)? = null
 ) {
     val isInEditMode: Boolean = taskId != null
@@ -14,7 +14,7 @@ class TaskEditorWindowState(
 
 @Composable
 fun rememberTaskEditorWindowState(
-    taskId: Int? = null,
+    taskId: Long? = null,
     onExit: ((state: TaskEditorWindowState) -> Unit)? = null
 ) = remember {
     TaskEditorWindowState(taskId, onExit)

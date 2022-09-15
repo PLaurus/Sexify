@@ -7,6 +7,7 @@ import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
 import dagger.Component
 import features.home.di.component.dependencies.HomeFeatureDependencies
 import features.home.di.component.scope.HomeFeatureScope
+import features.home.di.modules.repository.HomeRepositoryModule
 import features.home.di.modules.store.HomeStoreModule
 import features.home.domain.store.HomeStore
 
@@ -16,7 +17,8 @@ import features.home.domain.store.HomeStore
         HomeFeatureDependencies::class
     ],
     modules = [
-        HomeStoreModule::class
+        HomeRepositoryModule::class,
+        HomeStoreModule::class,
     ]
 )
 internal interface HomeComponent {

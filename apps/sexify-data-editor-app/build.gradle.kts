@@ -14,7 +14,7 @@ version = "1.0"
 dependencies {
     // Modules
     api(project(":core-jvm"))
-    implementation(project(":sexify-domain-core"))
+    implementation(project(":sexify-data"))
 
     // Asynchronous programming
     // https://github.com/Kotlin/kotlinx.coroutines/releases

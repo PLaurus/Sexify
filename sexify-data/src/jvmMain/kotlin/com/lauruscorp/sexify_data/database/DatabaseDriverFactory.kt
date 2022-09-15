@@ -1,7 +1,6 @@
 package com.lauruscorp.sexify_data.database
 
 import com.lauruscorp.sexify_data.database.utils.MultiplatformDatabaseDriver
-import com.lauruscorp.sexify_data.database.utils.append
 import com.squareup.sqldelight.db.SqlDriver
 import java.nio.file.Path
 import java.util.Properties
@@ -24,7 +23,7 @@ actual class DatabaseDriverFactory(
 	private fun createConnectionString(
 		path: Path
 	): String {
-		val fullPath = path.append(databaseName)
+		val fullPath = path.resolve(databaseName)
 		return "$BASE_CONNECTION_STRING$fullPath"
 	}
 	

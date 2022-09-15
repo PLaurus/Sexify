@@ -1,7 +1,7 @@
 package features.home.domain.store
 
 import com.arkivanov.mvikotlin.core.store.Store
-import com.example.sexify_domain_core.Task
+import features.home.domain.entities.Task
 
 interface HomeStore : Store<HomeStore.Intent, HomeStore.State, HomeStore.Label> {
     sealed interface Intent {

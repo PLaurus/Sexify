@@ -1,17 +1,18 @@
 package features.home.domain.store
 
-import application.data.test.TestTasksData
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.example.sexify_domain_core.Task
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 import com.lauruscorp.core_jvm.similarity.analyzeSimilarity
+import features.home.domain.entities.Task
+import features.home.domain.repository.TasksRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 internal class HomeExecutor @Inject constructor(
-    private val coroutineDispatchers: CoroutineDispatchers
+    private val coroutineDispatchers: CoroutineDispatchers,
+    private val tasksRepository: TasksRepository,
 ) : CoroutineExecutor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, HomeStore.Label>(
     mainContext = coroutineDispatchers.main
 ) {
@@ -31,15 +32,18 @@ internal class HomeExecutor @Inject constructor(
     }
 
     private fun loadData(getState: () -> HomeStore.State) {
-        scope.launch(coroutineDispatchers.io) {
-            val tasks = TestTasksData.tasks
-            val filteredTasks = withContext(Dispatchers.Default) {
-                searchTasksByText(
-                    tasks = tasks,
-                    searchText = getState().searchText
-                )
-            }
-            dispatch(HomeStore.Message.DataIsLoaded(tasks, filteredTasks))
+        scope.launch {
+            tasksRepository.getTasksFlow("ru")
+                .collect { tasks ->
+                    val filteredTasks = withContext(Dispatchers.Default) {
+                        searchTasksByText(
+                            tasks = tasks,
+                            searchText = getState().searchText
+                        )
+                    }
+                
+                    dispatch(HomeStore.Message.DataIsLoaded(tasks, filteredTasks))
+                }
         }
     }
 

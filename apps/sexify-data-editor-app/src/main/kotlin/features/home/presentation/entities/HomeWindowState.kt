@@ -1,10 +1,15 @@
 package features.home.presentation.entities
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.arkivanov.mvikotlin.extensions.coroutines.states
-import com.example.sexify_domain_core.Task
 import features.home.di.component.HomeComponent
 import features.home.di.component.dependencies.HomeFeatureDependencies
+import features.home.domain.entities.Task
 import features.home.domain.store.HomeStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -13,7 +18,7 @@ import kotlinx.coroutines.launch
 class HomeWindowState(
     dependencies: HomeFeatureDependencies,
     val scope: CoroutineScope,
-    val onTaskCardClicked: (taskId: Int) -> Unit = {},
+    val onTaskCardClicked: (taskId: Long) -> Unit = {},
     val onAddTaskClicked: () -> Unit = {},
     val onCloseRequest: () -> Unit = {}
 ) {
@@ -54,7 +59,7 @@ class HomeWindowState(
 fun rememberHomeWindowState(
     dependencies: HomeFeatureDependencies,
     scope: CoroutineScope,
-    onTaskCardClicked: (taskId: Int) -> Unit = {},
+    onTaskCardClicked: (taskId: Long) -> Unit = {},
     onAddTaskClicked: () -> Unit = {},
     onCloseRequest: () -> Unit = {}
 ) = remember {

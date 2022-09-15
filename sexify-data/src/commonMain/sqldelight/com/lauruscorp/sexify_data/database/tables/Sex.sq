@@ -11,3 +11,13 @@ INSERT INTO Sex (id, nameTextId)
 VALUES
 	(0, 4),
 	(1, 5);
+
+selectAllSexes:
+SELECT *
+FROM Sex;
+
+selectSexById:
+SELECT *
+FROM Sex
+WHERE id = :id
+LIMIT 1;
