@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import application.presentation.values.Dimens
 import application.presentation.values.strings.StringsRu
-import features.home.data.repository.SampleDataRepository
-import features.home.domain.entities.Task
+import features.home.data.repository.HomeSampleDataRepository
+import features.home.domain.entities.HomeTask
 import features.home.presentation.entities.HomeWindowState
 import ui.theme.SexifyDataEditorAppTheme
 
@@ -64,7 +64,7 @@ fun HomeWindow(
 private fun HomeWindowContent(
     searchText: String,
     onSearchTextChange: (String) -> Unit,
-    tasks: List<Task>,
+    tasks: List<HomeTask>,
     onTaskCardClicked: (taskId: Long) -> Unit,
     onAddTaskClicked: () -> Unit,
     modifier: Modifier = Modifier
@@ -110,7 +110,7 @@ private fun HomeScreenContentPreview() {
             onSearchTextChange = {
                 searchText = it
             },
-            tasks = SampleDataRepository.getTasks(),
+            tasks = HomeSampleDataRepository.getTasks(),
             onTaskCardClicked = {},
             onAddTaskClicked = {}
         )
@@ -137,7 +137,7 @@ private fun SearchField(
 
 @Composable
 private fun TaskCards(
-    tasks: List<Task>,
+    tasks: List<HomeTask>,
     onTaskCardClicked: (taskId: Long) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
@@ -185,7 +185,7 @@ private fun CreateTaskButton(
 
 @Composable
 private fun TaskCard(
-    task: Task,
+    task: HomeTask,
     onClicked: (taskId: Long) -> Unit,
     modifier: Modifier = Modifier
 ) {

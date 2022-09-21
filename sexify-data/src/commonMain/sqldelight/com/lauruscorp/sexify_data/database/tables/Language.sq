@@ -28,6 +28,15 @@ FROM Language
 WHERE id = :id
 LIMIT 1;
 
+insertLanguage:
+INSERT OR REPLACE INTO Language(id, languageName)
+VALUES (:id, :languageName);
+
+updateLanguageById:
+UPDATE OR IGNORE Language
+SET languageName = :languageName
+WHERE id = :id;
+
 
 
 

@@ -3,7 +3,7 @@ package features.home.domain.store
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 import com.lauruscorp.core_jvm.similarity.analyzeSimilarity
-import features.home.domain.entities.Task
+import features.home.domain.entities.HomeTask
 import features.home.domain.repository.TasksRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -57,11 +57,11 @@ internal class HomeExecutor @Inject constructor(
             dispatch(HomeStore.Message.FilteredTasksChanged(newTasks = filteredTasks))
         }
     }
-
+    
     private fun searchTasksByText(
-        tasks: List<Task>,
+        tasks: List<HomeTask>,
         searchText: String
-    ): List<Task> {
+    ): List<HomeTask> {
         return if (searchText.isNotBlank()) {
             tasks.sortedByDescending { task ->
                 task.text.analyzeSimilarity(searchText)

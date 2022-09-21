@@ -8,22 +8,13 @@ import com.lauruscorp.sexify_data.database.SexifyDatabase
 import com.squareup.sqldelight.db.SqlDriver
 import java.nio.file.Path
 import javax.inject.Inject
-import kotlin.io.path.createDirectories
-import kotlin.io.path.notExists
 
 class SexifyDatabaseFactory @Inject constructor(
 	@SexifyDatabasePathQualifier private val dbFilePath: Path,
 	@SexifyDatabaseFileNameQualifier private val dbFileName: String
 ) {
-	private val fullPath = dbFilePath.resolve(dbFileName)
-	
 	fun create(): SexifyDatabase {
 		val driver = createDriver()
-		
-		if (fullPath.notExists()) {
-			dbFilePath.createDirectories()
-			SexifyDatabase.Schema.create(driver)
-		}
 		
 		return SafeSexifyDatabase(driver)
 	}

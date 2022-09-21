@@ -9,7 +9,7 @@ import androidx.compose.runtime.setValue
 import com.arkivanov.mvikotlin.extensions.coroutines.states
 import features.home.di.component.HomeComponent
 import features.home.di.component.dependencies.HomeFeatureDependencies
-import features.home.domain.entities.Task
+import features.home.domain.entities.HomeTask
 import features.home.domain.store.HomeStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -30,13 +30,13 @@ class HomeWindowState(
     private var _searchText by mutableStateOf(initialStoreState.searchText)
     val searchText: String
         get() = _searchText
-
+    
     private var _tasks by mutableStateOf(initialStoreState.tasks)
-    val tasks: List<Task>
+    val tasks: List<HomeTask>
         get() = _tasks
-
+    
     private var _filteredTasks by mutableStateOf(initialStoreState.filteredTasks)
-    val filteredTasks: List<Task>
+    val filteredTasks: List<HomeTask>
         get() = _filteredTasks
 
     init {

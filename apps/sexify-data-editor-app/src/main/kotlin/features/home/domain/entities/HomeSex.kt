@@ -1,6 +1,6 @@
 package features.home.domain.entities
 
-enum class Sex {
+enum class HomeSex {
 	Man,
 	Woman
 }

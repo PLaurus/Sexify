@@ -1,11 +1,11 @@
 package features.home.domain.entities
 
-data class Task(
+data class HomeTask(
 	val id: Long,
 	val text: String,
 	val stage: Stage,
-	val doerSexes: List<Sex>,
-	val partnerSexes: List<Sex>,
+	val doerSexes: List<HomeSex>,
+	val partnerSexes: List<HomeSex>,
 	val timerSec: Int? = null
 ) {
 	data class Stage(

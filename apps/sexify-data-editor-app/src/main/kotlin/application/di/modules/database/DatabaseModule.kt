@@ -1,10 +1,12 @@
 package application.di.modules.database
 
-import application.data.database.SexifyDatabaseFactory
 import application.di.component.scope.ApplicationScope
 import application.di.modules.database.qualifiers.SexifyDatabaseFileNameQualifier
 import application.di.modules.database.qualifiers.SexifyDatabasePathQualifier
+import com.lauruscorp.sexify_data.database.DatabaseDriverFactory
+import com.lauruscorp.sexify_data.database.SafeSexifyDatabase
 import com.lauruscorp.sexify_data.database.SexifyDatabase
+import com.squareup.sqldelight.db.SqlDriver
 import dagger.Module
 import dagger.Provides
 import java.nio.file.Path
@@ -15,9 +17,27 @@ internal class DatabaseModule {
 	@ApplicationScope
 	@Provides
 	fun provideSexifyDatabase(
-		sexifyDatabaseFactory: SexifyDatabaseFactory
+		sqlDriver: SqlDriver
 	): SexifyDatabase {
-		return sexifyDatabaseFactory.create()
+		return SafeSexifyDatabase(sqlDriver)
+	}
+	
+	@Provides
+	fun provideSqlDriver(
+		databaseDriverFactory: DatabaseDriverFactory
+	): SqlDriver {
+		return databaseDriverFactory.create()
+	}
+	
+	@Provides
+	fun provideDatabaseDriverFactory(
+		@SexifyDatabasePathQualifier dbFilePath: Path,
+		@SexifyDatabaseFileNameQualifier dbFileName: String
+	): DatabaseDriverFactory {
+		return DatabaseDriverFactory(
+			path = dbFilePath,
+			databaseName = dbFileName
+		)
 	}
 	
 	@Provides

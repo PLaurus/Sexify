@@ -15,10 +15,7 @@ VALUES
 	(0, "Preparation", "en"),
 	(1, "Excitement", "en"),
 	(2, "At the limit", "en"),
-	(3, "Final", "en"),
-
-	(4, "Man", "en"),
-	(5, "Woman", "en");
+	(3, "Final", "en");
 
 selectAllTextContents:
 SELECT *

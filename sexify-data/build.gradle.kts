@@ -62,6 +62,8 @@ kotlin {
 		
 		val nativeMain by getting {
 			dependencies {
+				// SQLite driver for Kotlin Native. SQLiter powers the SQLDelight library on native clients.
+				// https://github.com/touchlab/SQLiter/releases
 				implementation("co.touchlab:sqliter-driver:1.2.1")
 				implementation("com.squareup.sqldelight:native-driver:1.5.3")
 			}
@@ -112,6 +114,5 @@ android {
 sqldelight {
 	database("SexifyDatabase") {
 		packageName = "com.lauruscorp.sexify_data.database"
-		schemaOutputDirectory = file("src/main/sqldelight/databases")
 	}
 }

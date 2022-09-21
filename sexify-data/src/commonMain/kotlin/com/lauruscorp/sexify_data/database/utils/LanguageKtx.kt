@@ -32,3 +32,17 @@ fun SexifyDatabase.flowSelectLanguageById(
 		.asFlow()
 		.mapToOneOrNull()
 }
+
+fun SexifyDatabase.insertLanguage(
+	id: String,
+	name: String
+) {
+	languageQueries.insertLanguage(id = id, languageName = name)
+}
+
+fun SexifyDatabase.updateLanguageById(
+	id: String,
+	languageName: String
+) {
+	languageQueries.updateLanguageById(languageName, id)
+}

@@ -10,8 +10,8 @@ import com.lauruscorp.sexify_data.database.utils.getName
 import com.lauruscorp.sexify_data.database.utils.getTaskStage
 import com.lauruscorp.sexify_data.database.utils.getText
 import com.lauruscorp.sexify_data.database.utils.selectAllTasks
-import features.home.data.mapping.toSex
-import features.home.domain.entities.Task
+import features.home.data.mapping.toHomeSex
+import features.home.domain.entities.HomeTask
 import features.home.domain.repository.TasksRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -21,20 +21,20 @@ import javax.inject.Inject
 
 private typealias DbTask = com.lauruscorp.sexifydata.database.tables.Task
 
-class TasksRepositoryImpl @Inject constructor(
+internal class TasksRepositoryImpl @Inject constructor(
 	private val database: SexifyDatabase,
 	private val coroutineDispatchers: CoroutineDispatchers
 ) : TasksRepository {
 	override suspend fun getTasks(
 		languageId: String
-	): List<Task> = withContext(coroutineDispatchers.io) {
+	): List<HomeTask> = withContext(coroutineDispatchers.io) {
 		database.transactionWithResult {
 			database.selectAllTasks()
 				.mapNotNull { it.toDomainTask(languageId, useTransaction = false) }
 		}
 	}
 	
-	override fun getTasksFlow(languageId: String): Flow<List<Task>> {
+	override fun getTasksFlow(languageId: String): Flow<List<HomeTask>> {
 		return database.flowSelectAllTasks()
 			.map { dbTasks ->
 				database.transactionWithResult {
@@ -47,24 +47,24 @@ class TasksRepositoryImpl @Inject constructor(
 	private fun DbTask.toDomainTask(
 		languageId: String,
 		useTransaction: Boolean = true
-	): Task? {
-		fun map(): Task? {
+	): HomeTask? {
+		fun map(): HomeTask? {
 			val dbTaskStage = getTaskStage(database) ?: return null
 			
-			return Task(
+			return HomeTask(
 				id = id,
 				text = getText(database, languageId) ?: return null,
-				stage = Task.Stage(
+				stage = HomeTask.Stage(
 					id = dbTaskStage.id,
 					name = dbTaskStage.getName(database, languageId) ?: return null,
 					description = dbTaskStage.getDescription(database, languageId)
 				),
 				doerSexes = getDoerSexes(database)
-					.mapNotNull { it.toSex() }
+					.mapNotNull { it.toHomeSex() }
 					.ifEmpty { null }
 					?: return null,
 				partnerSexes = getDoerPartnerSexes(database)
-					.mapNotNull { it.toSex() }
+					.mapNotNull { it.toHomeSex() }
 					.ifEmpty { null }
 					?: return null
 			)

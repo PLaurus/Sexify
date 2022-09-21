@@ -1,25 +1,34 @@
 package features.task_editor.presentation
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.*
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import application.presentation.values.Dimens
 import application.presentation.values.strings.StringsRu
 import features.task_editor.presentation.entities.TaskEditorWindowState
-import features.task_editor.presentation.entities.rememberTaskEditorWindowState
 import ui.theme.SexifyDataEditorAppTheme
 
 @Composable
 fun TaskEditorWindow(
-    state: TaskEditorWindowState = rememberTaskEditorWindowState()
+    state: TaskEditorWindowState
 ) {
     Window(
         onCloseRequest = { state.onExit?.invoke(state) },
@@ -30,7 +39,7 @@ fun TaskEditorWindow(
                 .fillMaxSize()
         ) {
             TaskEditorWindowContent(
-                isEditing = state.isInEditMode,
+                state = state,
                 onDeleteTaskClicked = {
                     TODO("Not yet implemented")
                 },
@@ -42,8 +51,8 @@ fun TaskEditorWindow(
 }
 
 @Composable
-fun TaskEditorWindowContent(
-    isEditing: Boolean,
+private fun TaskEditorWindowContent(
+    state: TaskEditorWindowState,
     onDeleteTaskClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -54,11 +63,11 @@ fun TaskEditorWindowContent(
             TopAppBar(
                 title = {
                     Text(
-                        text = getWindowTitle(isEditing)
+                        text = getWindowTitle(isInEditMode = state.isInEditMode)
                     )
                 },
                 actions = {
-                    if (isEditing) {
+                    if (state.isInEditMode) {
                         DeleteTaskButton(
                             onClick = onDeleteTaskClicked
                         )
@@ -70,9 +79,15 @@ fun TaskEditorWindowContent(
         LazyColumn(
             modifier = Modifier
                 .padding(it)
-                .padding(Dimens.LayoutSpacing8)
+                .padding(Dimens.LayoutSpacing8),
+            verticalArrangement = Arrangement.spacedBy(Dimens.LayoutSpacing8)
         ) {
-
+            idTextItem(id = state.id)
+            originalTextFieldItem(
+                languageTag = state.originalTextLanguageTag,
+                text = state.originalText,
+                onTextChange = state::updateOriginalText
+            )
         }
 
     }
@@ -82,10 +97,7 @@ fun TaskEditorWindowContent(
 @Composable
 fun TaskEditorWindowContentPreview() {
     SexifyDataEditorAppTheme {
-        TaskEditorWindowContent(
-            isEditing = true,
-            onDeleteTaskClicked = {}
-        )
+        TODO("Not implemented yet")
     }
 }
 
@@ -101,6 +113,58 @@ fun DeleteTaskButton(
         Icon(
             imageVector = Icons.Default.Delete,
             contentDescription = null
+        )
+    }
+}
+
+private fun LazyListScope.idTextItem(
+    id: Long?
+) {
+    if (id != null) {
+        item {
+            IdText(id, Modifier.fillMaxWidth())
+        }
+    }
+}
+
+@Composable
+private fun IdText(
+    id: Long,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = "Id: $id",
+        modifier = modifier
+    )
+}
+
+private fun LazyListScope.originalTextFieldItem(
+    languageTag: String,
+    text: String,
+    onTextChange: (text: String) -> Unit
+) {
+    item {
+        OriginalTextField(languageTag, text, onTextChange, modifier = Modifier.fillMaxWidth())
+    }
+}
+
+@Composable
+private fun OriginalTextField(
+    languageTag: String,
+    text: String,
+    onTextChange: (text: String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens.LayoutSpacing8)
+    ) {
+        Text(text = "Текст по умолчанию ($languageTag):")
+        TextField(
+            value = text,
+            onValueChange = onTextChange,
+            modifier = Modifier.weight(1f)
         )
     }
 }
