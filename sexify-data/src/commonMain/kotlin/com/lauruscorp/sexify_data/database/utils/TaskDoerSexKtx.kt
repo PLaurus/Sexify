@@ -49,15 +49,17 @@ fun SexifyDatabase.flowSelectTaskDoerSexesByTaskId(
 
 fun SexifyDatabase.insertTaskDoerSex(
 	sex: TaskDoerSex
-) {
+): Long? {
 	taskDoerSexQueries.insertTaskDoerSex(sex)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.insertTaskDoerSexFields(
 	taskId: Long,
 	sexId: Long
-) {
+): Long? {
 	taskDoerSexQueries.insertTaskDoerSexFields(taskId, sexId)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.deleteTaskDoerSex(
@@ -65,4 +67,10 @@ fun SexifyDatabase.deleteTaskDoerSex(
 	sexId: Long
 ) {
 	taskDoerSexQueries.deleteTaskDoerSex(taskId, sexId)
+}
+
+fun SexifyDatabase.deleteTaskDoerSexesByTaskId(
+	taskId: Long
+) {
+	taskDoerSexQueries.deleteTaskDoerSexesByTaskId(taskId)
 }

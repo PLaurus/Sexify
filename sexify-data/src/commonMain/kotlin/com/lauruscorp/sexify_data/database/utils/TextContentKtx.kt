@@ -46,11 +46,15 @@ fun SexifyDatabase.flowSelectTextContentById(
 		.mapToOneOrNull()
 }
 
+/**
+ * @return inserted row id
+ */
 fun SexifyDatabase.insertTextContentFields(
 	originalText: String,
 	originalLanguageId: String
-) {
-	return textContentQueries.insertTextContentFields(originalText, originalLanguageId)
+): Long? {
+	textContentQueries.insertTextContentFields(originalText, originalLanguageId)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.updateTextContentById(

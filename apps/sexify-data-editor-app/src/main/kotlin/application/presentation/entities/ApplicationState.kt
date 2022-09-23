@@ -52,7 +52,7 @@ internal class ApplicationState(
                 dependencies = applicationComponent.getTaskEditorFeatureDependencies(),
                 scope = scope,
                 taskId = taskId,
-                onExit = _taskEditorWindowStates::remove
+                onCloseRequest = _taskEditorWindowStates::remove
             )
         )
     }

@@ -43,6 +43,7 @@ dependencies {
 
     // UI
     implementation(compose.desktop.currentOs)
+    implementation(compose.materialIconsExtended)
 }
 
 tasks.withType<KotlinCompile> {

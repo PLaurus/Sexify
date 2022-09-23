@@ -108,6 +108,15 @@ object TaskEditorSampleDataRepository {
 		)
 	}
 	
+	fun getAvailableTaskStages(): List<Task.Stage> {
+		return listOf(
+			Stages.Preparation,
+			Stages.Excitement,
+			Stages.AtTheLimit,
+			Stages.Final
+		)
+	}
+	
 	object Stages {
 		val Preparation = Task.Stage(
 			id = 0,

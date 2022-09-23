@@ -20,13 +20,17 @@ GROUP BY taskId, sexId
 HAVING taskId = :taskId;
 
 insertTaskDoerPartnerSex:
-INSERT OR IGNORE INTO TaskDoerPartnerSex
+INSERT OR ABORT INTO TaskDoerPartnerSex
 VALUES ?;
 
 insertTaskDoerPartnerSexFields:
-INSERT OR IGNORE INTO TaskDoerPartnerSex(taskId, sexId)
+INSERT OR ABORT INTO TaskDoerPartnerSex(taskId, sexId)
 VALUES (:taskId, :sexId);
 
 deleteTaskDoerPartnerSex:
 DELETE FROM TaskDoerPartnerSex
 WHERE taskId = :taskId AND sexId = :sexId;
+
+deleteTaskDoerPartnerSexesByTaskId:
+DELETE FROM TaskDoerPartnerSex
+WHERE taskId = :taskId;

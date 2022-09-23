@@ -13,7 +13,7 @@ import javax.inject.Inject
 internal class HomeExecutor @Inject constructor(
     private val coroutineDispatchers: CoroutineDispatchers,
     private val tasksRepository: TasksRepository,
-) : CoroutineExecutor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, HomeStore.Label>(
+) : CoroutineExecutor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, Any>(
     mainContext = coroutineDispatchers.main
 ) {
     override fun executeAction(action: HomeStore.Action, getState: () -> HomeStore.State) {
@@ -54,7 +54,7 @@ internal class HomeExecutor @Inject constructor(
                 tasks = getState().tasks,
                 searchText = newText
             )
-            dispatch(HomeStore.Message.FilteredTasksChanged(newTasks = filteredTasks))
+            dispatch(HomeStore.Message.ChangeSortedTasks(newTasks = filteredTasks))
         }
     }
     

@@ -52,7 +52,7 @@ fun HomeWindow(
             HomeWindowContent(
                 searchText = state.searchText,
                 onSearchTextChange = state::changeSearchText,
-                tasks = state.filteredTasks,
+                tasks = state.sortedTasks,
                 onTaskCardClicked = state.onTaskCardClicked,
                 onAddTaskClicked = state.onAddTaskClicked
             )

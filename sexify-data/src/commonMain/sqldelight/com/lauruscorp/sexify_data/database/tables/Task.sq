@@ -50,16 +50,17 @@ INNER JOIN TaskDoerPartnerSex ON Task.id = TaskDoerPartnerSex.taskId
 WHERE TaskDoerPartnerSex.sexId = :taskDoerPatnerSexSexId;
 
 insertTask:
-INSERT OR IGNORE INTO Task
+INSERT OR ABORT INTO Task
 VALUES :task;
 
 insertTaskFields:
-INSERT OR IGNORE INTO Task(textId, taskStageId, timer)
+INSERT OR ABORT INTO Task(textId, taskStageId, timer)
 VALUES (:textId, :taskStageId, :timer);
 
 updateTaskById:
-UPDATE OR IGNORE Task
+UPDATE OR ABORT Task
 SET
+	textId = :textId,
 	taskStageId = :taskStageId,
 	timer = :timer
 WHERE id = :id;

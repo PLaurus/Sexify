@@ -20,5 +20,5 @@ WHERE enumName = :enumName
 LIMIT 1;
 
 insertSex:
-INSERT OR IGNORE INTO Sex(enumName)
+INSERT OR ABORT INTO Sex(enumName)
 VALUES (:enumName);

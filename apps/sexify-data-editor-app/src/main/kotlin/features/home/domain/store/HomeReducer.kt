@@ -5,18 +5,20 @@ import javax.inject.Inject
 
 internal class HomeReducer @Inject constructor(
 ) : Reducer<HomeStore.State, HomeStore.Message> {
-    override fun HomeStore.State.reduce(msg: HomeStore.Message): HomeStore.State {
-        return when (msg) {
-            is HomeStore.Message.DataIsLoaded -> copy(
-                tasks = msg.tasks,
-                filteredTasks = msg.filteredTasks
-            )
-            is HomeStore.Message.ChangeSearchText -> copy(
-                searchText = msg.newText
-            )
-            is HomeStore.Message.FilteredTasksChanged -> copy(
-                filteredTasks = msg.newTasks
-            )
-        }
-    }
+	override fun HomeStore.State.reduce(
+		msg: HomeStore.Message
+	): HomeStore.State {
+		return when (msg) {
+			is HomeStore.Message.DataIsLoaded -> copy(
+				tasks = msg.tasks,
+				sortedTasks = msg.sortedTasks
+			)
+			is HomeStore.Message.ChangeSearchText -> copy(
+				searchText = msg.newText
+			)
+			is HomeStore.Message.ChangeSortedTasks -> copy(
+				sortedTasks = msg.newTasks
+			)
+		}
+	}
 }

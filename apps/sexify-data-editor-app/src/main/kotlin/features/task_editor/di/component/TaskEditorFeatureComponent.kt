@@ -8,10 +8,8 @@ import dagger.Component
 import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
 import features.task_editor.di.component.qualifiers.TaskEditorTaskIdQualifier
 import features.task_editor.di.component.scope.TaskEditorFeatureScope
-import features.task_editor.di.modules.repository.RepositoryModule
 import features.task_editor.di.modules.res.strings.StringsModule
 import features.task_editor.di.modules.store.TaskEditorStoreModule
-import features.task_editor.di.modules.task_editor_mode.TaskEditorModeModule
 import features.task_editor.domain.store.TaskEditorStore
 
 @TaskEditorFeatureScope
@@ -20,9 +18,7 @@ import features.task_editor.domain.store.TaskEditorStore
 		TaskEditorFeatureDependencies::class
 	],
 	modules = [
-		RepositoryModule::class,
 		TaskEditorStoreModule::class,
-		TaskEditorModeModule::class,
 		StringsModule::class
 	]
 )

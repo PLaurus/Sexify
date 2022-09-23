@@ -9,7 +9,6 @@ import androidx.compose.runtime.setValue
 import com.arkivanov.mvikotlin.extensions.coroutines.states
 import features.home.di.component.HomeComponent
 import features.home.di.component.dependencies.HomeFeatureDependencies
-import features.home.domain.entities.HomeTask
 import features.home.domain.store.HomeStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -23,29 +22,26 @@ class HomeWindowState(
     val onCloseRequest: () -> Unit = {}
 ) {
     private val homeComponent = HomeComponent(dependencies)
-
+    
     private val homeStore = homeComponent.getHomeStore()
     private val initialStoreState = homeComponent.getHomeStoreInitialState()
-
-    private var _searchText by mutableStateOf(initialStoreState.searchText)
-    val searchText: String
-        get() = _searchText
     
-    private var _tasks by mutableStateOf(initialStoreState.tasks)
-    val tasks: List<HomeTask>
-        get() = _tasks
+    var searchText by mutableStateOf(initialStoreState.searchText)
+        private set
     
-    private var _filteredTasks by mutableStateOf(initialStoreState.filteredTasks)
-    val filteredTasks: List<HomeTask>
-        get() = _filteredTasks
-
+    var tasks by mutableStateOf(initialStoreState.tasks)
+        private set
+    
+    var sortedTasks by mutableStateOf(initialStoreState.sortedTasks)
+        private set
+    
     init {
         scope.launch {
             homeStore.states
                 .collect { state ->
-                    _searchText = state.searchText
-                    _tasks = state.tasks
-                    _filteredTasks = state.filteredTasks
+                    searchText = state.searchText
+                    tasks = state.tasks
+                    sortedTasks = state.sortedTasks
                 }
         }
     }

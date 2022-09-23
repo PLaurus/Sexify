@@ -91,17 +91,17 @@ WHERE Task.id = :taskId
 LIMIT 1;
 
 insertTranslationFields:
-INSERT OR IGNORE INTO Translation(textContentId, languageId, translation)
+INSERT OR ABORT INTO Translation(textContentId, languageId, translation)
 VALUES (:textContentId, :languageId, :translation);
 
 updateTranslationById:
-UPDATE OR IGNORE Translation
+UPDATE OR ABORT Translation
 SET
 	translation = :translation
 WHERE id = :id;
 
 updateTranslationBy:
-UPDATE OR IGNORE Translation
+UPDATE OR ABORT Translation
 SET
 	translation = :translation
 WHERE textContentId = :textContentId AND languageId = :languageId;

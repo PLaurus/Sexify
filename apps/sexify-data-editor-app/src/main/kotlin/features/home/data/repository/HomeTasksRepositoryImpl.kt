@@ -60,13 +60,9 @@ internal class TasksRepositoryImpl @Inject constructor(
 					description = dbTaskStage.getDescription(database, languageId)
 				),
 				doerSexes = getDoerSexes(database)
-					.mapNotNull { it.toHomeSex() }
-					.ifEmpty { null }
-					?: return null,
+					.mapNotNull { it.toHomeSex() },
 				partnerSexes = getDoerPartnerSexes(database)
 					.mapNotNull { it.toHomeSex() }
-					.ifEmpty { null }
-					?: return null
 			)
 		}
 		

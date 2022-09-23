@@ -1,6 +1,11 @@
 package features.home.di.modules.store
 
-import com.arkivanov.mvikotlin.core.store.*
+import com.arkivanov.mvikotlin.core.store.Bootstrapper
+import com.arkivanov.mvikotlin.core.store.Executor
+import com.arkivanov.mvikotlin.core.store.Reducer
+import com.arkivanov.mvikotlin.core.store.SimpleBootstrapper
+import com.arkivanov.mvikotlin.core.store.Store
+import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
 import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
 import dagger.Binds
@@ -22,17 +27,17 @@ internal abstract class HomeStoreModule {
             @StoreNameQualifier storeName: String,
             @InitialStateQualifier initialState: HomeStore.State,
             bootstrapper: @JvmSuppressWildcards Bootstrapper<HomeStore.Action>,
-            executorProvider: @JvmSuppressWildcards Provider<Executor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, HomeStore.Label>>,
+            executorProvider: @JvmSuppressWildcards Provider<Executor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, Any>>,
             reducer: @JvmSuppressWildcards Reducer<HomeStore.State, HomeStore.Message>
         ): HomeStore {
             return object : HomeStore,
-                Store<HomeStore.Intent, HomeStore.State, HomeStore.Label> by storeFactory.create(
-                    name = storeName,
-                    initialState = initialState,
-                    bootstrapper = bootstrapper,
-                    executorFactory = executorProvider::get,
-                    reducer = reducer
-                ) {}
+                            Store<HomeStore.Intent, HomeStore.State, Any> by storeFactory.create(
+                                name = storeName,
+                                initialState = initialState,
+                                bootstrapper = bootstrapper,
+                                executorFactory = executorProvider::get,
+                                reducer = reducer
+                            ) {}
         }
 
         @Provides
@@ -47,7 +52,7 @@ internal abstract class HomeStoreModule {
             return HomeStore.State(
                 searchText = "",
                 tasks = emptyList(),
-                filteredTasks = emptyList()
+                sortedTasks = emptyList()
             )
         }
 
@@ -56,11 +61,11 @@ internal abstract class HomeStoreModule {
             return SimpleBootstrapper(HomeStore.Action.LoadData)
         }
     }
-
+    
     @Binds
     abstract fun provideHomeExecutor(
         homeExecutor: HomeExecutor
-    ): Executor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, HomeStore.Label>
+    ): Executor<HomeStore.Intent, HomeStore.Action, HomeStore.State, HomeStore.Message, Any>
 
     @Binds
     abstract fun provideHomeReducer(

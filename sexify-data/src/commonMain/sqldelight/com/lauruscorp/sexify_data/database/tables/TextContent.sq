@@ -28,11 +28,11 @@ WHERE id = :id
 LIMIT 1;
 
 insertTextContentFields:
-INSERT OR IGNORE INTO TextContent(originalText, originalLanguageId)
+INSERT OR ABORT INTO TextContent(originalText, originalLanguageId)
 VALUES (:originalText, :originalLanguageId);
 
 updateTextContentById:
-UPDATE OR IGNORE TextContent
+UPDATE OR ABORT TextContent
 SET
 	originalText = :originalText,
 	originalLanguageId = :originalLanguageId

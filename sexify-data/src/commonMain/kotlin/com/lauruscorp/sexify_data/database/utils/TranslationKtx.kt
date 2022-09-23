@@ -122,8 +122,9 @@ fun SexifyDatabase.insertTranslationFields(
 	textContentId: Long,
 	languageId: String,
 	translation: String
-) {
+): Long? {
 	translationQueries.insertTranslationFields(textContentId, languageId, translation)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.updateTranslationById(

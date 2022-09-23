@@ -12,6 +12,7 @@ import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import features.task_editor.di.component.qualifiers.TaskEditorTaskIdQualifier
 import features.task_editor.di.component.scope.TaskEditorFeatureScope
 import features.task_editor.domain.entities.LoadingState
 import features.task_editor.domain.store.TaskEditorExecutor
@@ -50,10 +51,12 @@ internal abstract class TaskEditorStoreModule {
 		
 		@Provides
 		@InitialStateQualifier
-		fun provideInitialState(): TaskEditorStore.State {
+		fun provideInitialState(
+			@TaskEditorTaskIdQualifier taskId: Long?
+		): TaskEditorStore.State {
 			return TaskEditorStore.State(
 				dataLoadingState = LoadingState.Loading,
-				id = null,
+				id = taskId,
 				originalText = "",
 				originalTextLanguage = BuildConfig.DEFAULT_SEXIFY_LANGUAGE,
 				textTranslations = emptyMap(),

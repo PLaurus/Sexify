@@ -4,6 +4,11 @@ import com.lauruscorp.sexify_data.database.SexifyDatabase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+fun SexifyDatabase.selectLastInsertRowId(): Long? {
+	return utilsQueries.lastInsertRowId()
+		.executeAsOneOrNull()
+}
+
 fun SexifyDatabase.getText(
 	textContentId: Long,
 	languageId: String? = null

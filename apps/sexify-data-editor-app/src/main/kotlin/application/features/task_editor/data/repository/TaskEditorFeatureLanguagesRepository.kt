@@ -1,4 +1,4 @@
-package features.task_editor.data.repository
+package application.features.task_editor.data.repository
 
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 import com.lauruscorp.sexify_data.database.SexifyDatabase
@@ -10,7 +10,7 @@ import features.task_editor.domain.repository.LanguagesRepository
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-internal class LanguagesRepositoryImpl @Inject constructor(
+internal class TaskEditorFeatureLanguagesRepository @Inject constructor(
 	private val coroutineDispatchers: CoroutineDispatchers,
 	private val database: SexifyDatabase
 ) : LanguagesRepository {

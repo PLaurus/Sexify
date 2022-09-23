@@ -138,24 +138,27 @@ fun SexifyDatabase.flowSelectTasksByTaskDoerPartnerSex(
 
 fun SexifyDatabase.insertTask(
 	task: Task
-) {
-	return taskQueries.insertTask(task)
+): Long? {
+	taskQueries.insertTask(task)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.insertTaskFields(
 	textId: Long,
 	taskStageId: Long,
 	timer: Int? = null
-) {
-	return taskQueries.insertTaskFields(textId, taskStageId, timer)
+): Long? {
+	taskQueries.insertTaskFields(textId, taskStageId, timer)
+	return selectLastInsertRowId()
 }
 
 fun SexifyDatabase.updateTaskById(
 	id: Long,
+	textId: Long,
 	taskStageId: Long,
 	timer: Int? = null
 ) {
-	taskQueries.updateTaskById(taskStageId, timer, id)
+	taskQueries.updateTaskById(textId, taskStageId, timer, id)
 }
 
 fun SexifyDatabase.deleteTaskById(

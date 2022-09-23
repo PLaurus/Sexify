@@ -7,33 +7,58 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.arkivanov.mvikotlin.extensions.coroutines.states
+import com.lauruscorp.sexify_data.languages.SexifyLanguage
+import com.lauruscorp.sexify_data.sex.SexifySex
 import features.task_editor.di.component.TaskEditorFeatureComponent
 import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
+import features.task_editor.domain.entities.LoadingState
+import features.task_editor.domain.entities.Task
+import features.task_editor.domain.store.TaskEditorStore
+import features.task_editor.presentation.entities.mapping.toDoerSexesSelectorUiData
+import features.task_editor.presentation.entities.mapping.toOriginalTextFieldData
+import features.task_editor.presentation.entities.mapping.toPartnerSexesSelectorUiData
+import features.task_editor.presentation.entities.mapping.toTaskStageSelectorUiData
+import features.task_editor.presentation.entities.mapping.toTextTranslationFieldsUiData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Stable
 class TaskEditorWindowState(
     dependencies: TaskEditorFeatureDependencies,
-    private val scope: CoroutineScope,
+    scope: CoroutineScope,
     taskId: Long?,
-    val onExit: ((state: TaskEditorWindowState) -> Unit)? = null,
+    private val onCloseRequest: ((state: TaskEditorWindowState) -> Unit)? = null,
 ) {
     private val component = TaskEditorFeatureComponent(dependencies, taskId)
     
     private val store = component.getTaskEditorStore()
     private val initialStoreState = component.getTaskEditorStoreInitialState()
     
-    var isInEditMode: Boolean by mutableStateOf(taskId != null)
+    var isInEditMode: Boolean by mutableStateOf(initialStoreState.id != null)
+        private set
+    
+    var isLoading: Boolean by mutableStateOf(initialStoreState.dataLoadingState == LoadingState.Loading)
         private set
     
     var id: Long? by mutableStateOf(initialStoreState.id)
         private set
     
-    var originalText: String by mutableStateOf(initialStoreState.originalText)
+    var originalTextFieldData by mutableStateOf(initialStoreState.toOriginalTextFieldData())
         private set
     
-    var originalTextLanguageTag: String by mutableStateOf(initialStoreState.originalTextLanguage.tag)
+    var textTranslationFieldsUiData by mutableStateOf(initialStoreState.toTextTranslationFieldsUiData())
+        private set
+    
+    var taskStageSelectorUiData by mutableStateOf(initialStoreState.toTaskStageSelectorUiData())
+        private set
+    
+    var doerSexesSelectorUiData by mutableStateOf(initialStoreState.toDoerSexesSelectorUiData())
+        private set
+    
+    var partnerSexesSelectorUiData by mutableStateOf(initialStoreState.toPartnerSexesSelectorUiData())
+        private set
+    
+    var timerSec: String by mutableStateOf(initialStoreState.timerSec?.toString() ?: "")
         private set
     
     init {
@@ -41,13 +66,89 @@ class TaskEditorWindowState(
             store.states
                 .collect { state ->
                     isInEditMode = state.id != null
+                    isLoading = state.dataLoadingState == LoadingState.Loading
                     id = state.id
-                    originalTextLanguageTag = state.originalTextLanguage.tag
+                    originalTextFieldData = state.toOriginalTextFieldData()
+                    textTranslationFieldsUiData = state.toTextTranslationFieldsUiData()
+                    taskStageSelectorUiData = state.toTaskStageSelectorUiData()
+                    doerSexesSelectorUiData = state.toDoerSexesSelectorUiData()
+                    partnerSexesSelectorUiData = state.toPartnerSexesSelectorUiData()
+                    timerSec = state.timerSec?.toString() ?: ""
+                    
+                    if (state.isFinished) {
+                        requestClose()
+                    }
                 }
         }
     }
     
-    fun updateOriginalText(text: String) {
+    fun updateOriginalText(
+        text: String
+    ) {
+        store.accept(TaskEditorStore.Intent.UpdateOriginalText(text))
+    }
+    
+    fun updateTranslation(
+        language: SexifyLanguage,
+        text: String
+    ) {
+        store.accept(TaskEditorStore.Intent.UpdateTextTranslation(language, text))
+    }
+    
+    fun selectTaskStage(
+        taskStage: Task.Stage
+    ) {
+        store.accept(TaskEditorStore.Intent.UpdateStage(taskStage))
+    }
+    
+    fun selectDoerSex(
+        sex: SexifySex
+    ) {
+        store.accept(TaskEditorStore.Intent.AddDoerSex(sex))
+    }
+    
+    fun deselectDoerSex(
+        sex: SexifySex
+    ) {
+        store.accept(TaskEditorStore.Intent.RemoveDoerSex(sex))
+    }
+    
+    fun selectPartnerSex(
+        sex: SexifySex
+    ) {
+        store.accept(TaskEditorStore.Intent.AddPartnerSex(sex))
+    }
+    
+    fun deselectPartnerSex(
+        sex: SexifySex
+    ) {
+        store.accept(TaskEditorStore.Intent.RemovePartnerSex(sex))
+    }
+    
+    fun updateTimerSec(timeText: String) {
+        val timeSec = if (timeText.isBlank()) {
+            null
+        } else {
+            timeText.toIntOrNull() ?: return
+        }
+        
+        store.accept(
+            TaskEditorStore.Intent.UpdateTimer(
+                timeSec = timeSec
+            )
+        )
+    }
+    
+    fun saveData() {
+        store.accept(TaskEditorStore.Intent.SaveTask)
+    }
+    
+    fun deleteClicked() {
+        store.accept(TaskEditorStore.Intent.DeleteTask)
+    }
+    
+    fun requestClose() {
+        onCloseRequest?.invoke(this)
     }
 }
 
