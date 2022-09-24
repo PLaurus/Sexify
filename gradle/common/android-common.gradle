@@ -8,10 +8,8 @@ android {
         minSdk 21
         targetSdk android.compileSdk
 
-        versionCode 1
-        versionName "1.0"
 
-        vectorDrawables.useSupportLibrary = true
+	    vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "../consumer-rules.pro"

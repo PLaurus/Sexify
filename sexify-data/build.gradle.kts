@@ -109,6 +109,8 @@ android {
 		sourceCompatibility = JavaVersion.VERSION_11
 		targetCompatibility = JavaVersion.VERSION_11
 	}
+	
+	namespace = "com.lauruscorp.sexify_data"
 }
 
 sqldelight {
