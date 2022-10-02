@@ -20,6 +20,7 @@ dependencies {
     def navigationVersion = "2.5.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-compose:$navigationVersion")
 
     // Modules
     implementation project(':core-android')

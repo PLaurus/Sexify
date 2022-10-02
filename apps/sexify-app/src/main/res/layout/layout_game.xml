@@ -73,7 +73,7 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toStartOf="@id/player2Card"
 		app:layout_constraintTop_toBottomOf="@id/stageProgress"
-		tools:strokeWidth="1"
+		tools:strokeWidth="1dp"
 		tools:strokeColor="?attr/colorPrimary"
 		tools:cardElevation="4dp">
 		
