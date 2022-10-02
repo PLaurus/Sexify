@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 rootProject.name = "Sexify"
 
 // Applications
-include ':apps:sexify-app'
+include ':apps:sexify-android'
 include ':apps:sexify-data-editor-app'
 include ':apps:example-app'
 include ':apps:template-generator-app'
@@ -41,7 +41,7 @@ include ':features:example:example-feature'
 include ':features:core'
 include ':features:example:example-2-feature'
 include ':features:main-domain'
-include ':features:home-domain'
+include ':features:menu-domain'
 include ':features:game-domain'
 include ':features:couple-names-editor-domain'
 include ':features:categories-selection-domain'

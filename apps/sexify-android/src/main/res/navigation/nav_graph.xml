@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph" app:startDestination="@id/menu">
+	
+	<fragment
+		android:id="@+id/menu"
+		android:label="@string/menu_feature_title"
+		android:name="com.lauruscorp.sexify_android.features.menu.api.MenuFragment" tools:layout="@layout/layout_menu">
+		
+		<action android:id="@+id/action_menu_to_coupleNamesEditor" app:destination="@id/coupleNamesEditor" />
+	
+	</fragment>
+	
+	<fragment android:id="@+id/coupleNamesEditor" android:label="@string/couple_names_editor_feature_name"
+		android:name="com.lauruscorp.sexify_android.features.couplenameseditor.api.CoupleNamesEditorFragment"
+		tools:layout="@layout/layout_couple_names_editor">
+		
+		<action android:id="@+id/action_coupleNamesEditor_to_categoriesSelection"
+			app:destination="@id/categoriesSelection" />
+	
+	</fragment>
+	
+	<fragment android:id="@+id/categoriesSelection" android:label="@string/categories_selection_feature_name"
+		android:name="com.lauruscorp.sexify_android.features.categoriesselection.api.CategoriesSelectionFragment"
+		tools:layout="@layout/layout_categories_selection">
+		
+		<action android:id="@+id/action_categoriesSelection_to_game" app:destination="@id/game"
+			app:popUpTo="@id/menu" />
+	
+	</fragment>
+	
+	<fragment android:id="@+id/game" android:label="@string/game_feature_name"
+		android:name="com.lauruscorp.sexify_android.features.game.api.presentation.GameFragment"
+		tools:layout="@layout/layout_game">
+		
+		<action android:id="@+id/action_game_to_menu" app:destination="@id/menu" />
+	
+	</fragment>
+
+</navigation>

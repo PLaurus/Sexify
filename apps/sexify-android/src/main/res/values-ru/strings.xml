@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="application_name">Sexify</string>
+    <string name="menu_feature_title">Меню</string>
+	<string name="menu_start_button">Начать</string>
+	<string name="menu_settings_button">Настройки</string>
+	<string name="couple_names_editor_feature_name">Редактор имен пары</string>
+	<string name="couple_names_editor_title">Кто собирается играть?</string>
+	<string name="couple_names_editor_first_player_name_hint">Имя первого игрока</string>
+	<string name="couple_names_editor_second_player_name_hint">Имя второго игрока</string>
+	<string name="couple_names_editor_next_button">Продолжить</string>
+	<string name="categories_selection_feature_name">Выбор категорий</string>
+	<string name="categories_selection_title">%s, выбери свои категории</string>
+	<string name="categories_selection_subtitle">Выбери категории, которые тебя устраивают, и %s будет выполнять задания из этих категорий.</string>
+	<string name="categories_selection_next_button">Продолжить</string>
+	<string name="game_feature_name">Игра</string>
+	<string name="game_main_button_start">Начать</string>
+	<string name="game_main_button_resume">Продолжить</string>
+	<string name="game_main_button_stop">Приостановить</string>
+	<string name="game_main_button_done">Сделано</string>
+	<string name="game_restart_dare_button">Перезапустить</string>
+	<string name="game_skip_dare_button">Пропустить</string>
+</resources>

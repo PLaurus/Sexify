@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.application'
+}
+
+apply from: "$rootProject.projectDir/gradle/common/android-common.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.lauruscorp.sexify_android"
+        resConfigs 'en', 'ru'
+        versionCode 1
+        versionName "0.1.0"
+    }
+
+    namespace 'com.lauruscorp.sexify_android'
+}
+
+dependencies {
+    // Navigation
+    def navigationVersion = "2.5.2"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-compose:$navigationVersion")
+
+    // Modules
+    implementation project(':core-android')
+    implementation project(':features:main-domain')
+    implementation project(':features:menu-domain')
+    implementation project(':features:game-domain')
+    implementation project(':features:couple-names-editor-domain')
+    implementation project(':features:categories-selection-domain')
+}

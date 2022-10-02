@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutStart"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutEnd"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutTop"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_begin="@dimen/layout_spacing_16" />
+	
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/layoutBottom"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_end="@dimen/layout_spacing_16" />
+	
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/titleText"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginBottom="@dimen/layout_spacing_8"
+		android:gravity="center"
+		android:text="@string/application_name"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/layoutTop"
+		app:layout_constraintBottom_toTopOf="@id/startButton"
+		app:autoSizeTextType="uniform" />
+	
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/startButton"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:text="@string/menu_start_button"
+		app:layout_constraintStart_toEndOf="@id/layoutStart"
+		app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+		app:layout_constraintTop_toBottomOf="@id/layoutTop"
+		app:layout_constraintBottom_toTopOf="@id/settingsButton"
+		app:layout_constraintVertical_chainStyle="packed"
+		app:layout_constraintWidth_percent="0.5" />
+	
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/settingsButton"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:enabled="false"
+		android:text="@string/menu_settings_button"
+		app:layout_constraintStart_toStartOf="@id/startButton"
+		app:layout_constraintEnd_toEndOf="@id/startButton"
+		app:layout_constraintTop_toBottomOf="@id/startButton"
+		app:layout_constraintBottom_toTopOf="@id/layoutBottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
