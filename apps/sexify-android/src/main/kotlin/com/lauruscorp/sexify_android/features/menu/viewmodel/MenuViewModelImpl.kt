@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 internal class MenuViewModelImpl @Inject constructor(
     private val store: MenuStore,
-    private val labelToUiErrorMapper: Mapper<MenuStore.Label, UiError>
+    private val labelToUiErrorMapper: @JvmSuppressWildcards Mapper<MenuStore.Label, UiError>
 ) : ViewModel(), MenuViewModel {
     override val errorEvent: LiveData<UiError> = EventLiveData<UiError>().apply {
         viewModelScope.launch {
@@ -22,5 +22,12 @@ internal class MenuViewModelImpl @Inject constructor(
                 .map(labelToUiErrorMapper::map)
                 .collect(::setValue)
         }
+    }
+    
+    private val _startGameClickedEvent = EventLiveData<Unit>()
+    override val startGameClickedEvent: LiveData<Unit> = _startGameClickedEvent
+    
+    override fun onStartGameClicked() {
+        _startGameClickedEvent.value = Unit
     }
 }

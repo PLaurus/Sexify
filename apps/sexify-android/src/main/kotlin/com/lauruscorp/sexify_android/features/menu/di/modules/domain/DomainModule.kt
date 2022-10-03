@@ -4,8 +4,8 @@ import com.lauruscorp.features.menu_domain.api.MenuDomainApi
 import com.lauruscorp.features.menu_domain.api.MenuDomainDependencies
 import com.lauruscorp.features.menu_domain.api.MenuDomainFactory
 import com.lauruscorp.features.menu_domain.store.MenuStore
-import com.lauruscorp.sexify_android.features.main.di.component.scope.MainActivityScope
 import com.lauruscorp.sexify_android.features.menu.di.component.MenuFeatureComponent
+import com.lauruscorp.sexify_android.features.menu.di.component.scope.MenuFeatureScope
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -26,7 +26,7 @@ internal interface DomainModule {
 		}
 		
 		@Provides
-		@MainActivityScope
+		@MenuFeatureScope
 		fun provideMenuDomainApi(
 			menuDomainFactory: MenuDomainFactory
 		): MenuDomainApi {

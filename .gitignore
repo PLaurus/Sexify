@@ -6,13 +6,18 @@ build
 /local.properties
 local.properties
 .idea
-/.idea
+/.idea/*
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
+# Code styles must not be ignored.
+!/.idea
+!/.idea/codeStyles
+
 .DS_Store
 /captures
 .externalNativeBuild

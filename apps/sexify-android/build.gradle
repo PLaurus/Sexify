@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 apply from: "$rootProject.projectDir/gradle/common/android-common.gradle"

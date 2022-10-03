@@ -5,11 +5,15 @@ import androidx.annotation.CallSuper
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.coroutineScope
 import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.CoroutineScope
 
 abstract class ViewBindingUi<ViewBindingT : ViewBinding>(
     private val viewBindingProvider: (view: View) -> ViewBindingT
 ) : DefaultLifecycleObserver {
+    protected var scope: CoroutineScope? = null
+        private set
     private var view: View? = null
     private var lifecycle: Lifecycle? = null
 
@@ -27,12 +31,14 @@ abstract class ViewBindingUi<ViewBindingT : ViewBinding>(
         this.lifecycle = lifecycle
 
         lifecycle.addObserver(this)
+        scope = lifecycle.coroutineScope
     }
 
     @CallSuper
     protected open fun onBound(viewBinding: ViewBindingT, lifecycleOwner: LifecycleOwner) = Unit
 
     private fun unbindFromViewLifecycleOwner() {
+        scope = null
         lifecycle?.removeObserver(this)
         lifecycle = null
         unbindView()

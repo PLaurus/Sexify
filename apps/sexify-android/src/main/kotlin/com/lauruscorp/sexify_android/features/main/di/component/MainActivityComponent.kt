@@ -13,9 +13,9 @@ import com.lauruscorp.sexify_android.features.main.di.component.scope.MainActivi
 import com.lauruscorp.sexify_android.features.main.di.modules.childfragments.MainChildFragmentsModule
 import com.lauruscorp.sexify_android.features.main.di.modules.domain.MainDomainModule
 import com.lauruscorp.sexify_android.features.main.di.modules.mappers.MainMappersModule
+import com.lauruscorp.sexify_android.features.main.di.modules.plugged_in_features.PluggedInFeaturesModule
 import com.lauruscorp.sexify_android.features.main.di.modules.ui.MainUiModule
 import com.lauruscorp.sexify_android.features.main.di.modules.viewmodel.MainViewModelModule
-import com.lauruscorp.sexify_android.features.menu.api.MenuFeatureDependencies
 import dagger.BindsInstance
 import dagger.Subcomponent
 
@@ -26,16 +26,16 @@ import dagger.Subcomponent
         MainDomainModule::class,
         MainViewModelModule::class,
         MainMappersModule::class,
+        PluggedInFeaturesModule::class,
         MainChildFragmentsModule::class
     ]
 )
 internal interface MainActivityComponent : MainDomainDependencies,
                                            CategoriesSelectionFeatureDependencies,
                                            CoupleNamesEditorFeatureDependencies,
-                                           GameFeatureDependencies,
-                                           MenuFeatureDependencies {
+                                           GameFeatureDependencies {
     fun inject(activity: MainActivity)
-
+    
     @Subcomponent.Factory
     interface Factory {
         fun create(
