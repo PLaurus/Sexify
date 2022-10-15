@@ -1,5 +1,6 @@
 package features.home.domain.store
 
+import application.BuildConfig
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 import com.lauruscorp.core_jvm.similarity.analyzeSimilarity
@@ -33,7 +34,7 @@ internal class HomeExecutor @Inject constructor(
 
     private fun loadData(getState: () -> HomeStore.State) {
         scope.launch {
-            tasksRepository.getTasksFlow("ru")
+            tasksRepository.getTasksFlow(BuildConfig.DEFAULT_SEXIFY_LANGUAGE)
                 .collect { tasks ->
                     val filteredTasks = withContext(Dispatchers.Default) {
                         searchTasksByText(

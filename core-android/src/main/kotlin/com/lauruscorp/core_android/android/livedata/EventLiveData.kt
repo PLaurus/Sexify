@@ -6,6 +6,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
 
+@Deprecated(message = "use same class from :core module")
 class EventLiveData<T> : MediatorLiveData<T>() {
     private val observers = arrayMapOf<Observer<in T>, ObserverWrapper<in T>>()
 

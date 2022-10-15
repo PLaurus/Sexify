@@ -45,7 +45,7 @@ internal abstract class CoupleNamesEditorStoreModule {
         @Provides
         @InitialStateQualifier
         fun provideInitialState(): CoupleNamesEditorStore.State {
-            return CoupleNamesEditorStore.State(someValue = null)
+            return TODO()//CoupleNamesEditorStore.State(someValue = null)
         }
 
         @Provides

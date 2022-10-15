@@ -1,0 +1,38 @@
+CREATE TABLE IF NOT EXISTS Language (
+	id TEXT NOT NULL PRIMARY KEY UNIQUE,
+	languageName TEXT NOT NULL UNIQUE
+);
+
+CREATE INDEX IF NOT EXISTS laguages_language_name ON Language(languageName);
+
+INSERT INTO Language (id, languageName)
+VALUES
+	("en", "English"),
+	("ru", "Russian"),
+	("fr", "French"),
+	("de", "German"),
+	("pt", "Portuguese"),
+	("ko", "Korean"),
+	("it", "Italian"),
+	("ja", "Japanese"),
+	("nl", "Dutch"),
+	("zh", "Chinese (Simplified)");
+
+selectAllLanguages:
+SELECT *
+FROM Language;
+
+selectLanguageById:
+SELECT *
+FROM Language
+WHERE id = :id
+LIMIT 1;
+
+insertLanguage:
+INSERT OR ABORT INTO Language(id, languageName)
+VALUES (:id, :languageName);
+
+updateLanguageById:
+UPDATE OR ABORT Language
+SET languageName = :languageName
+WHERE id = :id;

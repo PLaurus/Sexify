@@ -23,11 +23,17 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sexify"
 
+// Core
+include ':core'
+
 // Applications
 include ':apps:sexify-android'
 include ':apps:sexify-data-editor-app'
 include ':apps:example-app'
 include ':apps:template-generator-app'
+
+// Domain
+include ':sexify-domain:loading'
 
 // Templates
 include ':templates:domain'

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/nav_graph" app:startDestination="@id/menu">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/loading">
+
+	<fragment
+		android:id="@+id/loading"
+		android:name="com.lauruscorp.sexify_android.features.loading.dependencies.LoadingFragment"
+		android:label="@string/loading_feature_title">
+		<action
+			android:id="@+id/action_loading_to_menu"
+			app:destination="@id/menu" />
+	</fragment>
 
 	<fragment
 		android:id="@+id/menu"
@@ -18,7 +29,7 @@
 	<fragment
 		android:id="@+id/coupleNamesEditor"
 		android:label="@string/couple_names_editor_feature_name"
-		android:name="com.lauruscorp.sexify_android.features.couplenameseditor.api.CoupleNamesEditorFragment"
+		android:name="com.lauruscorp.sexify_android.features.couplenameseditor.presentation.CoupleNamesEditorFragment"
 		tools:layout="@layout/layout_couple_names_editor">
 
 		<action

@@ -2,8 +2,8 @@ package com.lauruscorp.sexify_android.features.couplenameseditor.di.modules.mapp
 
 import com.lauruscorp.core_jvm.mapping.Mapper
 import com.lauruscorp.features.couplenameseditordomain.store.CoupleNamesEditorStore
-import com.lauruscorp.sexify_android.features.couplenameseditor.entities.UiError
-import com.lauruscorp.sexify_android.features.couplenameseditor.mappers.LabelToUiErrorMapper
+import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.entities.UiError
+import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.mappers.LabelToUiErrorMapper
 import dagger.Binds
 import dagger.Module
 

@@ -16,7 +16,9 @@ kotlin {
 			useJUnitPlatform()
 		}
 	}
-	
+
+	android()
+
 	val hostOs = System.getProperty("os.name")
 	val isMingwX64 = hostOs.startsWith("Windows")
 	val nativeTarget = when {
@@ -25,7 +27,7 @@ kotlin {
 		isMingwX64 -> mingwX64("native")
 		else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
 	}
-	
+
 	listOf(
 		iosX64(),
 		iosArm32(),
@@ -37,29 +39,28 @@ kotlin {
 		}
 	}
 	
-	android()
-	
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
 				implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 				implementation("com.squareup.sqldelight:runtime:1.5.3")
 				implementation("com.squareup.sqldelight:coroutines-extensions:1.5.3")
+				implementation(project(":core"))
 			}
 		}
-		
+
 		val commonTest by getting {
 			dependencies {
 				implementation(kotlin("test"))
 			}
 		}
-		
+
 		val jvmMain by getting {
 			dependencies {
 				implementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
 			}
 		}
-		
+
 		val nativeMain by getting {
 			dependencies {
 				// SQLite driver for Kotlin Native. SQLiter powers the SQLDelight library on native clients.
@@ -68,12 +69,7 @@ kotlin {
 				implementation("com.squareup.sqldelight:native-driver:1.5.3")
 			}
 		}
-		
-		val iosX64Main by getting
-		val iosArm32Main by getting
-		val iosArm64Main by getting
-		val iosSimulatorArm64Main by getting
-		
+
 		val androidMain by getting {
 			dependencies {
 				// Implementation of the AndroidX SQLite interfaces via the Android framework APIs.
@@ -81,12 +77,17 @@ kotlin {
 				implementation("com.squareup.sqldelight:android-driver:1.5.3")
 			}
 		}
-		
+
+		val iosX64Main by getting
+		val iosArm32Main by getting
+		val iosArm64Main by getting
+		val iosSimulatorArm64Main by getting
+
 		val iosMain by creating {
 			dependencies {
 				implementation("com.squareup.sqldelight:native-driver:1.5.3")
 			}
-			
+
 			dependsOn(nativeMain)
 			iosX64Main.dependsOn(this)
 			iosArm32Main.dependsOn(this)
@@ -101,7 +102,7 @@ android {
 	sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 	
 	defaultConfig {
-		minSdk = 24
+		minSdk = 21
 		targetSdk = 33
 	}
 	
@@ -114,7 +115,13 @@ android {
 }
 
 sqldelight {
-	database("SexifyDatabase") {
-		packageName = "com.lauruscorp.sexify_data.database"
+	database("TasksDatabase") {
+		packageName = "com.lauruscorp.sexify_data.databases.tasks"
+		sourceFolders = listOf("sqldelight/tasks")
+	}
+
+	database("CacheDatabase") {
+		packageName = "com.lauruscorp.sexify_data.databases.cache"
+		sourceFolders = listOf("sqldelight/cache")
 	}
 }

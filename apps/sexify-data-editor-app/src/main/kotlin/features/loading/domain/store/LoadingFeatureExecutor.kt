@@ -2,8 +2,8 @@ package features.loading.domain.store
 
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import features.loading.di.modules.entities.LoadingState
 import features.loading.domain.initializers.Initializer
+import features.loading.entities.LoadingState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

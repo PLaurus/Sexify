@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 
+@Deprecated(message = "use same interface from :core module")
 interface SimpleActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = Unit
 

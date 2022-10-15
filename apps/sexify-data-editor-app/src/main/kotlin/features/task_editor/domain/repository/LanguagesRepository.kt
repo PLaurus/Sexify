@@ -1,8 +1,8 @@
 package features.task_editor.domain.repository
 
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
 
 interface LanguagesRepository {
-	suspend fun getLanguages(): List<SexifyLanguage>
-	suspend fun getLanguageById(id: String): SexifyLanguage?
+	suspend fun readAll(): List<SexifyLanguage>
+	suspend fun read(id: String): SexifyLanguage?
 }

@@ -1,14 +1,9 @@
 package features.home.presentation.entities
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import com.arkivanov.mvikotlin.extensions.coroutines.states
+import features.home.dependencies.HomeFeatureDependencies
 import features.home.di.component.HomeComponent
-import features.home.di.component.dependencies.HomeFeatureDependencies
 import features.home.domain.store.HomeStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

@@ -2,7 +2,7 @@ package com.lauruscorp.sexify_android.features.main.di.modules.childfragments
 
 import com.lauruscorp.core_android.android.fragment.FragmentBuilder
 import com.lauruscorp.sexify_android.features.categoriesselection.api.CategoriesSelectionFragment
-import com.lauruscorp.sexify_android.features.couplenameseditor.api.CoupleNamesEditorFragment
+import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.CoupleNamesEditorFragment
 import com.lauruscorp.sexify_android.features.game.api.presentation.GameFragment
 import com.lauruscorp.sexify_android.features.main.di.component.MainActivityComponent
 import com.lauruscorp.sexify_android.features.main.di.component.scope.MainActivityScope

@@ -5,7 +5,7 @@ import androidx.compose.runtime.remember
 import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
 import dagger.BindsInstance
 import dagger.Component
-import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
+import features.task_editor.dependencies.TaskEditorFeatureDependencies
 import features.task_editor.di.component.qualifiers.TaskEditorTaskIdQualifier
 import features.task_editor.di.component.scope.TaskEditorFeatureScope
 import features.task_editor.di.modules.res.strings.StringsModule

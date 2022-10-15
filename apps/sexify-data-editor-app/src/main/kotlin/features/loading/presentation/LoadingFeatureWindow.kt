@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import application.presentation.values.Dimens
-import features.loading.di.modules.entities.LoadingState
+import features.loading.entities.LoadingState
 import ui.theme.SexifyDataEditorAppTheme
 
 @Composable

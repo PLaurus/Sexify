@@ -1,0 +1,34 @@
+CREATE TABLE Player (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    sexEnumName TEXT NOT NULL
+);
+
+insert:
+INSERT OR ABORT INTO Player(name, sexEnumName)
+VALUES (:name, :sex);
+
+getAll:
+SELECT *
+FROM Player;
+
+get:
+SELECT *
+FROM Player
+WHERE id = :id
+LIMIT 1;
+
+update:
+UPDATE OR ABORT Player
+SET
+    name = :name,
+    sexEnumName = :sex
+WHERE id = :id;
+
+deleteAll:
+DELETE FROM Player;
+
+delete:
+DELETE FROM Player
+WHERE id = :id;
+

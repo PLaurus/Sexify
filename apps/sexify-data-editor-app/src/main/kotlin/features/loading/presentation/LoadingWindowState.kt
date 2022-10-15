@@ -1,15 +1,10 @@
 package features.loading.presentation
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import com.arkivanov.mvikotlin.extensions.coroutines.states
+import features.loading.dependencies.LoadingFeatureDependencies
 import features.loading.di.component.LoadingFeatureComponent
-import features.loading.di.component.dependencies.LoadingFeatureDependencies
-import features.loading.di.modules.entities.LoadingState
+import features.loading.entities.LoadingState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

@@ -7,7 +7,7 @@ import application.features.task_editor.data.repository.TaskEditorFeatureTasksRe
 import application.features.task_editor.dependencies.TaskEditorFeatureDependenciesImpl
 import dagger.Binds
 import dagger.Module
-import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
+import features.task_editor.dependencies.TaskEditorFeatureDependencies
 import features.task_editor.domain.repository.LanguagesRepository
 import features.task_editor.domain.repository.SexesRepository
 import features.task_editor.domain.repository.TaskStagesRepository
@@ -19,9 +19,9 @@ internal interface TaskEditorFeatureModule {
 	fun provideTaskEditorFeatureDependencies(
 		dependencies: TaskEditorFeatureDependenciesImpl
 	): TaskEditorFeatureDependencies
-	
+
 	@Binds
-	fun provideTaskRepository(
+	fun provideTasksRepository(
 		repository: TaskEditorFeatureTasksRepository
 	): TasksRepository
 	

@@ -1,27 +1,12 @@
 package features.task_editor.presentation
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FilterChip
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Delete
@@ -39,15 +24,11 @@ import androidx.compose.ui.window.Window
 import application.BuildConfig
 import application.presentation.values.Dimens
 import application.presentation.values.strings.StringsRu
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
-import com.lauruscorp.sexify_data.sex.SexifySex
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifySex
 import features.task_editor.data.repository.TaskEditorSampleDataRepository
-import features.task_editor.domain.entities.Task
-import features.task_editor.presentation.entities.OriginalTextFieldUiData
-import features.task_editor.presentation.entities.SexesSelectorUiData
-import features.task_editor.presentation.entities.TaskEditorWindowState
-import features.task_editor.presentation.entities.TaskStageSelectorUiData
-import features.task_editor.presentation.entities.TextTranslationFieldUiData
+import features.task_editor.domain.entities.TaskEditorTask
+import features.task_editor.presentation.entities.*
 import ui.theme.SexifyDataEditorAppTheme
 
 @Composable
@@ -107,7 +88,7 @@ private fun TaskEditorWindowContent(
     textTranslationFieldsUiData: List<TextTranslationFieldUiData>,
     onTextTranslationChange: (language: SexifyLanguage, text: String) -> Unit,
     taskStageSelectorUiData: TaskStageSelectorUiData,
-    onTaskStageClick: (taskStage: Task.Stage) -> Unit,
+    onTaskStageClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     doerSexesSelectorUiData: SexesSelectorUiData,
     onDoerSexChipClicked: (sex: SexifySex, selected: Boolean) -> Unit,
     partnerSexesSelectorUiData: SexesSelectorUiData,
@@ -508,7 +489,7 @@ private fun TextTranslationField(
 
 private fun LazyListScope.taskStageSelectorItem(
     data: TaskStageSelectorUiData,
-    onTaskStageClick: (taskStage: Task.Stage) -> Unit
+    onTaskStageClick: (taskStage: TaskEditorTask.Stage) -> Unit
 ) {
     taskStageSelectorItem(
         selectedTaskStage = data.selectedStage,
@@ -519,9 +500,9 @@ private fun LazyListScope.taskStageSelectorItem(
 }
 
 private fun LazyListScope.taskStageSelectorItem(
-    selectedTaskStage: Task.Stage?,
-    availableTaskStages: List<Task.Stage>,
-    onTaskStageClick: (taskStage: Task.Stage) -> Unit,
+    selectedTaskStage: TaskEditorTask.Stage?,
+    availableTaskStages: List<TaskEditorTask.Stage>,
+    onTaskStageClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     error: String? = null
 ) {
     item {
@@ -538,7 +519,7 @@ private fun LazyListScope.taskStageSelectorItem(
 @Composable
 private fun TaskStageSelector(
     data: TaskStageSelectorUiData,
-    onChipClick: (taskStage: Task.Stage) -> Unit,
+    onChipClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     modifier: Modifier = Modifier
 ) {
     TaskStageSelector(
@@ -552,9 +533,9 @@ private fun TaskStageSelector(
 
 @Composable
 private fun TaskStageSelector(
-    selectedStage: Task.Stage?,
-    availableStages: List<Task.Stage>,
-    onChipClick: (taskStage: Task.Stage) -> Unit,
+    selectedStage: TaskEditorTask.Stage?,
+    availableStages: List<TaskEditorTask.Stage>,
+    onChipClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     modifier: Modifier = Modifier,
     error: String? = null
 ) {
@@ -583,9 +564,9 @@ private fun TaskStageSelectorTitle(
 
 @Composable
 private fun TaskStageSelectorChips(
-    selectedStage: Task.Stage?,
-    availableStages: List<Task.Stage>,
-    onChipClick: (taskStage: Task.Stage) -> Unit,
+    selectedStage: TaskEditorTask.Stage?,
+    availableStages: List<TaskEditorTask.Stage>,
+    onChipClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -606,8 +587,8 @@ private fun TaskStageSelectorChips(
 @Composable
 private fun TaskStageChip(
     isSelected: Boolean,
-    taskStage: Task.Stage,
-    onClick: (taskStage: Task.Stage) -> Unit,
+    taskStage: TaskEditorTask.Stage,
+    onClick: (taskStage: TaskEditorTask.Stage) -> Unit,
     modifier: Modifier = Modifier
 ) {
     FilterChip(

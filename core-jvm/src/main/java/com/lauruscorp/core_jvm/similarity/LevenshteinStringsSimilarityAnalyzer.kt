@@ -2,7 +2,7 @@ package com.lauruscorp.core_jvm.similarity
 
 import org.apache.commons.text.similarity.LevenshteinDistance
 
-
+@Deprecated(message = "use same class from :core module")
 class LevenshteinStringsSimilarityAnalyzer : StringsSimilarityAnalyzer {
     private val levenshteinDistance = LevenshteinDistance()
 

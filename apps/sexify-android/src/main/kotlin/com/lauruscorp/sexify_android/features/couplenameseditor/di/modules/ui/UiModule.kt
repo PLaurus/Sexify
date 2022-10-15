@@ -3,7 +3,7 @@ package com.lauruscorp.sexify_android.features.couplenameseditor.di.modules.ui
 import android.view.View
 import com.lauruscorp.core_android.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.databinding.LayoutCoupleNamesEditorBinding
-import com.lauruscorp.sexify_android.features.couplenameseditor.ui.CoupleNamesEditorUi
+import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.ui.CoupleNamesEditorUi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

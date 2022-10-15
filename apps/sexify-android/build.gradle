@@ -24,7 +24,16 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-compose:$navigationVersion")
 
-    // Modules
+    // Core
+    implementation project(':core')
+
+    // Data
+    implementation project(':sexify-data')
+
+    // Domain
+    implementation project(':sexify-domain:loading')
+
+    // Other Modules
     implementation project(':core-android')
     implementation project(':features:main-domain')
     implementation project(':features:menu-domain')

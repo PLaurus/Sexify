@@ -1,21 +1,16 @@
 package features.loading.di.modules.store
 
-import com.arkivanov.mvikotlin.core.store.Bootstrapper
-import com.arkivanov.mvikotlin.core.store.Executor
-import com.arkivanov.mvikotlin.core.store.Reducer
-import com.arkivanov.mvikotlin.core.store.SimpleBootstrapper
-import com.arkivanov.mvikotlin.core.store.Store
-import com.arkivanov.mvikotlin.core.store.StoreFactory
+import com.arkivanov.mvikotlin.core.store.*
 import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
 import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import features.loading.di.component.scope.LoadingFeatureScope
-import features.loading.di.modules.entities.LoadingState
 import features.loading.domain.store.LoadingFeatureExecutor
 import features.loading.domain.store.LoadingFeatureReducer
 import features.loading.domain.store.LoadingFeatureStore
+import features.loading.entities.LoadingState
 import javax.inject.Provider
 
 @Module

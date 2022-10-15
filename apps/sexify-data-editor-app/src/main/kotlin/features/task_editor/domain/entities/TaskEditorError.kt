@@ -1,19 +1,23 @@
 package features.task_editor.domain.entities
 
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
-import com.lauruscorp.sexify_data.sex.SexifySex
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifySex
 
 interface TaskEditorError {
 	object DbError : TaskEditorError
-	
+
+	sealed interface TaskError : TaskEditorError {
+		data class NotExists(val taskId: Long) : TaskError
+	}
+
 	sealed interface OriginalTextError : TaskEditorError {
 		object Empty : OriginalTextError
-		
+
 		data class IncorrectDataForDb(
 			val text: String,
 			val language: SexifyLanguage
 		) : OriginalTextError
-		
+
 		data class DBLanguageDoesNotExist(
 			val language: SexifyLanguage
 		) : OriginalTextError

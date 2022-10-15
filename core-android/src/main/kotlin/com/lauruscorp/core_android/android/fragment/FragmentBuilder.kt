@@ -3,6 +3,7 @@ package com.lauruscorp.core_android.android.fragment
 import androidx.fragment.app.Fragment
 import kotlin.reflect.KClass
 
+@Deprecated(message = "use same class from :core module")
 abstract class FragmentBuilder<T : Fragment>(
     val fragmentClass: KClass<in T>
 ) {

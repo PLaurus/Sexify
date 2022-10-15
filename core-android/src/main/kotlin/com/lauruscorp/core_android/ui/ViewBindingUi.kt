@@ -9,6 +9,7 @@ import androidx.lifecycle.coroutineScope
 import androidx.viewbinding.ViewBinding
 import kotlinx.coroutines.CoroutineScope
 
+@Deprecated(message = "use same class from :core module")
 abstract class ViewBindingUi<ViewBindingT : ViewBinding>(
     private val viewBindingProvider: (view: View) -> ViewBindingT
 ) : DefaultLifecycleObserver {

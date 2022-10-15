@@ -7,7 +7,7 @@ internal class CoupleNamesEditorReducer @Inject constructor(
 ) : Reducer<CoupleNamesEditorStore.State, CoupleNamesEditorStore.Message> {
 	override fun CoupleNamesEditorStore.State.reduce(msg: CoupleNamesEditorStore.Message): CoupleNamesEditorStore.State {
 		return when (msg) {
-			else -> copy(someValue = null)
+			else -> TODO()//copy(someValue = null)
 		}
 	}
 }

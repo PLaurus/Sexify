@@ -1,6 +1,6 @@
 package features.loading.domain.repository
 
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
 
 interface LanguagesRepository {
 	suspend fun getLanguages(): List<SexifyLanguage>

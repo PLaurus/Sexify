@@ -3,11 +3,11 @@ package features.task_editor.domain.store
 import application.BuildConfig
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
 import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
-import com.lauruscorp.sexify_data.sex.SexifySex
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifySex
 import features.task_editor.di.component.qualifiers.InvalidInitialDataStringQualifier
-import features.task_editor.domain.entities.Task
 import features.task_editor.domain.entities.TaskEditorError
+import features.task_editor.domain.entities.TaskEditorTask
 import features.task_editor.domain.repository.LanguagesRepository
 import features.task_editor.domain.repository.SexesRepository
 import features.task_editor.domain.repository.TaskStagesRepository
@@ -86,9 +86,10 @@ internal class TaskEditorExecutor @Inject constructor(
 		dispatch(TaskEditorStore.Message.StartedLoading)
 		
 		scope.launch {
-			val supportedLanguages = async { languagesRepository.getLanguages() }
-			val supportedStages = async { taskStagesRepository.getAllTaskStages(BuildConfig.DEFAULT_SEXIFY_LANGUAGE) }
-			val supportedSexes = async { sexesRepository.getAllSexes() }
+			val supportedLanguages = async { languagesRepository.readAll() }
+			val supportedStages =
+				async { taskStagesRepository.getAllTaskStages(BuildConfig.DEFAULT_SEXIFY_LANGUAGE) }
+			val supportedSexes = async { sexesRepository.readAll() }
 			
 			val taskId = getState().id
 			
@@ -114,7 +115,7 @@ internal class TaskEditorExecutor @Inject constructor(
 	
 	private fun createDataForTaskCreation(
 		supportedLanguages: List<SexifyLanguage>,
-		supportedStages: List<Task.Stage>,
+		supportedStages: List<TaskEditorTask.Stage>,
 		supportedSexes: List<SexifySex>
 	): TaskEditorStore.Message {
 		val originalText = ""
@@ -139,7 +140,7 @@ internal class TaskEditorExecutor @Inject constructor(
 	private suspend fun loadDataForTaskEditing(
 		taskId: Long,
 		supportedLanguages: List<SexifyLanguage>,
-		supportedStages: List<Task.Stage>,
+		supportedStages: List<TaskEditorTask.Stage>,
 		supportedSexes: List<SexifySex>
 	): TaskEditorStore.Message = coroutineScope {
 		val task = tasksRepository.getTaskById(taskId, BuildConfig.DEFAULT_SEXIFY_LANGUAGE)
@@ -212,7 +213,7 @@ internal class TaskEditorExecutor @Inject constructor(
 	}
 	
 	private fun updateStage(
-		stage: Task.Stage
+		stage: TaskEditorTask.Stage
 	) {
 		dispatch(TaskEditorStore.Message.UpdateStage(stage = stage))
 	}
@@ -303,7 +304,7 @@ internal class TaskEditorExecutor @Inject constructor(
 	}
 	
 	private fun checkTaskStage(
-		stage: Task.Stage?
+		stage: TaskEditorTask.Stage?
 	): TaskEditorError.TaskStageError? {
 		return if (stage == null) {
 			TaskEditorError.TaskStageError.NotSelected
@@ -334,7 +335,7 @@ internal class TaskEditorExecutor @Inject constructor(
 	
 	private fun saveTask(state: TaskEditorStore.State) {
 		scope.launch(coroutineDispatchers.default) {
-			val task = Task(
+			val task = TaskEditorTask(
 				id = state.id,
 				originalText = state.originalText,
 				originalTextLanguage = state.originalTextLanguage,

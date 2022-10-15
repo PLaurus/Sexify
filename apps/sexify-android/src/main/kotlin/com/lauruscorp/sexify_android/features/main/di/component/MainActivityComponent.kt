@@ -6,7 +6,7 @@ import com.lauruscorp.core_android.di.dagger.qualifiers.context.ActivityContextQ
 import com.lauruscorp.features.maindomain.api.MainDomainDependencies
 import com.lauruscorp.sexify_android.application.di.component.SexifyApplicationComponent
 import com.lauruscorp.sexify_android.features.categoriesselection.api.CategoriesSelectionFeatureDependencies
-import com.lauruscorp.sexify_android.features.couplenameseditor.api.CoupleNamesEditorFeatureDependencies
+import com.lauruscorp.sexify_android.features.couplenameseditor.dependencies.CoupleNamesEditorFeatureDependencies
 import com.lauruscorp.sexify_android.features.game.api.GameFeatureDependencies
 import com.lauruscorp.sexify_android.features.main.MainActivity
 import com.lauruscorp.sexify_android.features.main.di.component.scope.MainActivityScope
@@ -31,11 +31,12 @@ import dagger.Subcomponent
     ]
 )
 internal interface MainActivityComponent : MainDomainDependencies,
-                                           CategoriesSelectionFeatureDependencies,
-                                           CoupleNamesEditorFeatureDependencies,
-                                           GameFeatureDependencies {
+    CategoriesSelectionFeatureDependencies,
+    CoupleNamesEditorFeatureDependencies,
+    GameFeatureDependencies {
+
     fun inject(activity: MainActivity)
-    
+
     @Subcomponent.Factory
     interface Factory {
         fun create(

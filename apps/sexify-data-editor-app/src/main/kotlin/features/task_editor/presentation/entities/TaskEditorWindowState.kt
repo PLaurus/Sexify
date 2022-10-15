@@ -1,24 +1,15 @@
 package features.task_editor.presentation.entities
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import com.arkivanov.mvikotlin.extensions.coroutines.states
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
-import com.lauruscorp.sexify_data.sex.SexifySex
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifySex
+import features.task_editor.dependencies.TaskEditorFeatureDependencies
 import features.task_editor.di.component.TaskEditorFeatureComponent
-import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
 import features.task_editor.domain.entities.LoadingState
-import features.task_editor.domain.entities.Task
+import features.task_editor.domain.entities.TaskEditorTask
 import features.task_editor.domain.store.TaskEditorStore
-import features.task_editor.presentation.entities.mapping.toDoerSexesSelectorUiData
-import features.task_editor.presentation.entities.mapping.toOriginalTextFieldData
-import features.task_editor.presentation.entities.mapping.toPartnerSexesSelectorUiData
-import features.task_editor.presentation.entities.mapping.toTaskStageSelectorUiData
-import features.task_editor.presentation.entities.mapping.toTextTranslationFieldsUiData
+import features.task_editor.presentation.entities.mapping.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -96,7 +87,7 @@ class TaskEditorWindowState(
     }
     
     fun selectTaskStage(
-        taskStage: Task.Stage
+        taskStage: TaskEditorTask.Stage
     ) {
         store.accept(TaskEditorStore.Intent.UpdateStage(taskStage))
     }

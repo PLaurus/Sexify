@@ -20,6 +20,7 @@ import android.os.Build
  *         Implementations may throw this exception if a matching element cannot be removed or if, in general,
  *         removal is not supported.
  */
+@Deprecated(message = "use same function from :core module")
 fun <E> MutableCollection<E>.compatRemoveIf(filter: (E) -> Boolean): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         return this.removeIf(filter)

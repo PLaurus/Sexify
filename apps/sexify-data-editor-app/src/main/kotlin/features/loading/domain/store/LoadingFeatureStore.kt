@@ -1,7 +1,7 @@
 package features.loading.domain.store
 
 import com.arkivanov.mvikotlin.core.store.Store
-import features.loading.di.modules.entities.LoadingState
+import features.loading.entities.LoadingState
 
 internal interface LoadingFeatureStore : Store<Any, LoadingFeatureStore.State, Any> {
 	sealed interface Action {

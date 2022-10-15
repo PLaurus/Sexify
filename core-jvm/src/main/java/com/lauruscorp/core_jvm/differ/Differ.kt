@@ -1,9 +1,11 @@
 package com.lauruscorp.core_jvm.differ
 
+@Deprecated(message = "use same interface from :core module")
 interface Differ<in EntityT : Any> {
     fun update(value: EntityT)
 }
 
+@Deprecated(message = "use same function from :core module")
 inline fun <EntityT : Any> diff(build: DifferBuilder<EntityT>.() -> Unit): Differ<EntityT> {
     val builder = DifferBuilder<EntityT>().apply {
         build()
@@ -12,6 +14,7 @@ inline fun <EntityT : Any> diff(build: DifferBuilder<EntityT>.() -> Unit): Diffe
     return builder
 }
 
+@Deprecated(message = "use same class from :core module")
 open class DifferBuilder<Entity : Any> : Differ<Entity> {
 
     @PublishedApi

@@ -1,20 +1,11 @@
 package application.features.task_editor.data.repository
 
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.sexify_data.database.SexifyDatabase
-import com.lauruscorp.sexify_data.database.utils.selectAllSexes
-import com.lauruscorp.sexify_data.mapping.toSexifySex
-import com.lauruscorp.sexify_data.sex.SexifySex
+import com.lauruscorp.sexify_data.entities.SexifySex
 import features.task_editor.domain.repository.SexesRepository
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 internal class TaskEditorFeatureSexesRepository @Inject constructor(
-	private val coroutineDispatchers: CoroutineDispatchers,
-	private val database: SexifyDatabase
+	private val appSexesRepository: com.lauruscorp.sexify_data.repositories.sexes.SexesRepository
 ) : SexesRepository {
-	override suspend fun getAllSexes(): List<SexifySex> = withContext(coroutineDispatchers.io) {
-		database.selectAllSexes()
-			.mapNotNull { dbSex -> dbSex.toSexifySex() }
-	}
+	override suspend fun readAll(): List<SexifySex> = appSexesRepository.readAll()
 }

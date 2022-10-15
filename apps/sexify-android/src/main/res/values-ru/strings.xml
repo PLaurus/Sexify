@@ -20,4 +20,5 @@
 	<string name="game_main_button_done">Сделано</string>
 	<string name="game_restart_dare_button">Перезапустить</string>
 	<string name="game_skip_dare_button">Пропустить</string>
+    <string name="loading_feature_title">Загрузка</string>
 </resources>

@@ -4,19 +4,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import application.di.component.scope.ApplicationScope
 import application.di.modules.coroutines.CoroutinesModule
-import application.di.modules.database.DatabaseModule
+import application.di.modules.data_sources.DataSourcesModule
+import application.di.modules.databases.DatabasesModule
 import application.di.modules.features.FeaturesModule
 import application.di.modules.mvikotlin.MviKotlinModule
+import application.di.modules.repositories.RepositoriesModule
 import dagger.Component
-import features.home.di.component.dependencies.HomeFeatureDependencies
-import features.loading.di.component.dependencies.LoadingFeatureDependencies
-import features.task_editor.di.component.dependencies.TaskEditorFeatureDependencies
+import features.home.dependencies.HomeFeatureDependencies
+import features.loading.dependencies.LoadingFeatureDependencies
+import features.task_editor.dependencies.TaskEditorFeatureDependencies
 
 @ApplicationScope
 @Component(
     modules = [
         CoroutinesModule::class,
-        DatabaseModule::class,
+        DatabasesModule::class,
+        DataSourcesModule::class,
+        RepositoriesModule::class,
         MviKotlinModule::class,
         FeaturesModule::class
     ]

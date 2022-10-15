@@ -1,13 +1,13 @@
 package features.task_editor.data.repository
 
-import com.lauruscorp.sexify_data.languages.SexifyLanguage
-import com.lauruscorp.sexify_data.sex.SexifySex
-import features.task_editor.domain.entities.Task
+import com.lauruscorp.sexify_data.entities.SexifyLanguage
+import com.lauruscorp.sexify_data.entities.SexifySex
+import features.task_editor.domain.entities.TaskEditorTask
 
 object TaskEditorSampleDataRepository {
-	fun getTasks(): List<Task> {
+	fun getTasks(): List<TaskEditorTask> {
 		return listOf(
-			Task(
+			TaskEditorTask(
 				id = 0,
 				originalText = "Текст по умолчанию для задания 0",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -20,7 +20,7 @@ object TaskEditorSampleDataRepository {
 				partnerSexes = listOf(SexifySex.Man),
 				timerSec = 12
 			),
-			Task(
+			TaskEditorTask(
 				id = 1,
 				originalText = "Текст по умолчанию для задания 1",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -33,7 +33,7 @@ object TaskEditorSampleDataRepository {
 				partnerSexes = listOf(SexifySex.Man),
 				timerSec = 1600
 			),
-			Task(
+			TaskEditorTask(
 				id = 2,
 				originalText = "Текст по умолчанию для задания 2",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -46,7 +46,7 @@ object TaskEditorSampleDataRepository {
 				partnerSexes = listOf(SexifySex.Woman),
 				timerSec = 300
 			),
-			Task(
+			TaskEditorTask(
 				id = 3,
 				originalText = "Текст по умолчанию для задания 3",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -58,7 +58,7 @@ object TaskEditorSampleDataRepository {
 				doerSexes = listOf(SexifySex.Woman, SexifySex.Man),
 				partnerSexes = listOf(SexifySex.Man)
 			),
-			Task(
+			TaskEditorTask(
 				id = 4,
 				originalText = "Текст по умолчанию для задания 4",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -70,7 +70,7 @@ object TaskEditorSampleDataRepository {
 				doerSexes = listOf(SexifySex.Man),
 				partnerSexes = listOf(SexifySex.Man)
 			),
-			Task(
+			TaskEditorTask(
 				id = 5,
 				originalText = "Текст по умолчанию для задания 5",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -83,7 +83,7 @@ object TaskEditorSampleDataRepository {
 				partnerSexes = listOf(SexifySex.Woman),
 				timerSec = 60
 			),
-			Task(
+			TaskEditorTask(
 				id = 6,
 				originalText = "Текст по умолчанию для задания 6",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -93,7 +93,7 @@ object TaskEditorSampleDataRepository {
 				partnerSexes = listOf(SexifySex.Man, SexifySex.Woman),
 				timerSec = 60
 			),
-			Task(
+			TaskEditorTask(
 				id = 7,
 				originalText = "Текст по умолчанию для задания 7",
 				originalTextLanguage = SexifyLanguage.Russian,
@@ -107,8 +107,8 @@ object TaskEditorSampleDataRepository {
 			)
 		)
 	}
-	
-	fun getAvailableTaskStages(): List<Task.Stage> {
+
+	fun getAvailableTaskStages(): List<TaskEditorTask.Stage> {
 		return listOf(
 			Stages.Preparation,
 			Stages.Excitement,
@@ -118,25 +118,25 @@ object TaskEditorSampleDataRepository {
 	}
 	
 	object Stages {
-		val Preparation = Task.Stage(
+		val Preparation = TaskEditorTask.Stage(
 			id = 0,
 			name = "Подготовка",
 			description = "Это тестовое описание стадии \"Подготовка\""
 		)
-		
-		val Excitement = Task.Stage(
+
+		val Excitement = TaskEditorTask.Stage(
 			id = 1,
 			name = "Возбуждение",
 			description = "Это тестовое описание стадии \"Возбуждение\""
 		)
-		
-		val AtTheLimit = Task.Stage(
+
+		val AtTheLimit = TaskEditorTask.Stage(
 			id = 2,
 			name = "На пределе",
 			description = "Это тестовое описание стадии \"На пределе\""
 		)
-		
-		val Final = Task.Stage(
+
+		val Final = TaskEditorTask.Stage(
 			id = 3,
 			name = "Финал",
 			description = "Это тестовое описание стадии \"Финал\""

@@ -1,12 +1,15 @@
 <resources>
 	<!-- Application -->
 	<string name="application_name">Sexify</string>
-	
+
+	<!-- Loading -->
+	<string name="loading_feature_title">Loading</string>
+
 	<!-- Menu -->
 	<string name="menu_feature_title">Menu</string>
 	<string name="menu_start_button">Start</string>
 	<string name="menu_settings_button">Settings</string>
-	
+
 	<!-- Couple names editor -->
 	<string name="couple_names_editor_feature_name">Couple names editor</string>
 	<string name="couple_names_editor_title">Who is going to play?</string>
