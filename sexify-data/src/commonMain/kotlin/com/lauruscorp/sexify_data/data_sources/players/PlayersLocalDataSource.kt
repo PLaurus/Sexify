@@ -14,7 +14,7 @@ interface PlayersLocalDataSource {
         sex: SexifySex
     ): Long?
 
-    suspend fun updatePlayer(player: Player)
+    suspend fun updatePlayer(player: Player): Player
     suspend fun getPlayer(id: Long): Player?
     suspend fun getAllPlayers(): List<Player>
     suspend fun deletePlayer(id: Long)

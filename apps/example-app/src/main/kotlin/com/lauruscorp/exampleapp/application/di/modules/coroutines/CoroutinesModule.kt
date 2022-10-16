@@ -1,7 +1,7 @@
 package com.lauruscorp.exampleapp.application.di.modules.coroutines
 
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.core_jvm.coroutines.CustomCoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CustomCoroutineDispatchers
 import com.lauruscorp.exampleapp.application.di.modules.coroutines.qualifiers.DefaultCoroutineDispatcherQualifier
 import com.lauruscorp.exampleapp.application.di.modules.coroutines.qualifiers.IoCoroutineDispatcherQualifier
 import com.lauruscorp.exampleapp.application.di.modules.coroutines.qualifiers.MainCoroutineDispatcherQualifier

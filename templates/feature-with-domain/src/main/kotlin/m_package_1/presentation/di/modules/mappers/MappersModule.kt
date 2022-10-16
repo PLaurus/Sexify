@@ -1,7 +1,7 @@
 package m_package_1.presentation.di.modules.mappers
 
 import _M_PACKAGE_0_.store._M_NAME_PASCAL_Store
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.mapping.Mapper
 import dagger.Binds
 import dagger.Module
 import m_package_1.presentation.entities.UiError

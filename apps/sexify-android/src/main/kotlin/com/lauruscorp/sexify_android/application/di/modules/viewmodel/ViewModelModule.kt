@@ -2,7 +2,7 @@ package com.lauruscorp.sexify_android.application.di.modules.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.lauruscorp.core_android.android.viewmodel.DaggerViewModelFactory
+import com.lauruscorp.core.android.viewmodel.DaggerViewModelFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Provider

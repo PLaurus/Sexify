@@ -1,7 +1,7 @@
 package com.lauruscorp.features.example.examplefeature.api
 
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 
 interface ExampleFeatureDependencies {
     fun getStoreFactory(): StoreFactory

@@ -1,8 +1,8 @@
 package com.lauruscorp.features.example.exampledomain.di.modules.store
 
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.features.example.exampledomain.di.modules.store.qualifiers.InitialAQualifier
 import com.lauruscorp.features.example.exampledomain.di.modules.store.qualifiers.InitialBQualifier
 import com.lauruscorp.features.example.exampledomain.di.modules.store.qualifiers.InitialOperationQualifier

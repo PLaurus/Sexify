@@ -3,8 +3,8 @@ package com.lauruscorp.sexify_android.features.loading.di.modules.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.lauruscorp.core_android.android.viewmodel.DaggerViewModelFactory
-import com.lauruscorp.core_android.di.dagger.mapkeys.ViewModelMapKey
+import com.lauruscorp.core.android.viewmodel.DaggerViewModelFactory
+import com.lauruscorp.core.di.dagger.mapkeys.ViewModelMapKey
 import com.lauruscorp.sexify_android.features.loading.presentation.viewmodel.LoadingViewModel
 import com.lauruscorp.sexify_android.features.loading.presentation.viewmodel.LoadingViewModelImpl
 import dagger.Binds

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.R
 import com.lauruscorp.sexify_android.databinding.LayoutMenuBinding
 import com.lauruscorp.sexify_android.features.menu.di.component.MenuFeatureComponent

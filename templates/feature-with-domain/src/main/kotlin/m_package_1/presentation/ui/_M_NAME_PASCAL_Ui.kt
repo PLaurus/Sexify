@@ -3,7 +3,7 @@ package m_package_1.presentation.ui
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import m_package_1.databinding.LayoutMNameSnakeBinding
 import m_package_1.presentation.entities.UiError
 import m_package_1.presentation.viewmodel._M_NAME_PASCAL_ViewModel

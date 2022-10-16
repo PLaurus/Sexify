@@ -2,7 +2,7 @@ package features.task_editor.di.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
 import dagger.BindsInstance
 import dagger.Component
 import features.task_editor.dependencies.TaskEditorFeatureDependencies

@@ -1,7 +1,7 @@
 package m_package_1.presentation.di.modules.ui
 
 import android.view.View
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

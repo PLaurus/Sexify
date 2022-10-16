@@ -1,7 +1,7 @@
 package m_package_1.api
 
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 
 interface _M_NAME_PASCAL_FeatureDependencies {
     fun getStoreFactory(): StoreFactory

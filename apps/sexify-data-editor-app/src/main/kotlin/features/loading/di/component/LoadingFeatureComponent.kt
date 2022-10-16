@@ -2,7 +2,7 @@ package features.loading.di.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
 import dagger.Component
 import features.loading.dependencies.LoadingFeatureDependencies
 import features.loading.di.component.scope.LoadingFeatureScope

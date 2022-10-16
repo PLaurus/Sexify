@@ -7,6 +7,6 @@ interface PlayersRepository {
     suspend fun create(name: String, sex: SexifySex): Player?
     suspend fun readAll(): List<Player>
     suspend fun read(id: Long): Player?
-    suspend fun update(player: Player)
+    suspend fun update(player: Player): Player
     suspend fun delete(player: Player)
 }

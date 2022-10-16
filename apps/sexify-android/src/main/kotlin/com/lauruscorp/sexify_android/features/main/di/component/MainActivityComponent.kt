@@ -2,8 +2,8 @@ package com.lauruscorp.sexify_android.features.main.di.component
 
 import android.content.Context
 import androidx.lifecycle.ViewModelStoreOwner
-import com.lauruscorp.core_android.di.dagger.qualifiers.context.ActivityContextQualifier
-import com.lauruscorp.features.maindomain.api.MainDomainDependencies
+import com.lauruscorp.core.di.dagger.qualifiers.context.ActivityContextQualifier
+import com.lauruscorp.features.maindomain.dependencies.MainDomainDependencies
 import com.lauruscorp.sexify_android.application.di.component.SexifyApplicationComponent
 import com.lauruscorp.sexify_android.features.categoriesselection.api.CategoriesSelectionFeatureDependencies
 import com.lauruscorp.sexify_android.features.couplenameseditor.dependencies.CoupleNamesEditorFeatureDependencies

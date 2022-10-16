@@ -3,8 +3,8 @@ package com.lauruscorp.features.example.examplefeature.presentation.di.modules.v
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.lauruscorp.core_android.android.viewmodel.DaggerViewModelFactory
-import com.lauruscorp.core_android.di.dagger.mapkeys.ViewModelMapKey
+import com.lauruscorp.core.android.viewmodel.DaggerViewModelFactory
+import com.lauruscorp.core.di.dagger.mapkeys.ViewModelMapKey
 import com.lauruscorp.features.example.examplefeature.presentation.viewmodel.ExampleViewModel
 import com.lauruscorp.features.example.examplefeature.presentation.viewmodel.ExampleViewModelImpl
 import dagger.Binds

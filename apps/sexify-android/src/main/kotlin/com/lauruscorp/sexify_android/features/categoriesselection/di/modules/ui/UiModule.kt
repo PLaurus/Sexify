@@ -1,7 +1,7 @@
 package com.lauruscorp.sexify_android.features.categoriesselection.di.modules.ui
 
 import android.view.View
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.databinding.LayoutCategoriesSelectionBinding
 import com.lauruscorp.sexify_android.features.categoriesselection.ui.CategoriesSelectionUi
 import dagger.Binds

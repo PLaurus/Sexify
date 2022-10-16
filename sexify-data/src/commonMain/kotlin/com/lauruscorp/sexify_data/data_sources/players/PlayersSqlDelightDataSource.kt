@@ -27,8 +27,9 @@ class PlayersSqlDelightDataSource(
 
     override suspend fun updatePlayer(
         player: Player
-    ) = withContext(ioDispatcher) {
+    ): Player = withContext(ioDispatcher) {
         playerQueries.update(id = player.id, name = player.name, sex = player.sex.name)
+        player
     }
 
     override suspend fun getPlayer(

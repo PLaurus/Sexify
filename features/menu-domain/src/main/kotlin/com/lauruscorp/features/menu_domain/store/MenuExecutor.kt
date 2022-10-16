@@ -1,7 +1,7 @@
 package com.lauruscorp.features.menu_domain.store
 
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import javax.inject.Inject
 
 internal class MenuExecutor @Inject constructor(

@@ -1,7 +1,7 @@
 package com.lauruscorp.sexify_domain.loading.store
 
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.sexify_domain.loading.entities.LoadingState
 import com.lauruscorp.sexify_domain.loading.initializer.ExternalInitializer
 import kotlinx.coroutines.launch

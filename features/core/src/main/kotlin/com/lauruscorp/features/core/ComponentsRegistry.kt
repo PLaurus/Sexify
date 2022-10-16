@@ -1,6 +1,6 @@
 package com.lauruscorp.features.core
 
-import com.lauruscorp.core_android.kotlin.compatRemoveIf
+import com.lauruscorp.core.kotlin.compatRemoveIf
 import com.lauruscorp.features.core.analytics.ComponentsRegistryAnalytics
 import com.lauruscorp.features.core.di.FeatureComponent
 

@@ -4,8 +4,8 @@ import _M_PACKAGE_0_.store._M_NAME_PASCAL_Executor
 import _M_PACKAGE_0_.store._M_NAME_PASCAL_Reducer
 import _M_PACKAGE_0_.store._M_NAME_PASCAL_Store
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

@@ -2,7 +2,7 @@ package com.lauruscorp.sexify_android.features.main.ui
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.databinding.LayoutMainBinding
 import javax.inject.Inject
 

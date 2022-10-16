@@ -1,6 +1,6 @@
 package com.lauruscorp.sexify_android.features.categoriesselection.di.modules.mappers
 
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.mapping.Mapper
 import com.lauruscorp.features.categoriesselectiondomain.store.CategoriesSelectionStore
 import com.lauruscorp.sexify_android.features.categoriesselection.entities.UiError
 import com.lauruscorp.sexify_android.features.categoriesselection.mappers.LabelToUiErrorMapper

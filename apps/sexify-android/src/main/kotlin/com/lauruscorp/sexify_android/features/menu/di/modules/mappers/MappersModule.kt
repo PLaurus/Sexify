@@ -1,6 +1,6 @@
 package com.lauruscorp.sexify_android.features.menu.di.modules.mappers
 
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.mapping.Mapper
 import com.lauruscorp.features.menu_domain.store.MenuStore
 import com.lauruscorp.sexify_android.features.menu.entities.UiError
 import com.lauruscorp.sexify_android.features.menu.mappers.LabelToUiErrorMapper

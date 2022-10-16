@@ -27,8 +27,8 @@ class LocalPlayersRepository(
         return localDataSource.getPlayer(id)
     }
 
-    override suspend fun update(player: Player) {
-        localDataSource.updatePlayer(player)
+    override suspend fun update(player: Player): Player {
+        return localDataSource.updatePlayer(player)
     }
 
     override suspend fun delete(player: Player) {

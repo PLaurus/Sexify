@@ -2,8 +2,8 @@ package application.features.task_editor.data.repository
 
 import application.features.task_editor.data.mapping.asTaskEditorError
 import application.features.task_editor.data.mapping.asTaskEditorTask
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.core.util.fold
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
 import com.lauruscorp.sexify_data.entities.SexifyLanguage
 import com.lauruscorp.sexify_data.entities.Text
 import com.lauruscorp.sexify_data.entities.errors.TasksDataError

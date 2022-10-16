@@ -1,7 +1,7 @@
 package features.task_editor.domain.store
 
 import com.arkivanov.mvikotlin.core.store.Reducer
-import com.lauruscorp.core_jvm.collections.updated
+import com.lauruscorp.core.collections.updated
 import features.task_editor.domain.entities.LoadingState
 import javax.inject.Inject
 

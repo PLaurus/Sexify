@@ -1,8 +1,8 @@
 package com.lauruscorp.sexify_android.application.initialization
 
 import android.content.Context
-import com.lauruscorp.core_android.di.dagger.qualifiers.context.ApplicationContextQualifier
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.di.dagger.qualifiers.context.ApplicationContextQualifier
 import com.lauruscorp.sexify_android.application.di.modules.databases.tasks.qualifiers.TasksDatabaseAssetPathQualifier
 import com.lauruscorp.sexify_android.application.di.modules.databases.tasks.qualifiers.TasksDatabaseFileNameQualifier
 import kotlinx.coroutines.runInterruptible

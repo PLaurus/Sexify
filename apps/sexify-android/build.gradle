@@ -34,7 +34,6 @@ dependencies {
     implementation project(':sexify-domain:loading')
 
     // Other Modules
-    implementation project(':core-android')
     implementation project(':features:main-domain')
     implementation project(':features:menu-domain')
     implementation project(':features:game-domain')

@@ -14,8 +14,6 @@ version = "1.0"
 dependencies {
     // Modules
     implementation(project(":core"))
-    // TODO: remove :core-jvm
-    api(project(":core-jvm"))
     implementation(project(":sexify-data"))
 
     // Asynchronous programming

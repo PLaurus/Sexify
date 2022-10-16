@@ -1,8 +1,8 @@
 package com.lauruscorp.features.gamedomain.di.modules.store
 
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.features.gamedomain.store.GameExecutor
 import com.lauruscorp.features.gamedomain.store.GameReducer
 import com.lauruscorp.features.gamedomain.store.GameStore

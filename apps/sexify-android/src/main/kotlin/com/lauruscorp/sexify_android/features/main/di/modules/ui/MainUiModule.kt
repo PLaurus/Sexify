@@ -1,7 +1,7 @@
 package com.lauruscorp.sexify_android.features.main.di.modules.ui
 
 import android.view.View
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.databinding.LayoutMainBinding
 import com.lauruscorp.sexify_android.features.main.ui.MainUi
 import dagger.Binds

@@ -1,7 +1,7 @@
 package com.lauruscorp.features.example.examplefeature.presentation.di.modules.ui
 
 import android.view.View
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.features.example.examplefeature.databinding.LayoutExampleBinding
 import com.lauruscorp.features.example.examplefeature.presentation.ui.ExampleUi
 import dagger.Binds

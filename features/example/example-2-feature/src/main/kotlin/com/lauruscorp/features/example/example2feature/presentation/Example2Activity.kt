@@ -2,8 +2,8 @@ package com.lauruscorp.features.example.example2feature.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.lauruscorp.core_android.android.requireContentView
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.android.requireContentView
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.features.example.example2feature.R
 import com.lauruscorp.features.example.example2feature.databinding.LayoutExample2Binding
 import com.lauruscorp.features.example.example2feature.presentation.di.component.Example2PresentationComponent

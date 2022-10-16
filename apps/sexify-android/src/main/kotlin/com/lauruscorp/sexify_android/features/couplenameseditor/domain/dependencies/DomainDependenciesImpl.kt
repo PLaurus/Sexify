@@ -1,7 +1,7 @@
 package com.lauruscorp.sexify_android.features.couplenameseditor.domain.dependencies
 
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.features.couplenameseditordomain.dependencies.ExternalDependencies
 import com.lauruscorp.features.couplenameseditordomain.dependencies.data.PlayersProvider
 import javax.inject.Inject

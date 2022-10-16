@@ -1,7 +1,7 @@
 package com.lauruscorp.exampleapp.activity.di.modules
 
 import android.view.View
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.exampleapp.activity.ui.ExampleAppUi
 import com.lauruscorp.exampleapp.databinding.LayoutExampleAppBinding
 import dagger.Binds

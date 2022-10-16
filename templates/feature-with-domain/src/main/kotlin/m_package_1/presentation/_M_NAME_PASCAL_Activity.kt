@@ -2,8 +2,8 @@ package m_package_1.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.lauruscorp.core_android.android.requireContentView
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.android.requireContentView
+import com.lauruscorp.core.ui.ViewBindingUi
 import m_package_1.R
 import m_package_1.api._M_NAME_PASCAL_FeatureLauncher
 import m_package_1.databinding.LayoutMNameSnakeBinding

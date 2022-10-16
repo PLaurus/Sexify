@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arkivanov.mvikotlin.extensions.coroutines.labels
-import com.lauruscorp.core_android.android.livedata.EventLiveData
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.android.livedata.EventLiveData
+import com.lauruscorp.core.mapping.Mapper
 import com.lauruscorp.features.categoriesselectiondomain.store.CategoriesSelectionStore
 import com.lauruscorp.sexify_android.features.categoriesselection.entities.UiError
 import kotlinx.coroutines.flow.map

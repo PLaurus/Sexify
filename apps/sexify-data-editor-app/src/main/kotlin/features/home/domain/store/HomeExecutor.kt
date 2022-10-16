@@ -2,8 +2,8 @@ package features.home.domain.store
 
 import application.BuildConfig
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.core_jvm.similarity.analyzeSimilarity
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.similarity.analyzeSimilarity
 import features.home.domain.entities.HomeTask
 import features.home.domain.repository.TasksRepository
 import kotlinx.coroutines.Dispatchers

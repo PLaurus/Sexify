@@ -1,7 +1,7 @@
 package com.lauruscorp.sexify_android.application.di.modules.databases.cache
 
 import android.content.Context
-import com.lauruscorp.core_android.di.dagger.qualifiers.context.ApplicationContextQualifier
+import com.lauruscorp.core.di.dagger.qualifiers.context.ApplicationContextQualifier
 import com.lauruscorp.sexify_android.application.di.component.scope.SexifyApplicationScope
 import com.lauruscorp.sexify_android.application.di.modules.databases.cache.qualifiers.CacheDatabaseDriverFactoryQualifier
 import com.lauruscorp.sexify_android.application.di.modules.databases.cache.qualifiers.CacheDatabaseFileNameQualifier

@@ -3,7 +3,7 @@ package application.features.loading.initializers
 import application.di.modules.databases.tasks.qualifiers.TasksDatabaseFileNameQualifier
 import application.di.modules.databases.tasks.qualifiers.TasksDatabasePathQualifier
 import application.di.modules.databases.tasks.qualifiers.TasksDatabaseSqlDriverQualifier
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.sexify_data.databases.tasks.TasksDatabase
 import com.lauruscorp.sexify_data.databases.tasks.utils.*
 import com.lauruscorp.sexify_data.entities.SexifyLanguage

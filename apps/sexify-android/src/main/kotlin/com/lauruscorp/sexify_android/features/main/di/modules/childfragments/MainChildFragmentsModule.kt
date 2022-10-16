@@ -1,6 +1,6 @@
 package com.lauruscorp.sexify_android.features.main.di.modules.childfragments
 
-import com.lauruscorp.core_android.android.fragment.FragmentBuilder
+import com.lauruscorp.core.android.fragment.FragmentBuilder
 import com.lauruscorp.sexify_android.features.categoriesselection.api.CategoriesSelectionFragment
 import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.CoupleNamesEditorFragment
 import com.lauruscorp.sexify_android.features.game.api.presentation.GameFragment

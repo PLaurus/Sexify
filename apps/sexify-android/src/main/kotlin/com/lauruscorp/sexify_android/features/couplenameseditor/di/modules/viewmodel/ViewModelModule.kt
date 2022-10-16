@@ -3,7 +3,7 @@ package com.lauruscorp.sexify_android.features.couplenameseditor.di.modules.view
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.lauruscorp.core_android.di.dagger.mapkeys.ViewModelMapKey
+import com.lauruscorp.core.di.dagger.mapkeys.ViewModelMapKey
 import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.viewmodel.CoupleNamesEditorViewModel
 import com.lauruscorp.sexify_android.features.couplenameseditor.presentation.viewmodel.CoupleNamesEditorViewModelImpl
 import dagger.Binds

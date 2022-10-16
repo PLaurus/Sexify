@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation project(':core-android')
+    implementation project(':core')
     implementation project(":features:core")
     implementation project(':templates:domain') // _M_REMOVE_LINE_
     // _M_GRADLE_PLUG_IN_MODULE_0_

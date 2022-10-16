@@ -1,8 +1,8 @@
 package com.lauruscorp.sexify_domain.loading.di.modules.store
 
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.sexify_domain.loading.entities.LoadingState
 import com.lauruscorp.sexify_domain.loading.store.LoadingExecutor
 import com.lauruscorp.sexify_domain.loading.store.LoadingReducer

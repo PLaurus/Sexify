@@ -2,7 +2,7 @@ package features.task_editor.domain.store
 
 import application.BuildConfig
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.sexify_data.entities.SexifyLanguage
 import com.lauruscorp.sexify_data.entities.SexifySex
 import features.task_editor.di.component.qualifiers.InvalidInitialDataStringQualifier

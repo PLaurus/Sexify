@@ -2,7 +2,7 @@ package com.lauruscorp.exampleapp.activity.ui
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.exampleapp.application.navigation.ExampleAppNavigation
 import com.lauruscorp.exampleapp.databinding.LayoutExampleAppBinding
 import javax.inject.Inject

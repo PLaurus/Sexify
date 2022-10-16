@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation project(":core-android")
+    implementation project(':core')
     implementation project(":features:core")
     implementation project(':features:example:example-domain')
 }

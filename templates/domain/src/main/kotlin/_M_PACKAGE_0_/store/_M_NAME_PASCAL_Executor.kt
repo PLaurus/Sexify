@@ -1,7 +1,7 @@
 package _M_PACKAGE_0_.store
 
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import javax.inject.Inject
 
 internal class _M_NAME_PASCAL_Executor @Inject constructor(

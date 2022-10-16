@@ -2,7 +2,7 @@ package com.lauruscorp.sexify_android.features.main.plugged_in_features
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.lauruscorp.core_android.android.fragment.FragmentBuilder
+import com.lauruscorp.core.android.fragment.FragmentBuilder
 import javax.inject.Inject
 
 internal class PluggedInFeatureFragmentFactory @Inject constructor(

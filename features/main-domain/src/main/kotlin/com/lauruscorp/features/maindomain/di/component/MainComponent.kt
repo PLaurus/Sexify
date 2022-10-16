@@ -1,7 +1,7 @@
 package com.lauruscorp.features.maindomain.di.component
 
 import com.lauruscorp.features.maindomain.api.MainDomainApi
-import com.lauruscorp.features.maindomain.api.MainDomainDependencies
+import com.lauruscorp.features.maindomain.dependencies.MainDomainDependencies
 import com.lauruscorp.features.maindomain.di.modules.store.MainStoreModule
 import dagger.Component
 import javax.inject.Singleton

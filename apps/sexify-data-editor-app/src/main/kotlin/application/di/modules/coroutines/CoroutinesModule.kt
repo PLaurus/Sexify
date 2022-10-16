@@ -4,8 +4,8 @@ import application.di.modules.coroutines.qualifiers.DefaultCoroutineDispatcherQu
 import application.di.modules.coroutines.qualifiers.IoCoroutineDispatcherQualifier
 import application.di.modules.coroutines.qualifiers.MainCoroutineDispatcherQualifier
 import application.di.modules.coroutines.qualifiers.UnconfinedCoroutineDispatcherQualifier
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.core_jvm.coroutines.CustomCoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CustomCoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher

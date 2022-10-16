@@ -7,7 +7,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.features.example.example2feature.R
 import com.lauruscorp.features.example.example2feature.databinding.LayoutExample2Binding
 import com.lauruscorp.features.example.example2feature.presentation.entities.PresentationOperation

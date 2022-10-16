@@ -3,8 +3,8 @@ package com.lauruscorp.sexify_android.features.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentFactory
-import com.lauruscorp.core_android.android.requireContentView
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.android.requireContentView
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.R
 import com.lauruscorp.sexify_android.application.SexifyApplication
 import com.lauruscorp.sexify_android.databinding.LayoutMainBinding

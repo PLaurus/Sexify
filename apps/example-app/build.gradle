@@ -13,7 +13,8 @@ android {
 }
 
 dependencies {
-    implementation project(':core-android')
+    // Core
+    implementation project(':core')
     implementation project(':features:example:example-feature')
     implementation project(':features:example:example-2-feature')
 }

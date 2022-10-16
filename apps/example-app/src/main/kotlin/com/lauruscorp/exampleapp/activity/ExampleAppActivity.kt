@@ -2,8 +2,8 @@ package com.lauruscorp.exampleapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.lauruscorp.core_android.android.requireContentView
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.android.requireContentView
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.exampleapp.R
 import com.lauruscorp.exampleapp.activity.di.component.ExampleActivityComponent
 import com.lauruscorp.exampleapp.application.ExampleApplication

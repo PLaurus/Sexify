@@ -4,7 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import com.lauruscorp.core_android.android.application.SimpleActivityLifecycleCallbacks
+import com.lauruscorp.core.android.application.SimpleActivityLifecycleCallbacks
 import com.lauruscorp.features.example.example2feature.di.component.Example2FeatureComponent
 import com.lauruscorp.features.example.example2feature.di.component.Example2FeatureComponentsRegistry
 import com.lauruscorp.features.example.example2feature.presentation.Example2Activity

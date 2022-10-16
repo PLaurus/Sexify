@@ -1,13 +1,8 @@
 package com.lauruscorp.features.menu_domain.di.modules.store
 
-import com.arkivanov.mvikotlin.core.store.Bootstrapper
-import com.arkivanov.mvikotlin.core.store.Executor
-import com.arkivanov.mvikotlin.core.store.Reducer
-import com.arkivanov.mvikotlin.core.store.SimpleBootstrapper
-import com.arkivanov.mvikotlin.core.store.Store
-import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.arkivanov.mvikotlin.core.store.*
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.features.menu_domain.store.MenuExecutor
 import com.lauruscorp.features.menu_domain.store.MenuReducer
 import com.lauruscorp.features.menu_domain.store.MenuStore

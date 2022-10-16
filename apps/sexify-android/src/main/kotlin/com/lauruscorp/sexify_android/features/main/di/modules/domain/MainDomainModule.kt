@@ -1,8 +1,8 @@
 package com.lauruscorp.sexify_android.features.main.di.modules.domain
 
 import com.lauruscorp.features.maindomain.api.MainDomainApi
-import com.lauruscorp.features.maindomain.api.MainDomainDependencies
 import com.lauruscorp.features.maindomain.api.MainDomainFactory
+import com.lauruscorp.features.maindomain.dependencies.MainDomainDependencies
 import com.lauruscorp.features.maindomain.store.MainStore
 import com.lauruscorp.sexify_android.features.main.di.component.MainActivityComponent
 import com.lauruscorp.sexify_android.features.main.di.component.scope.MainActivityScope

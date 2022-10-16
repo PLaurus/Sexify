@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.R
 import com.lauruscorp.sexify_android.databinding.LayoutCategoriesSelectionBinding
 import com.lauruscorp.sexify_android.features.categoriesselection.di.component.CategoriesSelectionFeatureComponent

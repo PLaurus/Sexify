@@ -2,8 +2,8 @@ package features.home.di.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.mvi.InitialStateQualifier
 import dagger.Component
 import features.home.dependencies.HomeFeatureDependencies
 import features.home.di.component.scope.HomeFeatureScope

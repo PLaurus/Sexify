@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arkivanov.mvikotlin.extensions.coroutines.labels
 import com.arkivanov.mvikotlin.extensions.coroutines.states
-import com.lauruscorp.core_android.android.livedata.EventLiveData
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.android.livedata.EventLiveData
+import com.lauruscorp.core.mapping.Mapper
 import com.lauruscorp.features.example.example2feature.presentation.entities.PresentationOperation
 import com.lauruscorp.features.example.example2feature.presentation.entities.UiError
 import com.lauruscorp.features.example.exampledomain.entities.Operation

@@ -1,6 +1,6 @@
 package com.lauruscorp.features.example.example2feature.presentation.di.modules.mappers
 
-import com.lauruscorp.core_jvm.mapping.Mapper
+import com.lauruscorp.core.mapping.Mapper
 import com.lauruscorp.features.example.example2feature.presentation.entities.PresentationOperation
 import com.lauruscorp.features.example.example2feature.presentation.entities.UiError
 import com.lauruscorp.features.example.example2feature.presentation.mappers.LabelToUiErrorMapper

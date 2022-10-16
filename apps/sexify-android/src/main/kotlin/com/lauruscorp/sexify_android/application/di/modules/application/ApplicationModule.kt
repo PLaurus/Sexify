@@ -2,7 +2,7 @@ package com.lauruscorp.sexify_android.application.di.modules.application
 
 import android.app.Application
 import android.content.Context
-import com.lauruscorp.core_android.di.dagger.qualifiers.context.ApplicationContextQualifier
+import com.lauruscorp.core.di.dagger.qualifiers.context.ApplicationContextQualifier
 import dagger.Module
 import dagger.Provides
 

@@ -1,8 +1,8 @@
 package com.lauruscorp.features.maindomain.di.modules.store
 
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.features.maindomain.store.MainExecutor
 import com.lauruscorp.features.maindomain.store.MainReducer
 import com.lauruscorp.features.maindomain.store.MainStore

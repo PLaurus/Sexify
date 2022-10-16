@@ -1,7 +1,7 @@
 package com.lauruscorp.features.example.exampledomain.store
 
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.lauruscorp.core_jvm.coroutines.CoroutineDispatchers
+import com.lauruscorp.core.coroutines.CoroutineDispatchers
 import com.lauruscorp.features.example.exampledomain.entities.Operation
 import javax.inject.Inject
 

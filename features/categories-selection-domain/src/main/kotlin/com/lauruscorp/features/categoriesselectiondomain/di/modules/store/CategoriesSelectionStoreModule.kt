@@ -1,8 +1,8 @@
 package com.lauruscorp.features.categoriesselectiondomain.di.modules.store
 
 import com.arkivanov.mvikotlin.core.store.*
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.InitialStateQualifier
-import com.lauruscorp.core_jvm.di.dagger.qualifiers.mvi.StoreNameQualifier
+import com.lauruscorp.core.mvi.InitialStateQualifier
+import com.lauruscorp.core.mvi.StoreNameQualifier
 import com.lauruscorp.features.categoriesselectiondomain.store.CategoriesSelectionExecutor
 import com.lauruscorp.features.categoriesselectiondomain.store.CategoriesSelectionReducer
 import com.lauruscorp.features.categoriesselectiondomain.store.CategoriesSelectionStore

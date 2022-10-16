@@ -1,5 +1,6 @@
 package com.lauruscorp.features.maindomain.api
 
+import com.lauruscorp.features.maindomain.dependencies.MainDomainDependencies
 import com.lauruscorp.features.maindomain.di.component.MainComponent
 
 class MainDomainFactory(

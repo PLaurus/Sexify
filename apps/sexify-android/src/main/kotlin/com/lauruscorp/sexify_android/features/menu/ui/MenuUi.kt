@@ -2,8 +2,8 @@ package com.lauruscorp.sexify_android.features.menu.ui
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
-import com.lauruscorp.core_android.android.view.flowClicks
-import com.lauruscorp.core_android.ui.ViewBindingUi
+import com.lauruscorp.core.android.view.flowClicks
+import com.lauruscorp.core.ui.ViewBindingUi
 import com.lauruscorp.sexify_android.databinding.LayoutMenuBinding
 import com.lauruscorp.sexify_android.features.menu.viewmodel.MenuViewModel
 import kotlinx.coroutines.FlowPreview
