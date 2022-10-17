@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.lauruscorp.sexify_android.R
 import com.lauruscorp.sexify_android.features.loading.dependencies.LoadingFeatureDependencies
-import com.lauruscorp.sexify_android.features.loading.dependencies.LoadingFragmentDirections
 import com.lauruscorp.sexify_android.features.loading.di.component.LoadingFeatureComponent
 import com.lauruscorp.sexify_android.features.loading.presentation.ui.LoadingFeatureScreen
 import com.lauruscorp.sexify_android.features.loading.presentation.viewmodel.LoadingViewModel

@@ -7,7 +7,7 @@
 
 	<fragment
 		android:id="@+id/loading"
-		android:name="com.lauruscorp.sexify_android.features.loading.dependencies.LoadingFragment"
+		android:name="com.lauruscorp.sexify_android.features.loading.presentation.LoadingFragment"
 		android:label="@string/loading_feature_title">
 		<action
 			android:id="@+id/action_loading_to_menu"
